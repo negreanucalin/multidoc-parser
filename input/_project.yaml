@@ -1,0 +1,7 @@
+project:
+  name: My Awesome project
+  version: 1
+  description: Some awesome description
+  environments:
+    default: https://jsonplaceholder.typicode.com
+    preprod: https://preprod.jsonplaceholder.typicode.com

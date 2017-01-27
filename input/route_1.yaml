@@ -1,0 +1,20 @@
+route:
+  name: Some route 1
+  description: Some desc 1
+  url: '{{environment}}/[:typeEntity][/:page]/comments'
+  method: GET
+  tags: [tag1, tag2, tag3, tag4, tag5]
+  category: cat1
+  params:
+    - name: typeEntity
+      type: uri
+      data_type: string
+      description: Some desc
+      optional: false
+      example: posts
+    - name: page
+      type: uri
+      data_type: int
+      description: Some desc
+      optional: true
+      example: 1

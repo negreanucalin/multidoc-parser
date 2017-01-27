@@ -1,0 +1,40 @@
+route_list:
+  - name: Some route 2
+    description: Some desc 2
+    url: '{{environment}}/[:typeEntity][/:page]/comments'
+    method: GET
+    tags: [tag1, tag2, tag3, tag4, tag 5]
+    category: cat1
+    params:
+      - name: typeEntity
+        type: uri
+        data_type: string
+        description: Some desc
+        optional: false
+        example: posts
+      - name: page
+        type: uri
+        data_type: int
+        description: Some desc
+        optional: true
+        example: 1
+  - name: Some route 3
+    description: Some desc 3
+    url: '{{environment}}/[:typeEntity][/:page]/comments'
+    method: GET
+    tags: [tag3, tag4]
+    category: cat2
+  - name: Some route 4
+    description: Some desc 4
+    url: '{{environment}}/[:typeEntity][/:page]/comments'
+    method: GET
+    tags: [tag3, tag4]
+    category: cat2
+    params:
+      - name: typeEntity
+        type: uri
+        data_type: string
+        description: Some desc
+        optional: false
+        example: posts
+        possible_values: [posts,test]
