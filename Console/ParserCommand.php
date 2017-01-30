@@ -52,13 +52,13 @@ class ParserCommand extends Command
 
         $inputQuestion = new Question('Please give the input folder (default:input)?', 'input');
         $inputFolder = $helper->ask($input, $output, $inputQuestion);
-        
+
         $question = new Question('In which folder do you want the output (default:output)?', 'output');
         $outputFolder = $helper->ask($input, $output, $question);
 
-        $fileList = $this->fileService->getAllFiles($inputFolder);
-        $project = $this->parserService->loadApiInput($fileList);
+        $fileList = $this->fileService->getFileListFromPath($inputFolder);
+        $project = $this->parserService->getProjectFromFileList($fileList);
         $this->outputService->prepareOutputFolder($outputFolder);
-        $this->outputService->exportProjectToOutputFolder($project);
+        $this->outputService->exportProjectEntityToOutputFolder($project);
     }
 }

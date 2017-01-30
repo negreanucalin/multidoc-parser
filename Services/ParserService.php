@@ -31,7 +31,7 @@ class ParserService
      * @param array $fileList
      * @return Project|null
      */
-    public function loadApiInput($fileList)
+    public function getProjectFromFileList($fileList)
     {
         foreach ($fileList as $file) {
             try {

@@ -5,5 +5,10 @@
     "symfony/finder": "^3.2",
     "symfony/dependency-injection": "^3.2",
     "symfony/filesystem": "^3.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Multidoc\\": ""
+    }
   }
 }

@@ -59,13 +59,12 @@ class OutputService
         if (!$this->fileService->exists($this->outputDirectory)) {
             $this->fileService->mkdir($this->outputDirectory);
         }
-
     }
 
     /**
      * @param Project $project
      */
-    public function exportProjectToOutputFolder(Project $project)
+    public function exportProjectEntityToOutputFolder(Project $project)
     {
         $this->removeCurrentFilesInOutput();
         $this->fileService->dumpFile(

@@ -3,15 +3,6 @@
 require __DIR__.'/vendor/autoload.php';
 const APP_NAME = 'Multidoc';
 
-
-spl_autoload_register(
-    function ($class_name) {
-        $class_name = str_replace(APP_NAME."\\","",$class_name);
-        include $class_name . '.php';
-    }
-);
-
-
 use Multidoc\Factories\EnvironmentFactory;
 use Multidoc\Factories\ProjectFactory;
 
