@@ -13,7 +13,7 @@ use Multidoc\Renderers\CategoryRenderer;
 use Multidoc\Renderers\ProjectRenderer;
 use Symfony\Component\Filesystem\Filesystem;
 
-class OutputService
+class OutputFileService
 {
     const DEFAULT_OUTPUT_PATH = 'output';
 

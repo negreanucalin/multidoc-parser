@@ -2,9 +2,9 @@
 
 namespace Multidoc\Console;
 
-use Multidoc\Services\FileService;
-use Multidoc\Services\OutputService;
-use Multidoc\Services\ParserService;
+use Multidoc\Services\FileContentParserService;
+use Multidoc\Services\InputFileService;
+use Multidoc\Services\OutputFileService;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputDefinition;
@@ -17,21 +17,21 @@ use Symfony\Component\Console\Question\Question;
 class ParserCommand extends Command
 {
     /**
-     * @var FileService
+     * @var InputFileService
      */
     private $fileService;
 
     /**
-     * @var ParserService
+     * @var FileContentParserService
      */
     private $parserService;
 
     /**
-     * @var OutputService
+     * @var OutputFileService
      */
     private $outputService;
 
-    public function __construct(FileService $fileService, ParserService $parserService, OutputService $outputService)
+    public function __construct(InputFileService $fileService, FileContentParserService $parserService, OutputFileService $outputService)
     {
         parent::__construct('parser');
         $this->fileService = $fileService;

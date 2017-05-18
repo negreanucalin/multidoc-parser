@@ -3,12 +3,12 @@
 namespace Multidoc\Services;
 
 use Multidoc\Factories\AbstractFactory;
-use Multidoc\Factories\ProjectFactory;
+
 use Multidoc\Models\Project;
 use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Yaml;
 
-class ParserService
+class FileContentParserService
 {
     /**
      * @var AbstractFactory
@@ -29,7 +29,7 @@ class ParserService
     /**
      * Array with paths pointing to the input configuration file list
      * @param array $fileList
-     * @return Project|null
+     * @return Project
      */
     public function getProjectFromFileList($fileList)
     {
@@ -45,10 +45,8 @@ class ParserService
                 printf("Unable to parse the YAML string: %s", $e->getMessage());
             }
         }
-
         $this->abstractFactory->buildEntityListFromConfig($this->data);
-        $project = $this->abstractFactory->linkObjects();
-        return $project;
+        return $this->abstractFactory->linkObjects();
     }
 
 

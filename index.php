@@ -6,15 +6,15 @@ const APP_NAME = 'Multidoc';
 use Multidoc\Factories\EnvironmentFactory;
 use Multidoc\Factories\ProjectFactory;
 
-use Multidoc\Services\ParserService;
-use Multidoc\Services\FileService;
+use Multidoc\Services\FileContentParserService;
+use Multidoc\Services\InputFileService;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Finder\Finder;
 
 $application = new Application();
 $application->add(new Multidoc\Console\ParserCommand(
-    new FileService(new Finder()),
-    new ParserService(
+    new InputFileService(new Finder()),
+    new FileContentParserService(
         new \Multidoc\Factories\AbstractFactory(
             new ProjectFactory(new EnvironmentFactory()),
             new \Multidoc\Factories\RouteFactory(
@@ -23,7 +23,7 @@ $application->add(new Multidoc\Console\ParserCommand(
             ),
             new \Multidoc\Factories\CategoryFactory()
         )
-    ), new \Multidoc\Services\OutputService(
+    ), new \Multidoc\Services\OutputFileService(
         new \Symfony\Component\Filesystem\Filesystem(),
         new \Multidoc\Renderers\ProjectRenderer(new \Multidoc\Renderers\EnvironmentRenderer()),
         new \Multidoc\Renderers\CategoryRenderer(

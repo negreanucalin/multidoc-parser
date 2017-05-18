@@ -2,6 +2,8 @@
 
 namespace Multidoc\Renderers;
 
+use Multidoc\Models\Project;
+
 class ProjectRenderer
 {
     /**
@@ -14,10 +16,10 @@ class ProjectRenderer
     }
 
     /**
-     * @param \Multidoc\Models\Project $project
+     * @param Project $project
      * @return array
      */
-    public function renderProject(\Multidoc\Models\Project $project)
+    public function renderProject(Project $project)
     {
         return array(
             'name'=>$project->getName(),

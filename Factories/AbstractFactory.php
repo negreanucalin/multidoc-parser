@@ -9,7 +9,6 @@
 namespace Multidoc\Factories;
 
 use Multidoc\Exceptions\CategoriesNotFoundException;
-use Multidoc\Exceptions\NoRoutesDefinedException;
 use Multidoc\Exceptions\ObjectsNotLoadedException;
 use Multidoc\Exceptions\ProjectNotDefinedException;
 use Multidoc\Exceptions\RoutesNotDefinedException;

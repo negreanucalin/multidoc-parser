@@ -4,7 +4,7 @@ namespace Multidoc\Services;
 
 use Symfony\Component\Finder\Finder;
 
-class FileService
+class InputFileService
 {
     const DEFAULT_EXTENSION = 'yaml';
 

@@ -2,7 +2,6 @@
 
 namespace Multidoc\Factories;
 use Multidoc\Models\Parameter;
-use Multidoc\Models\Route;
 
 class ParameterFactory
 {
