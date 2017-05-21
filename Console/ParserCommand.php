@@ -2,14 +2,9 @@
 
 namespace Multidoc\Console;
 
-use Multidoc\Services\FileContentParserService;
-use Multidoc\Services\InputFileService;
-use Multidoc\Services\OutputFileService;
+use Multidoc\Services\MultidocService;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\Question;
 
@@ -17,26 +12,14 @@ use Symfony\Component\Console\Question\Question;
 class ParserCommand extends Command
 {
     /**
-     * @var InputFileService
+     * @var MultidocService
      */
-    private $fileService;
+    private $multidocSrvice;
 
-    /**
-     * @var FileContentParserService
-     */
-    private $parserService;
-
-    /**
-     * @var OutputFileService
-     */
-    private $outputService;
-
-    public function __construct(InputFileService $fileService, FileContentParserService $parserService, OutputFileService $outputService)
+    public function __construct(MultidocService $multidocService)
     {
         parent::__construct('parser');
-        $this->fileService = $fileService;
-        $this->parserService = $parserService;
-        $this->outputService = $outputService;
+        $this->multidocSrvice = $multidocService;
     }
 
     protected function configure()
@@ -55,10 +38,6 @@ class ParserCommand extends Command
 
         $question = new Question('In which folder do you want the output (default:output)?', 'output');
         $outputFolder = $helper->ask($input, $output, $question);
-
-        $fileList = $this->fileService->getFileListFromPath($inputFolder);
-        $project = $this->parserService->getProjectFromFileList($fileList);
-        $this->outputService->prepareOutputFolder($outputFolder);
-        $this->outputService->exportProjectEntityToOutputFolder($project);
+        $this->multidocSrvice->generate($inputFolder, $outputFolder);
     }
 }

@@ -1,4 +1,14 @@
 {
+	"name": "negreanucalin/multidoc-parser",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Negreanu Calin",
+            "email": "negreanu0calin@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
   "require": {
     "symfony/yaml": "^3.2",
     "symfony/console": "^3.2",
