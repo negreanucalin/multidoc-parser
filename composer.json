@@ -8,7 +8,7 @@
             "email": "negreanu0calin@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "version": "1.0.0",
   "require": {
     "symfony/yaml": "^3.2",
     "symfony/console": "^3.2",
