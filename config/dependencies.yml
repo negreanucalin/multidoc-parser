@@ -1,0 +1,55 @@
+parameters:
+    mailer.transport: sendmail
+
+services:
+    finder:
+      class: \Symfony\Component\Finder\Finder
+    file_system:
+      class: \Symfony\Component\Filesystem\Filesystem
+
+    tag_factory:
+      class: \Multidoc\Factories\TagFactory
+    parameter_factory:
+      class: \Multidoc\Factories\ParameterFactory
+    category_factory:
+      class: \Multidoc\Factories\CategoryFactory
+    environment_factory:
+      class: \Multidoc\Factories\EnvironmentFactory
+    project_factory:
+      class: \Multidoc\Factories\ProjectFactory
+      arguments: ['@environment_factory']
+    route_factory:
+      class: \Multidoc\Factories\RouteFactory
+      arguments: ['@parameter_factory', '@tag_factory']
+    abstract_factory:
+      class: \Multidoc\Factories\AbstractFactory
+      arguments: ['@project_factory', '@route_factory', '@category_factory']
+
+    environment_renderer:
+      class: \Multidoc\Renderers\EnvironmentRenderer
+    project_renderer:
+      class: \Multidoc\Renderers\ProjectRenderer
+      arguments: ['@environment_renderer']
+    parameter_renderer:
+      class: \Multidoc\Renderers\ParameterRenderer
+    tag_renderer:
+      class: \Multidoc\Renderers\TagRenderer
+    route_renderer:
+      class: \Multidoc\Renderers\RouteRenderer
+      arguments: ['@parameter_renderer','@tag_renderer']
+    category_renderer:
+      class: \Multidoc\Renderers\CategoryRenderer
+      arguments: ['@route_renderer']
+
+    file_content_parser_service:
+      class: \Multidoc\Services\FileContentParserService
+      arguments: ['@abstract_factory']
+    input_file_service:
+      class: \Multidoc\Services\InputFileService
+      arguments: ['@finder']
+    output_file_service:
+      class: \Multidoc\Services\OutputFileService
+      arguments: ['@file_system', '@project_renderer','@category_renderer']
+    multidoc_service:
+      class: \Multidoc\Services\MultidocService
+      arguments: ['@input_file_service', '@file_content_parser_service','@output_file_service']
