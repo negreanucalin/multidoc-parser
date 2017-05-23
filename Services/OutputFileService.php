@@ -55,7 +55,7 @@ class OutputFileService
         if(empty($outputPath)) {
             $outputPath = self::DEFAULT_OUTPUT_PATH;
         }
-        $this->outputDirectory = $this->outputDirectory.$outputPath;
+        $this->outputDirectory = $outputPath;
         if (!$this->fileService->exists($this->outputDirectory)) {
             $this->fileService->mkdir($this->outputDirectory);
         }
