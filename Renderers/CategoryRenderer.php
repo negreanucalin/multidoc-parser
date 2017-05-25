@@ -51,7 +51,8 @@ class CategoryRenderer
             $data['routes'] = $this->routeRenderer->renderList($category->getRouteList());
         }
         if($category->getCategoryList()){
-            $data['categoryList'] = array_pop($this->renderList($category->getCategoryList()));
+            $renderedList = $this->renderList($category->getCategoryList());
+            $data['categoryList'] = array_pop($renderedList);
         }
         return $data;
     }
