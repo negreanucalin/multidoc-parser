@@ -30,7 +30,7 @@ class InputFileService
     public function getFileListFromPath($path, $extension=self::DEFAULT_EXTENSION)
     {
         $files = array();
-        $this->finder->files()->in(__DIR__.DIRECTORY_SEPARATOR.'..'.DIRECTORY_SEPARATOR.$path)->name('*.'.$extension);
+        $this->finder->files()->in($path)->name('*.'.$extension);
         foreach ($this->finder as $file) {
            $files[]=$file;
         }
