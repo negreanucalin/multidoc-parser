@@ -84,4 +84,15 @@ class OutputFileService
             $this->outputDirectory.DIRECTORY_SEPARATOR
         ));
     }
+
+    public function exportLogo(Project $project, $inputFolder, $outputFolder)
+    {
+        if($project->getLogo()) {
+            $this->fileService->copy(
+                $inputFolder.DIRECTORY_SEPARATOR.$project->getLogo(),
+                $outputFolder.DIRECTORY_SEPARATOR.$project->getLogo(),
+                true
+            );
+        }
+    }
 }

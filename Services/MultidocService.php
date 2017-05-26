@@ -39,5 +39,6 @@ class MultidocService
         $project = $this->parserService->getProjectFromFileList($fileList);
         $this->outputService->prepareOutputFolder($outputFolder);
         $this->outputService->exportProjectEntityToOutputFolder($project);
+        $this->outputService->exportLogo($project, $inputFolder, $outputFolder);
     }
 }

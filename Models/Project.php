@@ -35,6 +35,11 @@ class Project
     private $buildTime;
 
     /**
+     * @var string
+     */
+    private $logo;
+
+    /**
      * @return string
      */
     public function getName()
@@ -128,5 +133,21 @@ class Project
     public function setBuildTime($buildTime)
     {
         $this->buildTime = $buildTime;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * @param string $logo
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
     }
 }

@@ -21,12 +21,16 @@ class ProjectRenderer
      */
     public function renderProject(Project $project)
     {
-        return array(
+        $projectArr = array(
             'name'=>$project->getName(),
             'description'=>$project->getDescription(),
             'version'=>$project->getVersion(),
             'buildDate'=>(int)$project->getBuildTime()->format('U'),
             'environments'=>$this->environmentRenderer->renderEnvironmentList($project->getEnvironmentList()),
         );
+        if($project->getLogo()){
+            $projectArr['logo'] = $project->getLogo();
+        }
+        return $projectArr;
     }
 }
