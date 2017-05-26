@@ -48,7 +48,7 @@ class CategoryFactory
     public function assignRoutesToCategoryList($categoryList, $routeList)
     {
         foreach($routeList as $route) {
-            $route->setCategory($this->assignRouteCategory($categoryList,$route));
+            $route->setCategory($this->assignRouteCategory($categoryList, $route));
         }
     }
 
@@ -65,7 +65,7 @@ class CategoryFactory
                 return $category;
             }
             if($category->getCategoryList()) {
-                return $this->assignRouteCategory($category->getCategoryList(), $route);
+                $this->assignRouteCategory($category->getCategoryList(), $route);
             }
         }
         return null;
