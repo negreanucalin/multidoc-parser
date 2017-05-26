@@ -1,0 +1,26 @@
+route:
+  name: User retrieval
+  description: Within this route users get the user
+  category: basic_1
+  request:
+    url: 'https://jsonplaceholder.typicode.com[/:userId]'
+    method: PATCH
+    params:
+      - name: userId
+        type: uri
+        data_type: int
+        description: The user's id
+        optional: false
+        example: 12
+      - name: name
+        type: post
+        data_type: string
+        description: The name of the user
+        optional: true
+        example: Mark
+      - name: age
+        type: post
+        data_type: int
+        description: User's age
+        optional: true
+        example: 23

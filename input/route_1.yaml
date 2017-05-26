@@ -1,20 +1,34 @@
 route:
-  name: Some route 1
-  description: Some desc 1
-  url: '{{environment}}/[:typeEntity][/:page]/comments'
-  method: GET
-  tags: [tag1, tag2, tag3, tag4, tag5]
-  category: cat1
-  params:
-    - name: typeEntity
-      type: uri
-      data_type: string
-      description: Some desc
-      optional: false
-      example: posts
-    - name: page
-      type: uri
-      data_type: int
-      description: Some desc
-      optional: true
-      example: 1
+  name: User authentication
+  description: Within this route users get the access token in order to call the api and retrieve information
+  tags: [users]
+  category: users
+  request:
+    url: '{{environment}}/oauth'
+    method: POST
+    secured: true
+    params:
+      - name: username
+        type: post
+        data_type: string
+        description: Username of the current person
+        optional: false
+        example: EndavaMember
+      - name: password
+        type: post
+        data_type: string
+        description: The users password
+        optional: false
+        example: MnsweEB12345
+      - name: grant_type
+        type: post
+        data_type: string
+        description: API grant type
+        optional: false
+        example: password
+      - name: client_id
+        type: post
+        data_type: string
+        description: API client id
+        optional: false
+        example: togyFrontEnd

@@ -5,6 +5,7 @@ use Multidoc\Models\Parameter;
 
 class ParameterFactory
 {
+    const PARAMETER_TYPE_FILE = 'file';
 
     const PARAMETER_PLURAL_KEY = 'params';
 
@@ -25,7 +26,10 @@ class ParameterFactory
         $parameter->setType(strtolower($parameterArray['type']));
         $parameter->setDataType($parameterArray['data_type']);
         $parameter->setExample($parameterArray['example']);
-        $parameter->setIsOptional((boolean)$parameterArray['optional']);
+        $parameter->setIsOptional(false);
+        if(isset($parameterArray['optional'])){
+            $parameter->setIsOptional((boolean)$parameterArray['optional']);
+        }
         return $parameter;
     }
 

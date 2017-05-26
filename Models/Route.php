@@ -23,21 +23,6 @@ class Route
     private $description;
 
     /**
-     * @var string
-     */
-    private $url;
-
-    /**
-     * @var string
-     */
-    private $method;
-
-    /**
-     * @var Parameter[]
-     */
-    private $parameterList;
-
-    /**
      * @var Tag[]
      */
     private $tagList;
@@ -57,6 +42,21 @@ class Route
      * @var int
      */
     private $id;
+
+    /**
+     * @var Status[]
+     */
+    private $statusList;
+
+    /**
+     * @var Response
+     */
+    private $response;
+
+    /**
+     * @var Request
+     */
+    private $request;
 
     /**
      * Route constructor.
@@ -117,54 +117,6 @@ class Route
     }
 
     /**
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->url;
-    }
-
-    /**
-     * @param string $url
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMethod()
-    {
-        return $this->method;
-    }
-
-    /**
-     * @param string $method
-     */
-    public function setMethod($method)
-    {
-        $this->method = $method;
-    }
-
-    /**
-     * @return Parameter[]
-     */
-    public function getParameterList()
-    {
-        return $this->parameterList;
-    }
-
-    /**
-     * @param Parameter[] $parameterList
-     */
-    public function setParameterList($parameterList)
-    {
-        $this->parameterList = $parameterList;
-    }
-
-    /**
      * @return Category[]
      */
     public function getCategory()
@@ -210,5 +162,53 @@ class Route
     public function setTagList($tagList)
     {
         $this->tagList = $tagList;
+    }
+
+    /**
+     * @return Status[]
+     */
+    public function getStatusList()
+    {
+        return $this->statusList;
+    }
+
+    /**
+     * @param Status[] $statusList
+     */
+    public function setStatusList($statusList)
+    {
+        $this->statusList = $statusList;
+    }
+
+    /**
+     * @return Response
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * @param Response $response
+     */
+    public function setResponse($response)
+    {
+        $this->response = $response;
+    }
+
+    /**
+     * @return Request
+     */
+    public function getRequest()
+    {
+        return $this->request;
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function setRequest($request)
+    {
+        $this->request = $request;
     }
 }

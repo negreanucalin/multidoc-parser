@@ -8,7 +8,11 @@
 
 namespace Multidoc\Services;
 
+use Multidoc\Factories\ParameterFactory;
+use Multidoc\Factories\RouteFactory;
+use Multidoc\Models\Category;
 use Multidoc\Models\Project;
+use Multidoc\Models\Route;
 use Multidoc\Renderers\CategoryRenderer;
 use Multidoc\Renderers\ProjectRenderer;
 use Symfony\Component\Filesystem\Filesystem;
@@ -83,5 +87,58 @@ class OutputFileService
             $this->outputDirectory.DIRECTORY_SEPARATOR,
             $this->outputDirectory.DIRECTORY_SEPARATOR
         ));
+    }
+
+    public function exportLogo(Project $project, $inputFolder, $outputFolder)
+    {
+        if($project->getLogo()) {
+            $this->fileService->copy(
+                $inputFolder.DIRECTORY_SEPARATOR.$project->getLogo(),
+                $outputFolder.DIRECTORY_SEPARATOR.$project->getLogo(),
+                true
+            );
+        }
+    }
+
+    /**
+     * @param Category[] $categoryList
+     * @param string $inputFolder
+     * @param string $outputFolder
+     */
+    public function exportExampleFiles($categoryList, $inputFolder, $outputFolder)
+    {
+        foreach($categoryList as $category) {
+            if ($category->getRouteList()) {
+                foreach ($category->getRouteList() as $route) {
+                    $this->moveExampleFilesFromRoute($route, $inputFolder, $outputFolder);
+                }
+            }
+            if ($category->getCategoryList()) {
+                $this->exportExampleFiles($category->getCategoryList(), $inputFolder, $outputFolder);
+            } else {
+                return null;
+            }
+        }
+    }
+
+    /**
+     * @param Route $route
+     * @param $inputFolder
+     * @param $outputFolder
+     */
+    private function moveExampleFilesFromRoute(Route $route, $inputFolder, $outputFolder)
+    {
+        if($route->getRequest()->getMethod() == RouteFactory::ROUTE_METHOD_POST){
+            $paramList = $route->getRequest()->getParameterList();
+            foreach($paramList as $parameter) {
+                if($parameter->getDataType() == ParameterFactory::PARAMETER_TYPE_FILE){
+                    $this->fileService->copy(
+                        $inputFolder.DIRECTORY_SEPARATOR.$parameter->getExample(),
+                        $outputFolder.DIRECTORY_SEPARATOR.$parameter->getExample(),
+                        true
+                    );
+                }
+            }
+        }
     }
 }

@@ -13,21 +13,36 @@ use Multidoc\Models\Route;
 
 class RouteRenderer
 {
-
-    /**
-     * @var ParameterRenderer
-     */
-    private $paramRenderer;
-
     /**
      * @var TagRenderer
      */
     private $tagRenderer;
 
-    public function __construct(ParameterRenderer $paramRenderer, TagRenderer $tagRenderer)
-    {
-        $this->paramRenderer = $paramRenderer;
+    /**
+     * @var StatusRenderer
+     */
+    private $statusRenderer;
+
+    /**
+     * @var ResponseRenderer
+     */
+    private $responseRenderer;
+
+    /**
+     * @var RequestRenderer
+     */
+    private $requestRenderer;
+
+    public function __construct(
+        RequestRenderer $requestRenderer,
+        ResponseRenderer $responseRenderer,
+        StatusRenderer $statusRenderer,
+        TagRenderer $tagRenderer
+    ) {
+        $this->requestRenderer = $requestRenderer;
         $this->tagRenderer = $tagRenderer;
+        $this->statusRenderer = $statusRenderer;
+        $this->responseRenderer = $responseRenderer;
     }
 
     /**
@@ -52,13 +67,19 @@ class RouteRenderer
         $data = array(
             'id'=>$route->getId(),
             'name'=>$route->getName(),
-            'description'=>$route->getDescription(),
-            'url'=>$route->getUrl(),
-            'method'=>$route->getMethod(),
-            'tags'=>$this->tagRenderer->renderList($route->getTagList())
+            'description'=>$route->getDescription()
         );
-        if($route->getParameterList()){
-            $data['params'] = $this->paramRenderer->renderList($route->getParameterList());
+        if($route->getStatusList()){
+            $data['statusCodes'] = $this->statusRenderer->renderList($route->getStatusList());
+        }
+        if($route->getResponse()){
+            $data['response'] = $this->responseRenderer->renderEntity($route->getResponse());
+        }
+        if($route->getRequest()){
+            $data['request'] = $this->requestRenderer->renderEntity($route->getRequest());
+        }
+        if($route->getTagList()){
+            $data['tags'] = $this->tagRenderer->renderList($route->getTagList());
         }
         return $data;
     }

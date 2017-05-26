@@ -15,15 +15,10 @@ class FileContentParserService
      */
     private $abstractFactory;
 
-    /**
-     * @var array
-     */
-    private $data;
-
     public function __construct(AbstractFactory $abstractFactory)
     {
         $this->abstractFactory = $abstractFactory;
-        $this->data = array('route_list'=>array());
+
     }
 
     /**
@@ -33,6 +28,7 @@ class FileContentParserService
      */
     public function getProjectFromFileList($fileList)
     {
+        $data = array('route_list'=>array());
         foreach ($fileList as $file) {
             try {
                 $definitionArray = Yaml::parse(file_get_contents($file));
@@ -40,13 +36,13 @@ class FileContentParserService
                     $definitionArray['route_list'] = array($definitionArray['route']);
                     unset($definitionArray['route']);
                 }
-                $this->data = array_merge_recursive($this->data, $definitionArray);
+                $data = array_merge_recursive($data, $definitionArray);
             } catch (ParseException $e) {
                 printf("Unable to parse the YAML string: %s", $e->getMessage());
             }
         }
-        $this->abstractFactory->buildEntityListFromConfig($this->data);
-        return $this->abstractFactory->linkObjects();
+        $generatedEntities = $this->abstractFactory->buildEntityListFromConfig($data);
+        return $this->abstractFactory->linkObjects($generatedEntities);
     }
 
 

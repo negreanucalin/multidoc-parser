@@ -3,9 +3,19 @@
 #### Check out [Multidoc viewer](https://github.com/negreanucalin/multidoc-viewer)
 #### Did you say [Laravel?](https://github.com/negreanucalin/multidoc-laravel)
 
+### TODO list
+
+* Define mandatory and optional parameters by adding demo files
+* Validate route params
+	1. If FILE and JSON or named POST variables present throw error (only 1 of them)
+	2. Parameter type validation (from list:uri,post, get)
+	3. GET cannot have JSON and FILE
+	4. Route validation:
+		I. If parameter present in route check if it exists in list
+		II. If parameter present check if uri
 * Parses `*.yaml` files and generates a flat document containing the application's documentation
 * Notes
-	* No filename convetion required
+	* No filename convention required
 	* You can organize however you want
 	* A sugestion would be to have multiple files:
 		* `_project.yaml` - Project description
@@ -46,23 +56,24 @@ categories:
 route:
   name: Some route 1
   description: Some desc 1
-  url: '{{environment}}/[:typeEntity][/:page]/comments'
-  method: GET
   tags: [tag1, tag2, tag3, tag4, tag5]
   category: cat1
-  params:
-    - name: typeEntity
-      type: uri
-      data_type: string
-      description: Some desc
-      optional: false
-      example: posts
-    - name: page
-      type: uri
-      data_type: int
-      description: Some desc
-      optional: true
-      example: 1
+  request:
+      url: '{{environment}}/[:typeEntity][/:page]/comments'
+      method: GET
+      params:
+        - name: typeEntity
+          type: uri
+          data_type: string
+          description: Some desc
+          optional: false
+          example: posts
+        - name: page
+          type: uri
+          data_type: int
+          description: Some desc
+          optional: true
+          example: 1
 ```
 
 * Multiple routes example
@@ -71,35 +82,38 @@ route:
 route_list:
   - name: Some route 2
     description: Some desc 2
-    url: '{{environment}}/[:typeEntity][/:page]/comments'
-    method: GET
     tags: [tag1, tag2, tag3, tag4, tag 5]
     category: cat1
-    params:
-      - name: typeEntity
-        type: uri
-        data_type: string
-        description: Some desc
-        optional: false
-        example: posts
-      - name: page
-        type: uri
-        data_type: int
-        description: Some desc
-        optional: true
-        example: 1
+    request:
+        url: '{{environment}}/[:typeEntity][/:page]/comments'
+        method: GET
+        params:
+          - name: typeEntity
+            type: uri
+            data_type: string
+            description: Some desc
+            optional: false
+            example: posts
+          - name: page
+            type: uri
+            data_type: int
+            description: Some desc
+            optional: true
+            example: 1
   - name: Some route 3
     description: Some desc 3
-    url: '{{environment}}/[:typeEntity][/:page]/comments'
-    method: GET
+    request:
+        url: '{{environment}}/users/2/comments'
+        method: GET
     tags: [tag3, tag4]
     category: cat2
   - name: Some route 4
     description: Some desc 4
-    url: '{{environment}}/[:typeEntity][/:page]/comments'
-    method: GET
     tags: [tag3, tag4]
     category: cat2
+    request:
+        url: '{{environment}}/[:typeEntity][/:page]/comments'
+        method: GET
     params:
       - name: typeEntity
         type: uri

@@ -14,6 +14,8 @@ use Multidoc\Models\Tag;
 class TagFactory
 {
 
+    const TAGS_KEY = 'tags';
+
     public function buildTagFromArray($tagArray)
     {
         $tag = new Tag();

@@ -1,0 +1,13 @@
+route:
+  name: User retrieval
+  description: Within this route users get the user
+  category: basic_1
+  request:
+    url: 'https://jsonplaceholder.typicode.com[/:userId]'
+    method: GET
+    params:
+      - name: userId
+        type: uri
+        data_type: int
+        description: User unique identifier
+        example: 23

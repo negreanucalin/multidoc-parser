@@ -1,0 +1,66 @@
+route_list:
+  - name: Some route 2
+    description: Some desc 2
+    tags: [tag1, tag2, tag3, tag4, tag5]
+    category: cat1
+    request:
+      method: GET
+      url: '{{environment}}/[:typeEntity][/:page]/comments'
+      headers:
+        - Content-Type: application/json
+      params:
+        - name: typeEntity
+          type: uri
+          data_type: string
+          description: Some desc
+          optional: false
+          example: posts
+        - name: page
+          type: uri
+          data_type: int
+          description: Some desc
+          optional: true
+          example: 1
+    response:
+      code: 200
+      headers:
+        - Content-Type: application/json
+      text: >
+        {"menu": {
+          "id": "file",
+          "value": "File",
+          "popup": {
+            "menuitem": [
+              {"value": "New", "onclick": "CreateNewDoc()"},
+              {"value": "Open", "onclick": "OpenDoc()"},
+              {"value": "Close", "onclick": "CloseDoc()"}
+            ]
+          }
+        }}
+    status_codes:
+      - code: 200
+      - code: 401
+        description: When the user is not logged in
+      - code: 500
+        description: When an exception occurs
+  - name: Some route 4
+    description: Some desc 4
+    tags: [tag3, tag4]
+    category: cat2
+    request:
+      url: '{{environment}}/[:typeEntity][/:page]/comments'
+      method: GET
+      params:
+        - name: typeEntity
+          type: uri
+          data_type: string
+          description: Some desc
+          optional: false
+          example: posts
+          possible_values: [posts,test]
+        - name: page
+          type: uri
+          data_type: int
+          description: Some desc
+          optional: true
+          example: 1

@@ -29,7 +29,7 @@ class TagRenderer
 
     /**
      * @param Tag $tag
-     * @return array
+     * @return string
      */
     public function renderEntity(Tag $tag)
     {

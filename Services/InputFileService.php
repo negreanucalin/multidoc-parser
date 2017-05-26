@@ -7,21 +7,6 @@ use Symfony\Component\Finder\Finder;
 class InputFileService
 {
     const DEFAULT_EXTENSION = 'yaml';
-
-    /**
-     * @var Finder
-     */
-    private $finder;
-
-    /**
-     * FileService constructor.
-     * @param Finder $finder
-     */
-    public function __construct(Finder $finder)
-    {
-        $this->finder = $finder;
-    }
-
     /**
      * @param string $path Path in which we get all files to be parsed
      * @param string $extension The extension of the files we will be parsing
@@ -29,9 +14,10 @@ class InputFileService
      */
     public function getFileListFromPath($path, $extension=self::DEFAULT_EXTENSION)
     {
+        $finder = Finder::create();
         $files = array();
-        $this->finder->files()->in($path)->name('*.'.$extension);
-        foreach ($this->finder as $file) {
+        $filesObj = $finder->files()->name('*.'.$extension)->in($path);
+        foreach ($filesObj as $file) {
            $files[]=$file;
         }
         return $files;

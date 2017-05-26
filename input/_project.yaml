@@ -1,7 +1,10 @@
 project:
-  name: My Awesome project
+  name: TOGYiN
   version: 1
-  description: Some awesome description
+  description: TOGYiN API documentation
+  logo: logo.png
   environments:
-    default: https://jsonplaceholder.typicode.com
-    preprod: https://preprod.jsonplaceholder.typicode.com
+    default: https://api.togyin.com
+    preprod: https://preprod-api.togyin.com
+    dev: https://api2.platform.togy.local
+    dev-laravel: https://api2.platform.togy.local/api

@@ -1,0 +1,92 @@
+route_list:
+  - name: User authentication
+    description: Within this route users get the access token in order to call the api and retrieve information
+    category: basic_2
+    request:
+      url: 'https://jsonplaceholder.typicode.com/oauth'
+      method: POST
+      params:
+        - name: username
+          type: post
+          data_type: string
+          description: Username of the current person
+          example: test
+        - name: password
+          type: post
+          data_type: string
+          description: The users password
+          example: test
+  - name: User retrieval
+    description: Within this route users get the user
+    category: basic_2
+    request:
+      url: 'https://jsonplaceholder.typicode.com[/:userId]'
+      method: GET
+      params:
+        - name: userId
+          type: uri
+          data_type: int
+          description: User unique identifier
+          example: 23
+  - name: User retrieval
+    description: Within this route users get the user
+    category: basic_2
+    request:
+      url: 'https://jsonplaceholder.typicode.com[/:userId]'
+      method: PATCH
+      params:
+        - name: userId
+          type: uri
+          data_type: int
+          description: The user's id
+          optional: false
+          example: 12
+        - name: name
+          type: post
+          data_type: string
+          description: The name of the user
+          optional: true
+          example: Mark
+        - name: age
+          type: post
+          data_type: int
+          description: User's age
+          optional: true
+          example: 23
+  - name: User retrieval
+    description: Within this route users get the user
+    category: basic_2
+    request:
+      url: 'https://jsonplaceholder.typicode.com[/:userId]'
+      method: PUT
+      params:
+        - name: userId
+          type: uri
+          data_type: int
+          description: The user's id
+          optional: false
+          example: 12
+        - name: name
+          type: post
+          data_type: string
+          description: The name of the user
+          optional: true
+          example: Mark
+        - name: age
+          type: post
+          data_type: int
+          description: User's age
+          optional: true
+          example: 23
+  - name: User retrieval
+    description: Within this route users get the user
+    category: basic_2
+    request:
+      url: 'https://jsonplaceholder.typicode.com[/:userId]'
+      method: DELETE
+      params:
+        - name: userId
+          type: uri
+          data_type: int
+          description: User unique identifier
+          example: 23

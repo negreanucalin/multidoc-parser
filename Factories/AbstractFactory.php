@@ -34,11 +34,6 @@ class AbstractFactory
     private $categoryFactory;
 
     /**
-     * @var array
-     */
-    private $generatedEntities;
-
-    /**
      * AbstractFactory constructor.
      * @param ProjectFactory $projectFactory
      * @param RouteFactory $routeFactory
@@ -49,53 +44,53 @@ class AbstractFactory
         $this->projectFactory = $projectFactory;
         $this->routeFactory = $routeFactory;
         $this->categoryFactory = $categoryFactory;
-        $this->generatedEntities = array(
-            'project'=>null,
-            'routes'=>array(),
-            'categories'=>array()
-        );
     }
 
     public function buildEntityListFromConfig($bigAssArray)
     {
+        $generatedEntities = array(
+            'project'=>null,
+            'routes'=>array(),
+            'categories'=>array()
+        );
         if(isset($bigAssArray[ProjectFactory::PROJECT_KEY])){
-            $this->generatedEntities['project'] = $this->projectFactory->buildProjectFromArray($bigAssArray[ProjectFactory::PROJECT_KEY]);
+            $generatedEntities['project'] = $this->projectFactory->buildProjectFromArray($bigAssArray[ProjectFactory::PROJECT_KEY]);
         } else {
             throw new ProjectNotDefinedException();
         }
         if(isset($bigAssArray[RouteFactory::ROUTE_PLURAL_KEY])){
-            $this->generatedEntities['routes'] = array_merge(
-                $this->generatedEntities['routes'],
+            $generatedEntities['routes'] = array_merge(
+                $generatedEntities['routes'],
                 $this->routeFactory->buildRouteListFromArray($bigAssArray[RouteFactory::ROUTE_PLURAL_KEY])
             );
         } else {
             throw new RoutesNotDefinedException();
         }
         if(isset($bigAssArray[CategoryFactory::CATEGORY_PLURAL_KEY])){
-            $this->generatedEntities['categories'] = $this->categoryFactory->buildCategoryListFromArray(
+            $generatedEntities['categories'] = $this->categoryFactory->buildCategoryListFromArray(
                 $bigAssArray[CategoryFactory::CATEGORY_PLURAL_KEY]
             );
         } else {
             throw new CategoriesNotFoundException();
         }
-
+        return $generatedEntities;
     }
 
-    public function linkObjects()
+    public function linkObjects($generatedEntities)
     {
-        if($this->generatedEntities['project'] instanceof Project){
+        if($generatedEntities['project'] instanceof Project){
             /**
              * @var $project Project
              */
-            $project = $this->generatedEntities['project'];
+            $project = $generatedEntities['project'];
             /**
              * @var $categoryList Category[]
              */
-            $categoryList = $this->generatedEntities['categories'];
+            $categoryList = $generatedEntities['categories'];
             /**
              * @var $routeList Route[]
              */
-            $routeList = $this->generatedEntities['routes'];
+            $routeList = $generatedEntities['routes'];
             $project->setCategoryList($categoryList);
             $this->categoryFactory->assignRoutesToCategoryList(
                 $categoryList,
@@ -105,11 +100,6 @@ class AbstractFactory
         } else {
             throw new ObjectsNotLoadedException('buildEntityListFromConfig');
         }
-    }
-
-    public function getGeneratedEntities()
-    {
-        return $this->generatedEntities;
     }
 
 }

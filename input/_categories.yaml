@@ -4,7 +4,5 @@ categories:
     categories:
       cat2:
         name: Cat 2
-  cat3:
-      name: Cat 3
-  cat4:
-      name: Cat 4
+  users:
+      name: Users

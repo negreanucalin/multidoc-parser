@@ -5,7 +5,7 @@ use Multidoc\Models\Project;
 
 class ProjectFactory
 {
-
+    const LOGO_KEY = 'logo';
     const PROJECT_KEY = 'project';
 
     /**
@@ -33,6 +33,9 @@ class ProjectFactory
             $project->setEnvironmentList(
                 $this->environmentFactory->buildEnvironmentListFromArray($projectArray[EnvironmentFactory::ENVIRONMENT_KEY])
             );
+        }
+        if(array_key_exists(self::LOGO_KEY, $projectArray)) {
+            $project->setLogo($projectArray[self::LOGO_KEY]);
         }
         return $project;
     }
