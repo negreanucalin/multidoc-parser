@@ -8,6 +8,8 @@
 
 namespace Multidoc\Services;
 
+use Symfony\Component\Filesystem\Exception\IOException;
+
 class MultidocService
 {
 
@@ -39,6 +41,10 @@ class MultidocService
         $project = $this->parserService->getProjectFromFileList($fileList);
         $this->outputService->prepareOutputFolder($outputFolder);
         $this->outputService->exportProjectEntityToOutputFolder($project);
-        $this->outputService->exportLogo($project, $inputFolder, $outputFolder);
+        try{
+            $this->outputService->exportLogo($project, $inputFolder, $outputFolder);
+        } catch(IOException $e){
+            echo "Logo file is misspelled or does not exist";
+        }
     }
 }
