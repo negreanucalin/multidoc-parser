@@ -55,6 +55,7 @@ class RouteRenderer
             'description'=>$route->getDescription(),
             'url'=>$route->getUrl(),
             'method'=>$route->getMethod(),
+            'needsAuthentication'=>$route->isSecured(),
             'tags'=>$this->tagRenderer->renderList($route->getTagList())
         );
         if($route->getParameterList()){

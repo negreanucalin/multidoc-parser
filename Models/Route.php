@@ -59,6 +59,11 @@ class Route
     private $id;
 
     /**
+     * @var boolean
+     */
+    private $secured;
+
+    /**
      * Route constructor.
      * @param int $id
      */
@@ -210,5 +215,21 @@ class Route
     public function setTagList($tagList)
     {
         $this->tagList = $tagList;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSecured()
+    {
+        return $this->secured;
+    }
+
+    /**
+     * @param bool $secured
+     */
+    public function setSecured($secured)
+    {
+        $this->secured = $secured;
     }
 }

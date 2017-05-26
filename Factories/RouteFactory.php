@@ -7,6 +7,7 @@ class RouteFactory
 {
 
     const ROUTE_PLURAL_KEY = 'route_list';
+    const PARAMETER_AUTHORIZATION_KEY = 'secured';
 
     private static $lastId = 1;
 
@@ -40,6 +41,10 @@ class RouteFactory
                     $routeArray[ParameterFactory::PARAMETER_PLURAL_KEY]
                 )
             );
+        }
+        $route->setSecured(false);
+        if(array_key_exists(RouteFactory::PARAMETER_AUTHORIZATION_KEY, $routeArray)){
+            $route->setSecured($routeArray['secured']);
         }
         self::$lastId = self::$lastId+1;
         return $route;
