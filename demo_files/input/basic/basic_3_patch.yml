@@ -1,6 +1,6 @@
 route:
-  name: User retrieval
-  description: Within this route users get the user
+  name: User partial update
+  description: Within this route users partial update the user
   category: basic_1
   request:
     url: 'https://jsonplaceholder.typicode.com[/:userId]'

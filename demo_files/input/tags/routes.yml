@@ -1,9 +1,10 @@
 route_list:
   - name: User authentication
     description: Within this route users get the access token in order to call the api and retrieve information
-    category: basic_2
+    category: standard_2
+    tags: ['users', 'create']
     request:
-      url: 'https://jsonplaceholder.typicode.com/oauth'
+      url: '{{environment}}/oauth'
       method: POST
       params:
         - name: username
@@ -18,9 +19,10 @@ route_list:
           example: test
   - name: User retrieval
     description: Within this route users get the user
-    category: basic_2
+    category: standard_2
+    tags: ['users', 'get']
     request:
-      url: 'https://jsonplaceholder.typicode.com[/:userId]'
+      url: '{{environment}}[/:userId]'
       method: GET
       params:
         - name: userId
@@ -29,10 +31,11 @@ route_list:
           description: User unique identifier
           example: 23
   - name: User partial update
-    description: Within this route users partial update the user
-    category: basic_2
+    description: Within this route users get updated
+    category: standard_2
+    tags: ['users', 'update']
     request:
-      url: 'https://jsonplaceholder.typicode.com[/:userId]'
+      url: '{{environment}}[/:userId]'
       method: PATCH
       params:
         - name: userId
@@ -53,11 +56,12 @@ route_list:
           description: User's age
           optional: true
           example: 23
-  - name: User partial update
-    description: Within this route users get updated
-    category: basic_2
+  - name: User retrieval
+    description: Within this route users get created
+    category: standard_2
+    tags: ['users', 'partial update']
     request:
-      url: 'https://jsonplaceholder.typicode.com[/:userId]'
+      url: '{{environment}}[/:userId]'
       method: PUT
       params:
         - name: userId
@@ -78,11 +82,12 @@ route_list:
           description: User's age
           optional: true
           example: 23
-  - name: User retrieval
-    description: Within this route users get the user
-    category: basic_2
+  - name: User delete
+    description: Within this route users get deleted
+    category: standard_2
+    tags: ['users', 'delete']
     request:
-      url: 'https://jsonplaceholder.typicode.com[/:userId]'
+      url: '{{environment}}[/:userId]'
       method: DELETE
       params:
         - name: userId

@@ -35,9 +35,9 @@ class MultidocService
         $this->outputService = $outputService;
     }
 
-    public function generate($inputFolder, $outputFolder)
+    public function generate($inputFolder, $outputFolder, $excludeList=array())
     {
-        $fileList = $this->fileService->getFileListFromPath($inputFolder);
+        $fileList = $this->fileService->getFileListFromPath($inputFolder, $excludeList);
         $project = $this->parserService->getProjectFromFileList($fileList);
         $this->outputService->prepareOutputFolder($outputFolder);
         $this->outputService->exportProjectEntityToOutputFolder($project);
