@@ -6,7 +6,7 @@ use Symfony\Component\Finder\Finder;
 
 class InputFileService
 {
-    const DEFAULT_EXTENSION = 'yaml';
+    const DEFAULT_EXTENSION = 'yml';
     /**
      * @param string $path Path in which we get all files to be parsed
      * @param string $extension The extension of the files we will be parsing
