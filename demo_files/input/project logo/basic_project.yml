@@ -1,0 +1,8 @@
+project:
+  name: My Awesome project
+  version: 1
+  description: My Awesome project with logo and environments
+  logo: demo-1.png
+  environments:
+    default: https://jsonplaceholder.typicode.com
+    dev: https://preprod-api.togyin.com/dev

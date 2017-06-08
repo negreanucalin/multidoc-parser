@@ -1,0 +1,18 @@
+route_list:
+  - name: User authentication
+    description: Within this route users get the access token in order to call the api and retrieve information
+    category: basic_5
+    request:
+      url: 'https://jsonplaceholder.typicode.com/oauth'
+      method: POST
+      params:
+        - name: username
+          type: post
+          data_type: string
+          description: Username of the current person
+          example: test
+        - name: password
+          type: post
+          data_type: string
+          description: The users password
+          example: test

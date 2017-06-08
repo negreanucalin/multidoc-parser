@@ -1,0 +1,17 @@
+categories:
+  standard_4:
+      name: Multiple categories
+      categories:
+        1_standard_4:
+          name: Second level
+          categories:
+            2_standard_4:
+              name: Fird level
+              categories:
+                3_standard_4:
+                  name: Forth level
+                  categories:
+                    4_standard_4:
+                      name: Fifth level
+        5_standard_4:
+          name: Another level

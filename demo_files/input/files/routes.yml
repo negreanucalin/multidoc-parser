@@ -1,0 +1,21 @@
+route_list:
+  - name: File upload
+    description: File upload demo
+    category: files
+    request:
+      url: '{{environment}}/upload'
+      method: POST
+      params:
+        - name: username
+          type: post
+          data_type: string
+          description: Username of the current person
+          optional: false
+          example: test
+        - name: csv
+          type: post
+          data_type: file
+          description: The user's file
+          optional: false
+          example: user.csv
+    tags: [upload]

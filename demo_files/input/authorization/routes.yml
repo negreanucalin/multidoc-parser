@@ -1,0 +1,102 @@
+route_list:
+  - name: User authentication
+    description: Within this route users get the access token in order to call the api and retrieve information
+    category: standard_3
+    tags: ['users', 'create']
+    request:
+      url: '{{environment}}/oauth'
+      method: POST
+      secured: true
+      params:
+        - name: username
+          type: post
+          data_type: string
+          description: Username of the current person
+          example: test
+        - name: password
+          type: post
+          data_type: string
+          description: The users password
+          example: test
+  - name: User retrieval
+    description: Within this route users get the user
+    category: standard_3
+    tags: ['users', 'get']
+    request:
+      url: '{{environment}}[/:userId]'
+      method: GET
+      secured: true
+      params:
+        - name: userId
+          type: uri
+          data_type: int
+          description: User unique identifier
+          example: 23
+  - name: User partial update
+    description: Within this route users get updated
+    category: standard_3
+    tags: ['users', 'update']
+    request:
+      url: '{{environment}}[/:userId]'
+      method: PATCH
+      secured: true
+      params:
+        - name: userId
+          type: uri
+          data_type: int
+          description: The user's id
+          optional: false
+          example: 12
+        - name: name
+          type: post
+          data_type: string
+          description: The name of the user
+          optional: true
+          example: Mark
+        - name: age
+          type: post
+          data_type: int
+          description: User's age
+          optional: true
+          example: 23
+  - name: User retrieval
+    description: Within this route users get created
+    category: standard_3
+    tags: ['users', 'partial update']
+    request:
+      url: '{{environment}}[/:userId]'
+      method: PUT
+      secured: true
+      params:
+        - name: userId
+          type: uri
+          data_type: int
+          description: The user's id
+          optional: false
+          example: 12
+        - name: name
+          type: post
+          data_type: string
+          description: The name of the user
+          optional: true
+          example: Mark
+        - name: age
+          type: post
+          data_type: int
+          description: User's age
+          optional: true
+          example: 23
+  - name: User delete
+    description: Within this route users get deleted
+    category: standard_3
+    tags: ['users', 'delete']
+    request:
+      url: '{{environment}}[/:userId]'
+      method: DELETE
+      secured: true
+      params:
+        - name: userId
+          type: uri
+          data_type: int
+          description: User unique identifier
+          example: 23
