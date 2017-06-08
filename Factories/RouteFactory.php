@@ -8,6 +8,8 @@ class RouteFactory
 
     const ROUTE_METHOD_POST = 'POST';
 
+    const ROUTE_SINGULAR_KEY = 'route';
+
     const ROUTE_PLURAL_KEY = 'route_list';
 
     private static $lastId = 1;

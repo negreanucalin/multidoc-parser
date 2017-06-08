@@ -20,9 +20,10 @@ class ProjectFactory
 
     /**
      * @param $projectArray
+     * @param \SplFileObject $projectFile
      * @return Project
      */
-    public function buildProjectFromArray($projectArray)
+    public function buildProjectFromArray($projectArray, $projectFile)
     {
         $project = new Project();
         $project->setBuildTime(new \DateTime());
@@ -35,13 +36,9 @@ class ProjectFactory
             );
         }
         if(array_key_exists(self::LOGO_KEY, $projectArray)) {
+            $project->setInputPath($projectFile->getPath());
             $project->setLogo($projectArray[self::LOGO_KEY]);
         }
         return $project;
-    }
-
-    public static function isProjectDefinition($projectArray)
-    {
-        return array_key_exists(ProjectFactory::PROJECT_KEY, $projectArray);
     }
 }

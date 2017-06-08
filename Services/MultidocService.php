@@ -42,7 +42,7 @@ class MultidocService
         $this->outputService->prepareOutputFolder($outputFolder);
         $this->outputService->exportProjectEntityToOutputFolder($project);
         try{
-            $this->outputService->exportLogo($project, $inputFolder, $outputFolder);
+            $this->outputService->exportLogo($project, $outputFolder);
         } catch(IOException $e){
             echo "Logo file is misspelled or does not exist";
         }

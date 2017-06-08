@@ -89,11 +89,11 @@ class OutputFileService
         ));
     }
 
-    public function exportLogo(Project $project, $inputFolder, $outputFolder)
+    public function exportLogo(Project $project, $outputFolder)
     {
         if($project->getLogo()) {
             $this->fileService->copy(
-                $inputFolder.DIRECTORY_SEPARATOR.$project->getLogo(),
+                $project->getInputPath().DIRECTORY_SEPARATOR.$project->getLogo(),
                 $outputFolder.DIRECTORY_SEPARATOR.$project->getLogo(),
                 true
             );

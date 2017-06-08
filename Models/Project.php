@@ -40,6 +40,11 @@ class Project
     private $logo;
 
     /**
+     * @var string
+     */
+    private $inputPath;
+
+    /**
      * @return string
      */
     public function getName()
@@ -149,5 +154,18 @@ class Project
     public function setLogo($logo)
     {
         $this->logo = $logo;
+    }
+
+    public function setInputPath($path)
+    {
+        $this->inputPath = $path;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInputPath()
+    {
+        return $this->inputPath;
     }
 }

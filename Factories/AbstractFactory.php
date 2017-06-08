@@ -46,7 +46,16 @@ class AbstractFactory
         $this->categoryFactory = $categoryFactory;
     }
 
-    public function buildEntityListFromConfig($bigAssArray)
+    /**
+     * @param array $bigAssArray
+     * @param \SplFileObject $projectFile
+     *
+     * @return array
+     * @throws CategoriesNotFoundException
+     * @throws ProjectNotDefinedException
+     * @throws RoutesNotDefinedException
+     */
+    public function buildEntityListFromConfig($bigAssArray, $projectFile)
     {
         $generatedEntities = array(
             'project'=>null,
@@ -54,7 +63,10 @@ class AbstractFactory
             'categories'=>array()
         );
         if(isset($bigAssArray[ProjectFactory::PROJECT_KEY])){
-            $generatedEntities['project'] = $this->projectFactory->buildProjectFromArray($bigAssArray[ProjectFactory::PROJECT_KEY]);
+            $generatedEntities['project'] = $this->projectFactory->buildProjectFromArray(
+                $bigAssArray[ProjectFactory::PROJECT_KEY],
+                $projectFile
+            );
         } else {
             throw new ProjectNotDefinedException();
         }
