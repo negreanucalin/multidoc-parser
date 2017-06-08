@@ -55,7 +55,7 @@ class AbstractFactory
      * @throws ProjectNotDefinedException
      * @throws RoutesNotDefinedException
      */
-    public function buildEntityListFromConfig($bigAssArray, $projectFile)
+    public function buildEntityListFromConfig($bigAssArray)
     {
         $generatedEntities = array(
             'project'=>null,
@@ -64,8 +64,7 @@ class AbstractFactory
         );
         if(isset($bigAssArray[ProjectFactory::PROJECT_KEY])){
             $generatedEntities['project'] = $this->projectFactory->buildProjectFromArray(
-                $bigAssArray[ProjectFactory::PROJECT_KEY],
-                $projectFile
+                $bigAssArray[ProjectFactory::PROJECT_KEY]
             );
         } else {
             throw new ProjectNotDefinedException();

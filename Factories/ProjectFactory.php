@@ -8,6 +8,8 @@ class ProjectFactory
     const LOGO_KEY = 'logo';
     const PROJECT_KEY = 'project';
 
+    const FILE_PATH_KEY = 'definitionFile';
+
     /**
      * @var EnvironmentFactory
      */
@@ -20,10 +22,9 @@ class ProjectFactory
 
     /**
      * @param $projectArray
-     * @param \SplFileObject $projectFile
      * @return Project
      */
-    public function buildProjectFromArray($projectArray, $projectFile)
+    public function buildProjectFromArray($projectArray)
     {
         $project = new Project();
         $project->setBuildTime(new \DateTime());
@@ -36,7 +37,7 @@ class ProjectFactory
             );
         }
         if(array_key_exists(self::LOGO_KEY, $projectArray)) {
-            $project->setInputPath($projectFile->getPath());
+            $project->setInputPath($projectArray['definitionFile']);
             $project->setLogo($projectArray[self::LOGO_KEY]);
         }
         return $project;

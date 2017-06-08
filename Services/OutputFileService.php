@@ -102,38 +102,35 @@ class OutputFileService
 
     /**
      * @param Category[] $categoryList
-     * @param string $inputFolder
      * @param string $outputFolder
+     * @return null
      */
-    public function exportExampleFiles($categoryList, $inputFolder, $outputFolder)
+    public function exportExampleFiles($categoryList, $outputFolder)
     {
         foreach($categoryList as $category) {
             if ($category->getRouteList()) {
                 foreach ($category->getRouteList() as $route) {
-                    $this->moveExampleFilesFromRoute($route, $inputFolder, $outputFolder);
+                    $this->moveExampleFilesFromRoute($route, $outputFolder);
                 }
             }
             if ($category->getCategoryList()) {
-                $this->exportExampleFiles($category->getCategoryList(), $inputFolder, $outputFolder);
-            } else {
-                return null;
+                $this->exportExampleFiles($category->getCategoryList(), $outputFolder);
             }
         }
     }
 
     /**
      * @param Route $route
-     * @param $inputFolder
      * @param $outputFolder
      */
-    private function moveExampleFilesFromRoute(Route $route, $inputFolder, $outputFolder)
+    private function moveExampleFilesFromRoute(Route $route, $outputFolder)
     {
         if($route->getRequest()->getMethod() == RouteFactory::ROUTE_METHOD_POST){
             $paramList = $route->getRequest()->getParameterList();
             foreach($paramList as $parameter) {
                 if($parameter->getDataType() == ParameterFactory::PARAMETER_TYPE_FILE){
                     $this->fileService->copy(
-                        $inputFolder.DIRECTORY_SEPARATOR.$parameter->getExample(),
+                        $route->getInputPath().DIRECTORY_SEPARATOR.$parameter->getExample(),
                         $outputFolder.DIRECTORY_SEPARATOR.$parameter->getExample(),
                         true
                     );

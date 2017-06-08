@@ -12,6 +12,8 @@ class RouteFactory
 
     const ROUTE_PLURAL_KEY = 'route_list';
 
+    const FILE_PATH_KEY = 'definitionFile';
+
     private static $lastId = 1;
 
     /**
@@ -73,6 +75,7 @@ class RouteFactory
         if(array_key_exists('request', $routeArray)){
             $route->setRequest($this->requestFactory->buildEntity($routeArray['request']));
         }
+        $route->setInputPath($routeArray[self::FILE_PATH_KEY]);
         self::$lastId = self::$lastId+1;
         return $route;
     }

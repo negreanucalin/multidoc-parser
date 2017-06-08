@@ -59,6 +59,11 @@ class Route
     private $request;
 
     /**
+     * @var string
+     */
+    private $inputPath;
+
+    /**
      * Route constructor.
      * @param int $id
      */
@@ -210,5 +215,18 @@ class Route
     public function setRequest($request)
     {
         $this->request = $request;
+    }
+
+    public function setInputPath($path)
+    {
+        $this->inputPath = $path;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInputPath()
+    {
+        return $this->inputPath;
     }
 }
