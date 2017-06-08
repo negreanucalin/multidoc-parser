@@ -1,0 +1,24 @@
+route_list:
+  - name: User authentication
+    description: Within this route users get the access token in order to call the api and retrieve information
+    category: post_json
+    request:
+      url: 'https://jsonplaceholder.typicode.com/oauth/json'
+      method: POST
+      params:
+        - name: credentials
+          type: post
+          data_type: json
+          description: Json with credentials
+          example: '{"user":"user input","password":"S3cret p@ssw0rd"}'
+  - name: User authentication 2
+    description: Within this route users get the access token in order to call the api and retrieve information
+    category: post_json
+    request:
+      url: 'https://jsonplaceholder.typicode.com/oauth/json2'
+      method: POST
+      params:
+        - type: post
+          data_type: json
+          description: Json with credentials
+          example: '{"user":"user input","password":"S3cret p@ssw0rd"}'

@@ -1,6 +1,8 @@
 route:
   name: User authentication
-  description: Within this route users get the access token in order to call the api and retrieve information
+  description: >
+                Within this route users get the access token in order to call the api and retrieve information.
+                Headers will be set AUTOMATICALLY if not defined
   category: basic_1
   request:
     url: 'https://jsonplaceholder.typicode.com/oauth'

@@ -20,6 +20,9 @@ $multidoc->generate(__DIR__.'\input\authorization','output\authorization');
 $multidoc->generate(__DIR__.'\input\multiple categories','output\multiple categories');
 $multidoc->generate(__DIR__.'\input\project logo','output\project logo');
 $multidoc->generate(__DIR__.'\input\files','output\files');
+$multidoc->generate(__DIR__.'\input\headers','output\headers');
+$multidoc->generate(__DIR__.'\input\headers and response','output\headers and response');
+$multidoc->generate(__DIR__.'\input\post json','output\post json');
 
 //Project logo as project for ALL
 $multidoc->generate(__DIR__.'\input','output\all',array(
@@ -31,5 +34,8 @@ $multidoc->generate(__DIR__.'\input','output\all',array(
         __DIR__.'\input\multiple categories\project.yml',
         //Project logo definition excluded here
         __DIR__.'\input\files\project.yml',
+        __DIR__.'\input\headers\basic_project.yml',
+        __DIR__.'\input\headers and response\basic_project.yml',
+        __DIR__.'\input\post json\basic_project.yml',
     )
 );
