@@ -33,14 +33,17 @@ class ParameterRenderer
      */
     public function renderEntity(Parameter $parameter)
     {
-        return array(
-            'name'=>$parameter->getName(),
+        $data = array(
             'type'=>$parameter->getType(),
             'example'=>$parameter->getExample(),
             'data_type'=>$parameter->getDataType(),
             'description'=>$parameter->getDescription(),
             'isOptional'=>$parameter->isIsOptional(),
         );
+        if($parameter->getName()){
+            $data['name']=$parameter->getName();
+        }
+        return $data;
     }
 
 }

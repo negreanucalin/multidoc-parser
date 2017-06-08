@@ -21,7 +21,9 @@ class ParameterFactory
     public function buildParameterFromArray($parameterArray)
     {
         $parameter = new Parameter();
-        $parameter->setName($parameterArray['name']);
+        if(isset($parameterArray['name'])){
+            $parameter->setName($parameterArray['name']);
+        }
         $parameter->setDescription($parameterArray['description']);
         $parameter->setType(strtolower($parameterArray['type']));
         $parameter->setDataType($parameterArray['data_type']);
