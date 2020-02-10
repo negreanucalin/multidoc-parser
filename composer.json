@@ -1,19 +1,19 @@
 {
-	"name": "negreanucalin/multidoc-parser",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Negreanu Calin",
-            "email": "negreanu0calin@gmail.com"
-        }
-    ],
+  "name": "negreanucalin/multidoc-parser",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Negreanu Calin",
+      "email": "negreanu0calin@gmail.com"
+    }
+  ],
   "require": {
-    "symfony/yaml": "~3.0",
-    "symfony/finder": "~3.0",
-    "symfony/dependency-injection": "~3.0",
-    "symfony/filesystem": "~3.0",
-		"symfony/config": "~3.0"
+    "symfony/yaml": "^3.0",
+    "symfony/finder": "^3.0",
+    "symfony/dependency-injection": "^3.4.26",
+    "symfony/filesystem": "^3.0",
+    "symfony/config": "^3.0"
   },
   "autoload": {
     "psr-4": {
