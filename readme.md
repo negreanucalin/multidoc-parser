@@ -3,6 +3,9 @@
 #### Check out [Multidoc viewer](https://github.com/negreanucalin/multidoc-viewer)
 #### Did you say [Laravel?](https://github.com/negreanucalin/multidoc-laravel)
 
+### Testing
+Just manual-functional testing for now  provided in folder `demo_files` by running `index.php` and check the output
+
 ### TODO list
 
 * Define mandatory and optional parameters by adding demo files

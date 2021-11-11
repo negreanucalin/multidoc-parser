@@ -1,0 +1,49 @@
+{
+    "children": [
+        {
+            "id": 16,
+            "name": "POST with json data",
+            "children": [
+                {
+                    "id": 35,
+                    "name": "User authentication",
+                    "description": "Within this route users get the access token in order to call the api and retrieve information",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com\/oauth\/json",
+                        "method": "POST",
+                        "needsAuthentication": false,
+                        "params": [
+                            {
+                                "type": "post",
+                                "example": "{\"user\":\"user input\",\"password\":\"S3cret p@ssw0rd\"}",
+                                "data_type": "json",
+                                "description": "Json with credentials",
+                                "isOptional": false,
+                                "name": "credentials"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 36,
+                    "name": "User authentication 2",
+                    "description": "Within this route users get the access token in order to call the api and retrieve information",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com\/oauth\/json2",
+                        "method": "POST",
+                        "needsAuthentication": false,
+                        "params": [
+                            {
+                                "type": "post",
+                                "example": "{\"user\":\"user input\",\"password\":\"S3cret p@ssw0rd\"}",
+                                "data_type": "json",
+                                "description": "Json with credentials",
+                                "isOptional": false
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

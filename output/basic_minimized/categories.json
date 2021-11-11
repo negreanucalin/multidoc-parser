@@ -1,0 +1,150 @@
+{
+    "children": [
+        {
+            "id": 2,
+            "name": "Basic compact config",
+            "children": [
+                {
+                    "id": 6,
+                    "name": "User authentication",
+                    "description": "Within this route users get the access token in order to call the api and retrieve information",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com\/oauth",
+                        "method": "POST",
+                        "needsAuthentication": false,
+                        "params": [
+                            {
+                                "type": "post",
+                                "example": "test",
+                                "data_type": "string",
+                                "description": "Username of the current person",
+                                "isOptional": false,
+                                "name": "username"
+                            },
+                            {
+                                "type": "post",
+                                "example": "test",
+                                "data_type": "string",
+                                "description": "The users password",
+                                "isOptional": false,
+                                "name": "password"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 7,
+                    "name": "User retrieval",
+                    "description": "Within this route users get the user",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
+                        "method": "GET",
+                        "needsAuthentication": false,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User unique identifier",
+                                "isOptional": false,
+                                "name": "userId"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 8,
+                    "name": "User partial update",
+                    "description": "Within this route users partial update the user",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
+                        "method": "PATCH",
+                        "needsAuthentication": false,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 12,
+                                "data_type": "int",
+                                "description": "The user's id",
+                                "isOptional": false,
+                                "name": "userId"
+                            },
+                            {
+                                "type": "post",
+                                "example": "Mark",
+                                "data_type": "string",
+                                "description": "The name of the user",
+                                "isOptional": true,
+                                "name": "name"
+                            },
+                            {
+                                "type": "post",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User's age",
+                                "isOptional": true,
+                                "name": "age"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 9,
+                    "name": "User partial update",
+                    "description": "Within this route users get updated",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
+                        "method": "PUT",
+                        "needsAuthentication": false,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 12,
+                                "data_type": "int",
+                                "description": "The user's id",
+                                "isOptional": false,
+                                "name": "userId"
+                            },
+                            {
+                                "type": "post",
+                                "example": "Mark",
+                                "data_type": "string",
+                                "description": "The name of the user",
+                                "isOptional": true,
+                                "name": "name"
+                            },
+                            {
+                                "type": "post",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User's age",
+                                "isOptional": true,
+                                "name": "age"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": 10,
+                    "name": "User retrieval",
+                    "description": "Within this route users get the user",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
+                        "method": "DELETE",
+                        "needsAuthentication": false,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User unique identifier",
+                                "isOptional": false,
+                                "name": "userId"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
