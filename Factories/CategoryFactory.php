@@ -6,8 +6,6 @@ use Multidoc\Models\Route;
 
 class CategoryFactory
 {
-    private static $lastId = 1;
-
     const CATEGORY_PLURAL_KEY = 'categories';
 
     public function __construct()
@@ -24,19 +22,17 @@ class CategoryFactory
     {
         $category = new Category($id);
         $category->setName($categoryArray['name']);
-        $category->setExternalId(self::$lastId);
-        self::$lastId = self::$lastId+1;
         if(isset($categoryArray[self::CATEGORY_PLURAL_KEY])){
             $category->setCategoryList($this->buildCategoryListFromArray($categoryArray[self::CATEGORY_PLURAL_KEY]));
         }
         return $category;
     }
 
-    public function buildCategoryListFromArray($categoryListArray)
+    public function buildCategoryListFromArray($categoryMap)
     {
         $categoryList = array();
-        foreach ($categoryListArray as $id => $categoryArray){
-            $categoryList[]=$this->buildCategoryFromArray($id, $categoryArray);
+        foreach ($categoryMap as $categoryId => $categoryArray){
+            $categoryList[]=$this->buildCategoryFromArray($categoryId, $categoryArray);
         }
         return $categoryList;
     }

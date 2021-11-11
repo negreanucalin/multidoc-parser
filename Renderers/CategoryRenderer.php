@@ -45,7 +45,7 @@ class CategoryRenderer
     {
         $children = [];
         $data = array(
-            'id' => $category->getExternalId(),
+            'id' => $category->getId(),
             'name' => $category->getName()
         );
         if ($category->getCategoryList()) {

@@ -32,11 +32,6 @@ class Category
     private $routeList;
 
     /**
-     * @var
-     */
-    private $externalId;
-
-    /**
      * Category constructor.
      * @param int $id
      */
@@ -116,22 +111,4 @@ class Category
     {
         $this->routeList[] = $route;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getExternalId()
-    {
-        return $this->externalId;
-    }
-
-    /**
-     * @param mixed $externalId
-     */
-    public function setExternalId($externalId)
-    {
-        $this->externalId = $externalId;
-    }
-
-
 }

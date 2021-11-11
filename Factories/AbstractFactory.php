@@ -84,6 +84,7 @@ class AbstractFactory
         } else {
             throw new CategoriesNotFoundException();
         }
+
         return $generatedEntities;
     }
 
