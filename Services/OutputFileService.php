@@ -73,11 +73,11 @@ class OutputFileService
         $this->removeCurrentFilesInOutput();
         $this->fileService->dumpFile(
             $this->outputDirectory.DIRECTORY_SEPARATOR.$this->projectFileName,
-            json_encode($this->projectRenderer->renderProject($project))
+            json_encode($this->projectRenderer->renderProject($project), JSON_PRETTY_PRINT)
         );
         $this->fileService->dumpFile(
             $this->outputDirectory.DIRECTORY_SEPARATOR.$this->categoryListFileName,
-            json_encode($this->categoryRenderer->renderList($project->getCategoryList()))
+            json_encode($this->categoryRenderer->renderList($project->getCategoryList()), JSON_PRETTY_PRINT)
         );
     }
 

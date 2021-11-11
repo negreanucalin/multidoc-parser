@@ -31,8 +31,8 @@ class CategoryRenderer
     public function renderList($categoryList)
     {
         $list = array();
-        foreach($categoryList as $category){
-            $list['categoryList'][]=$this->renderEntity($category);
+        foreach ($categoryList as $category) {
+            $list['children'][] = $this->renderEntity($category);
         }
         return $list;
     }
@@ -43,17 +43,20 @@ class CategoryRenderer
      */
     public function renderEntity(Category $category)
     {
+        $children = [];
         $data = array(
-            'id'=>$category->getExternalId(),
-            'name'=>$category->getName()
+            'id' => $category->getExternalId(),
+            'name' => $category->getName()
         );
-        if($category->getRouteList()){
-            $data['routes'] = $this->routeRenderer->renderList($category->getRouteList());
-        }
-        if($category->getCategoryList()){
+        if ($category->getCategoryList()) {
             $renderedList = $this->renderList($category->getCategoryList());
-            $data['categoryList'] = array_pop($renderedList);
+            $children = array_pop($renderedList);
         }
+        if ($category->getRouteList()) {
+            $children = array_merge($children,$this->routeRenderer->renderList($category->getRouteList()));
+        }
+
+        $data['children'] = $children;
         return $data;
     }
 }
