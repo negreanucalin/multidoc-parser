@@ -24,10 +24,14 @@ class ParameterFactory
         if(isset($parameterArray['name'])){
             $parameter->setName($parameterArray['name']);
         }
-        $parameter->setDescription($parameterArray['description']);
+        if (isset($parameterArray['description'])) {
+            $parameter->setDescription($parameterArray['description']);
+        }
         $parameter->setType(strtolower($parameterArray['type']));
         $parameter->setDataType($parameterArray['data_type']);
-        $parameter->setExample($parameterArray['example']);
+        if (isset($parameterArray['example'])) {
+            $parameter->setExample($parameterArray['example']);
+        }
         $parameter->setIsOptional(false);
         if(isset($parameterArray['optional'])){
             $parameter->setIsOptional((boolean)$parameterArray['optional']);

@@ -29,17 +29,17 @@ class Parameter
     /**
      * @var string
      */
-    private $description;
+    private $description = '';
 
     /**
      * @var bool
      */
-    private $isOptional;
+    private $isOptional = false;
 
     /**
      * @var int|string
      */
-    private $example;
+    private $example = '';
 
     /**
      * @return string
