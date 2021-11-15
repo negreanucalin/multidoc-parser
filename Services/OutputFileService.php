@@ -86,9 +86,9 @@ class OutputFileService
 
     public function exportLogo(ProjectDto $project, $outputFolder)
     {
-        if ($project->hasProperty('logo')) {
+        if ($project->logo) {
             $this->fileService->copy(
-                DIRECTORY_SEPARATOR.$project->logo,
+                $project->definitionFile.DIRECTORY_SEPARATOR.$project->logo,
                 $outputFolder.DIRECTORY_SEPARATOR.$project->logo,
                 true
             );
