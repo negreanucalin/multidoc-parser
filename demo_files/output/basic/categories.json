@@ -5,7 +5,7 @@
             "name": "Basic",
             "children": [
                 {
-                    "id": 1,
+                    "id": "45e063f891a7cc6db1d673f61ee11a70b5de5d81",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information. Headers will be set AUTOMATICALLY if not defined\n",
                     "request": {
@@ -33,7 +33,7 @@
                     }
                 },
                 {
-                    "id": 2,
+                    "id": "9869284cbbff7c711467cf2566c62c81e4e24f1b",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -53,7 +53,7 @@
                     }
                 },
                 {
-                    "id": 3,
+                    "id": "ff6b1fb09831c6c5c3c8c75f52f7489558cf9713",
                     "name": "User partial update",
                     "description": "Within this route users partial update the user",
                     "request": {
@@ -89,7 +89,7 @@
                     }
                 },
                 {
-                    "id": 4,
+                    "id": "ecd293b377652cb1ab9d92aee9e83825c087dbe6",
                     "name": "User partial update",
                     "description": "Within this route users get updated",
                     "request": {
@@ -125,7 +125,7 @@
                     }
                 },
                 {
-                    "id": 5,
+                    "id": "505cad18da69bb8a07efd2a1ac1e5982ef044159",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {

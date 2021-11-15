@@ -24,7 +24,6 @@ class RouteFactory
     public function buildRouteFromArray($routeArray)
     {
         $routData = [
-            'id' => self::$lastId,
             'name' => $routeArray['name'],
             'description' => $routeArray['description'],
             'categoryId' => $routeArray['category'],
@@ -46,7 +45,6 @@ class RouteFactory
             $routData['request'] = $routeArray['request'];
         }
         $routData['inputPath'] = $routeArray[self::FILE_PATH_KEY];
-        self::$lastId = self::$lastId + 1;
         return new RouteDto($routData);
     }
 

@@ -2,7 +2,7 @@
 
 namespace Multidoc\DTO;
 
-use SparkleDTO\DataTransferObject;
+use SparkleDTO\DataTransferObjectWithId;
 
 /**
  * @property $id mixed
@@ -16,7 +16,7 @@ use SparkleDTO\DataTransferObject;
  * @property $response ResponseDto|null
  * @property $request RequestDto|null
  */
-class RouteDto extends DataTransferObject
+class RouteDto extends DataTransferObjectWithId
 {
     protected $casts = [
         'tagList' => TagDto::class,

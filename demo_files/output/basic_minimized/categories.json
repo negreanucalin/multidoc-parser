@@ -5,7 +5,7 @@
             "name": "Basic compact config",
             "children": [
                 {
-                    "id": 6,
+                    "id": "211e75b50352b41c1c5cf37b890111a479fd1c07",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
@@ -33,7 +33,7 @@
                     }
                 },
                 {
-                    "id": 7,
+                    "id": "d8bd52f7147e0c14cf157a532db8fc1bf7eff637",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -53,7 +53,7 @@
                     }
                 },
                 {
-                    "id": 8,
+                    "id": "fcf0c19faf7a68999baa1a20f2b8a473f2a88d79",
                     "name": "User partial update",
                     "description": "Within this route users partial update the user",
                     "request": {
@@ -89,7 +89,7 @@
                     }
                 },
                 {
-                    "id": 9,
+                    "id": "156a2eb6347e11b0e94308e863e91b67da947ba6",
                     "name": "User partial update",
                     "description": "Within this route users get updated",
                     "request": {
@@ -125,7 +125,7 @@
                     }
                 },
                 {
-                    "id": 10,
+                    "id": "67aa3d1d1e62855335936c9a772c3501c0d44a4e",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
