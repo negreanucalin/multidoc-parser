@@ -10,6 +10,7 @@ use SparkleDTO\DataTransferObject;
  * @property $version string
  * @property $buildDate int
  * @property $logo string
+ * @property $definitionFile string
  * @property CategoryDto[] $categoryList
  * @property EnvironmentDto[] $environments
  */
