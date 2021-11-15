@@ -8,13 +8,13 @@
 
 namespace Multidoc\Services;
 
-use Multidoc\Factories\ParameterFactory;
+use Multidoc\DTO\CategoryDto;
+use Multidoc\DTO\ParameterDto;
+use Multidoc\DTO\ProjectDto;
+use Multidoc\DTO\RouteDto;
+use Multidoc\Factories\AbstractFactory;
 use Multidoc\Factories\RouteFactory;
-use Multidoc\Models\Category;
-use Multidoc\Models\Project;
-use Multidoc\Models\Route;
 use Multidoc\Renderers\CategoryRenderer;
-use Multidoc\Renderers\ProjectRenderer;
 use Symfony\Component\Filesystem\Filesystem;
 
 class OutputFileService
@@ -25,11 +25,6 @@ class OutputFileService
      * @var Filesystem
      */
     private $fileService;
-
-    /**
-     * @var ProjectRenderer
-     */
-    private $projectRenderer;
 
     /**
      * @var CategoryRenderer
@@ -45,12 +40,10 @@ class OutputFileService
 
     public function __construct(
         Filesystem $fileService,
-        ProjectRenderer $projectRenderer,
         CategoryRenderer $categoryRenderer
     )
     {
         $this->fileService = $fileService;
-        $this->projectRenderer = $projectRenderer;
         $this->categoryRenderer = $categoryRenderer;
     }
 
@@ -66,18 +59,20 @@ class OutputFileService
     }
 
     /**
-     * @param Project $project
+     * @param ProjectDto $project
      */
-    public function exportProjectEntityToOutputFolder(Project $project)
+    public function exportProjectEntityToOutputFolder(ProjectDto $project)
     {
         $this->removeCurrentFilesInOutput();
         $this->fileService->dumpFile(
             $this->outputDirectory.DIRECTORY_SEPARATOR.$this->projectFileName,
-            json_encode($this->projectRenderer->renderProject($project), JSON_PRETTY_PRINT)
+            json_encode($project, JSON_PRETTY_PRINT)
         );
+
         $this->fileService->dumpFile(
             $this->outputDirectory.DIRECTORY_SEPARATOR.$this->categoryListFileName,
-            json_encode($this->categoryRenderer->renderList($project->getCategoryList()), JSON_PRETTY_PRINT)
+            json_encode(
+                $this->categoryRenderer->renderList($project->categoryList), JSON_PRETTY_PRINT)
         );
     }
 
@@ -89,49 +84,52 @@ class OutputFileService
         ));
     }
 
-    public function exportLogo(Project $project, $outputFolder)
+    public function exportLogo(ProjectDto $project, $outputFolder)
     {
-        if($project->getLogo()) {
+        if ($project->hasProperty('logo')) {
             $this->fileService->copy(
-                $project->getInputPath().DIRECTORY_SEPARATOR.$project->getLogo(),
-                $outputFolder.DIRECTORY_SEPARATOR.$project->getLogo(),
+                DIRECTORY_SEPARATOR.$project->logo,
+                $outputFolder.DIRECTORY_SEPARATOR.$project->logo,
                 true
             );
         }
     }
 
     /**
-     * @param Category[] $categoryList
+     * @param CategoryDto[] $categoryList
      * @param string $outputFolder
      * @return null
      */
     public function exportExampleFiles($categoryList, $outputFolder)
     {
         foreach($categoryList as $category) {
-            if ($category->getRouteList()) {
-                foreach ($category->getRouteList() as $route) {
+            if ($category->routeList) {
+                foreach ($category->routeList as $route) {
                     $this->moveExampleFilesFromRoute($route, $outputFolder);
                 }
             }
-            if ($category->getCategoryList()) {
-                $this->exportExampleFiles($category->getCategoryList(), $outputFolder);
+            if ($category->categories) {
+                $this->exportExampleFiles($category->categories, $outputFolder);
             }
         }
     }
 
     /**
-     * @param Route $route
+     * @param RouteDto $route
      * @param $outputFolder
      */
-    private function moveExampleFilesFromRoute(Route $route, $outputFolder)
+    private function moveExampleFilesFromRoute(RouteDto $route, $outputFolder)
     {
-        if($route->getRequest()->getMethod() == RouteFactory::ROUTE_METHOD_POST){
-            $paramList = $route->getRequest()->getParameterList();
+        if($route->request->method == RouteFactory::ROUTE_METHOD_POST){
+            /**
+             * @var $paramList ParameterDto[]
+             */
+            $paramList = $route->request->params;
             foreach($paramList as $parameter) {
-                if($parameter->getDataType() == ParameterFactory::PARAMETER_TYPE_FILE){
+                if($parameter->data_type == AbstractFactory::PARAMETER_TYPE_FILE){
                     $this->fileService->copy(
-                        $route->getInputPath().DIRECTORY_SEPARATOR.$parameter->getExample(),
-                        $outputFolder.DIRECTORY_SEPARATOR.$parameter->getExample(),
+                        $route->inputPath.DIRECTORY_SEPARATOR.$parameter->example,
+                        $outputFolder.DIRECTORY_SEPARATOR.$parameter->example,
                         true
                     );
                 }

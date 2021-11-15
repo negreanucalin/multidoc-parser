@@ -1,12 +1,16 @@
 <?php
 
-namespace Multidoc\Factories;
+namespace Multidoc\DTO;
 
-use Multidoc\Models\Status;
+use SparkleDTO\DataTransferObject;
 
-class StatusFactory
+/**
+ * @property $code int
+ * @property $message string
+ * @property $description string
+ */
+class StatusDto extends DataTransferObject
 {
-    const STATUS_PLURAL_LIST = 'status_codes';
 
     private $statusMapping = array(
         100 => 'Continue',
@@ -85,23 +89,21 @@ class StatusFactory
         599 => 'Network connect timeout error', // Unknown
     );
 
-    public function buildStatusList($statusListArray)
+    public function getMessageAttribute()
     {
-        $statusList = array();
-        foreach($statusListArray as $statusArray) {
-            $statusList[] = $this->buildStatus($statusArray);
-        }
-        return $statusList;
+        return $this->statusMapping[$this->code];
     }
 
-    private function buildStatus($statusArray)
+    public function jsonSerialize()
     {
-        $status = new Status();
-        $status->setCode($statusArray['code']);
-        $status->setMessage($this->statusMapping[$statusArray['code']]);
-        if(isset($statusArray['description'])){
-            $status->setDescription($statusArray['description']);
+        $data = array(
+            'code' => $this->code,
+            'message' => $this->message,
+            'description' => 'Not available'
+        );
+        if ($this->description) {
+            $data['description'] = $this->description;
         }
-        return $status;
+        return $data;
     }
 }

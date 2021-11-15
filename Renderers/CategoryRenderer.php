@@ -8,24 +8,12 @@
 
 namespace Multidoc\Renderers;
 
-
-use Multidoc\Models\Category;
+use Multidoc\DTO\CategoryDto;
 
 class CategoryRenderer
 {
-
     /**
-     * @var RouteRenderer
-     */
-    private $routeRenderer;
-
-    public function __construct(RouteRenderer $routeRenderer)
-    {
-        $this->routeRenderer = $routeRenderer;
-    }
-
-    /**
-     * @param Category[] $categoryList
+     * @param CategoryDto[] $categoryList
      * @return array
      */
     public function renderList($categoryList)
@@ -38,22 +26,23 @@ class CategoryRenderer
     }
 
     /**
-     * @param Category $category
+     * @param CategoryDto $category
      * @return array
      */
-    public function renderEntity(Category $category)
+    public function renderEntity(CategoryDto $category)
     {
         $children = [];
         $data = array(
-            'id' => $category->getId(),
-            'name' => $category->getName()
+            'id' => $category->id,
+            'name' => $category->name
         );
-        if ($category->getCategoryList()) {
-            $renderedList = $this->renderList($category->getCategoryList());
+
+        if ($category->categories) {
+            $renderedList = $this->renderList($category->categories);
             $children = array_pop($renderedList);
         }
-        if ($category->getRouteList()) {
-            $children = array_merge($children,$this->routeRenderer->renderList($category->getRouteList()));
+        if ($category->routeList) {
+            $children = array_merge($children,$category->routeList);
         }
 
         $data['children'] = $children;

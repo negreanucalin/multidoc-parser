@@ -2,11 +2,11 @@
 
 namespace Multidoc\Services;
 
+use Multidoc\DTO\ProjectDto;
 use Multidoc\Factories\AbstractFactory;
 
 use Multidoc\Factories\ProjectFactory;
 use Multidoc\Factories\RouteFactory;
-use Multidoc\Models\Project;
 use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Yaml;
 
@@ -26,7 +26,7 @@ class FileContentParserService
     /**
      * Array with paths pointing to the input configuration file list
      * @param \SplFileObject[] $fileList
-     * @return Project
+     * @return ProjectDto
      */
     public function getProjectFromFileList($fileList)
     {

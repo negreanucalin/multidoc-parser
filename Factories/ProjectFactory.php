@@ -1,7 +1,9 @@
 <?php
 
 namespace Multidoc\Factories;
-use Multidoc\Models\Project;
+
+use Multidoc\DTO\CategoryDto;
+use Multidoc\DTO\ProjectDto;
 
 class ProjectFactory
 {
@@ -11,35 +13,47 @@ class ProjectFactory
     const FILE_PATH_KEY = 'definitionFile';
 
     /**
-     * @var EnvironmentFactory
+     * @param $projectArray
+     * @return ProjectDto
      */
-    private $environmentFactory;
-
-    public function __construct(EnvironmentFactory $environmentFactory)
+    public function buildProjectFromArray($projectArray, $categoryList)
     {
-        $this->environmentFactory = $environmentFactory;
+        $categoryList = $this->formatCategories($categoryList);
+        $projectArray['buildDate'] = (new \DateTime())->format('U');
+        $projectArray['categoryList'] = CategoryDto::hydrate($categoryList);
+        $projectArray['environments'] = $this->formatEnvironments($projectArray);
+        return new ProjectDto($projectArray);
     }
 
-    /**
-     * @param $projectArray
-     * @return Project
-     */
-    public function buildProjectFromArray($projectArray)
+    private function formatCategories($categoryList)
     {
-        $project = new Project();
-        $project->setBuildTime(new \DateTime());
-        $project->setName($projectArray['name']);
-        $project->setVersion($projectArray['version']);
-        $project->setDescription($projectArray['description']);
-        if(EnvironmentFactory::hasEnvironmentList($projectArray)){
-            $project->setEnvironmentList(
-                $this->environmentFactory->buildEnvironmentListFromArray($projectArray[EnvironmentFactory::ENVIRONMENT_KEY])
-            );
+        $newCatList = [];
+        foreach ($categoryList as $index=>$category) {
+            $categories = null;
+            if (isset($category['categories']) && is_array($category['categories'])) {
+                $categories = $this->formatCategories($category['categories']);
+            }
+            if ($categories) {
+                $newCatList[] = ['id'=>$index,'name'=>$category['name'],'categories'=>$categories];
+            } else {
+                $newCatList[] = ['id'=>$index,'name'=>$category['name']];
+            }
         }
-        if(array_key_exists(self::LOGO_KEY, $projectArray)) {
-            $project->setInputPath($projectArray['definitionFile']);
-            $project->setLogo($projectArray[self::LOGO_KEY]);
+        return $newCatList;
+    }
+
+    private function formatEnvironments($environmentList)
+    {
+        if (empty($environmentList['environments'])) {
+            return null;
         }
-        return $project;
+        $list = [];
+        foreach ($environmentList['environments'] as $name => $link) {
+            $list[] = [
+                'name' => $name,
+                'url' => $link
+            ];
+        }
+        return $list;
     }
 }

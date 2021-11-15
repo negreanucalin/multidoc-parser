@@ -1,7 +1,8 @@
 <?php
 
 namespace Multidoc\Factories;
-use Multidoc\Models\Route;
+
+use Multidoc\DTO\RouteDto;
 
 class RouteFactory
 {
@@ -17,76 +18,45 @@ class RouteFactory
     private static $lastId = 1;
 
     /**
-     * @var StatusFactory
-     */
-    private $statusFactory;
-
-    /**
-     * @var TagFactory
-     */
-    private $tagFactory;
-
-    /**
-     * @var ResponseFactory
-     */
-    private $responseFactory;
-
-    /**
-     * @var RequestFactory
-     */
-    private $requestFactory;
-
-    public function __construct(
-        RequestFactory $requestFactory,
-        ResponseFactory $responseFactory,
-        StatusFactory $statusFactory,
-        TagFactory $tagFactory
-    ) {
-        $this->requestFactory = $requestFactory;
-
-        $this->tagFactory = $tagFactory;
-        $this->statusFactory = $statusFactory;
-        $this->responseFactory = $responseFactory;
-    }
-
-    /**
      * @param $routeArray
-     * @return Route
+     * @return RouteDto
      */
     public function buildRouteFromArray($routeArray)
     {
-        $route = new Route(self::$lastId);
-        $route->setName($routeArray['name']);
-        $route->setDescription($routeArray['description']);
-        $route->setCategoryId($routeArray['category']);
-        if(array_key_exists(TagFactory::TAGS_KEY, $routeArray)) {
-            $route->setTagList($this->tagFactory->buildTagListFromArray($routeArray[TagFactory::TAGS_KEY]));
+        $routData = [
+            'id' => self::$lastId,
+            'name' => $routeArray['name'],
+            'description' => $routeArray['description'],
+            'categoryId' => $routeArray['category'],
+        ];
+        if (array_key_exists(AbstractFactory::TAGS_KEY, $routeArray)) {
+            foreach ($routeArray[AbstractFactory::TAGS_KEY] as $tag) {
+                $routData['tagList'][] = ['name' => $tag];
+            }
         }
-        if(array_key_exists(StatusFactory::STATUS_PLURAL_LIST, $routeArray)){
-            $route->setStatusList(
-                $this->statusFactory->buildStatusList(
-                    $routeArray[StatusFactory::STATUS_PLURAL_LIST]
-                )
-            );
+        if (array_key_exists(AbstractFactory::STATUS_PLURAL_LIST, $routeArray)) {
+            foreach ($routeArray[AbstractFactory::STATUS_PLURAL_LIST] as $status) {
+                $routData['statusList'][] = ['name' => $status];
+            }
         }
-        if(array_key_exists('response', $routeArray)){
-            $route->setResponse($this->responseFactory->buildEntity($routeArray['response']));
+        if (array_key_exists('response', $routeArray)) {
+            $routData['response'] = $routeArray['response'];
         }
-        if(array_key_exists('request', $routeArray)){
-            $route->setRequest($this->requestFactory->buildEntity($routeArray['request']));
+        if (array_key_exists('request', $routeArray)) {
+            $routData['request'] = $routeArray['request'];
         }
-        $route->setInputPath($routeArray[self::FILE_PATH_KEY]);
-        self::$lastId = self::$lastId+1;
-        return $route;
+        $routData['inputPath'] = $routeArray[self::FILE_PATH_KEY];
+        self::$lastId = self::$lastId + 1;
+        return new RouteDto($routData);
     }
 
     public function buildRouteListFromArray($routeListArray)
     {
-        $environmentList = array();
-        foreach ($routeListArray as $routeArray){
-            $environmentList[]=$this->buildRouteFromArray($routeArray);
+        $routeList = array();
+        foreach ($routeListArray as $routeArray) {
+            $routeList[] = $this->buildRouteFromArray($routeArray);
         }
-        return $environmentList;
+        return $routeList;
     }
 
 }

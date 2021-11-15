@@ -1,31 +1,28 @@
 <?php
 
 namespace Multidoc\Factories;
-use Multidoc\Models\Category;
-use Multidoc\Models\Route;
+use Multidoc\DTO\CategoryDto;
+use Multidoc\DTO\RouteDto;
 
 class CategoryFactory
 {
     const CATEGORY_PLURAL_KEY = 'categories';
 
-    public function __construct()
-    {
-
-    }
-
     /**
      * @param string $id
      * @param $categoryArray
-     * @return Category
+     * @return CategoryDto
      */
-    public function buildCategoryFromArray($id, $categoryArray)
+    private function buildCategoryFromArray($id, $categoryArray)
     {
-        $category = new Category($id);
-        $category->setName($categoryArray['name']);
+        $categoryData = [
+            'id'=>$id,
+            'name'=>$categoryArray['name']
+        ];
         if(isset($categoryArray[self::CATEGORY_PLURAL_KEY])){
-            $category->setCategoryList($this->buildCategoryListFromArray($categoryArray[self::CATEGORY_PLURAL_KEY]));
+            $categoryData['categoryList'] = $this->buildCategoryListFromArray($categoryArray[self::CATEGORY_PLURAL_KEY]);
         }
-        return $category;
+        return new CategoryDto($categoryData);
     }
 
     public function buildCategoryListFromArray($categoryMap)
@@ -38,30 +35,30 @@ class CategoryFactory
     }
 
     /**
-     * @param Category[] $categoryList
-     * @param Route[] $routeList
+     * @param CategoryDto[] $categoryList
+     * @param RouteDto[] $routeList
      */
     public function assignRoutesToCategoryList($categoryList, $routeList)
     {
-        foreach($routeList as $route) {
-            $route->setCategory($this->assignRouteCategory($categoryList, $route));
+        foreach ($routeList as $route) {
+            $route->category = $this->assignRouteCategory($categoryList, $route);
         }
     }
 
     /**
-     * @param Category[] $categoryList
-     * @param Route $route
-     * @return Category|null
+     * @param CategoryDto[] $categoryList
+     * @param RouteDto $route
+     * @return CategoryDto|null
      */
     public function assignRouteCategory($categoryList, $route)
     {
         foreach($categoryList as $category) {
-            if($category->getId() == $route->getCategoryId()){
+            if ($category->id == $route->categoryId){
                 $category->addRoute($route);
                 return $category;
             }
-            if($category->getCategoryList()) {
-                $this->assignRouteCategory($category->getCategoryList(), $route);
+            if($category->categories) {
+                $this->assignRouteCategory($category->categories, $route);
             }
         }
         return null;

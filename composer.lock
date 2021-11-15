@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad733af848a8b5cd11867fb6ce46c62a",
+    "content-hash": "6d2389ee9b3cb721ea6cd4926e9ccc13",
     "packages": [
+        {
+            "name": "negreanucalin/sparkle-dto",
+            "version": "1.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/negreanucalin/sparkle-dto.git",
+                "reference": "718a59b52ed6875e8af9f399bafe2e0102c9d552"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/negreanucalin/sparkle-dto/zipball/718a59b52ed6875e8af9f399bafe2e0102c9d552",
+                "reference": "718a59b52ed6875e8af9f399bafe2e0102c9d552",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "9.5.10"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SparkleDTO\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Negreanu Calin",
+                    "email": "negreanu0calin@gmail.com"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/negreanucalin/sparkle-dto/issues",
+                "source": "https://github.com/negreanucalin/sparkle-dto/tree/1.1.7"
+            },
+            "time": "2021-11-15T17:16:24+00:00"
+        },
         {
             "name": "psr/container",
             "version": "1.1.2",
