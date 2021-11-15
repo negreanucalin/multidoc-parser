@@ -29,7 +29,7 @@ class Request
     /**
      * @var Parameter[]
      */
-    private $parameterList;
+    private $parameterList = [];
 
     /**
      * @var Header[]
