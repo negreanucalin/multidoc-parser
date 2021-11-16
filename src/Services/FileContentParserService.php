@@ -31,9 +31,8 @@ class FileContentParserService
      */
     public function getProjectFromFileList(array $fileList):ProjectDto
     {
-        $data = array(
-            'route_list' => array()
-        );
+        $data = array();
+
         foreach ($fileList as $file) {
             try {
                 $definitionArray = Yaml::parse(file_get_contents($file));

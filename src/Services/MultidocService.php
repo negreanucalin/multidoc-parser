@@ -12,7 +12,6 @@ use Symfony\Component\Filesystem\Exception\IOException;
 
 class MultidocService
 {
-
     /**
      * @var InputFileService
      */
