@@ -20,7 +20,7 @@ class CategoryFactory
             'name'=>$categoryArray['name']
         ];
         if(isset($categoryArray[self::CATEGORY_PLURAL_KEY])){
-            $categoryData['categoryList'] = $this->buildCategoryListFromArray($categoryArray[self::CATEGORY_PLURAL_KEY]);
+            $categoryData['categories'] = $this->buildCategoryListFromArray($categoryArray[self::CATEGORY_PLURAL_KEY]);
         }
         return new CategoryDto($categoryData);
     }

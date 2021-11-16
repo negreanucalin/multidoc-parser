@@ -11,19 +11,19 @@ use SparkleDTO\DataTransferObject;
  * @property $buildDate int
  * @property $logo string
  * @property $definitionFile string
- * @property CategoryDto[] $categoryList
+ * @property CategoryDto[] $categories
  * @property EnvironmentDto[] $environments
  */
 class ProjectDto extends DataTransferObject
 {
     protected $casts = [
-        'environments:map' => EnvironmentDto::class,
-        'categoryList' => CategoryDto::class,
+        'environments' => EnvironmentDto::class,
+        'categories' => CategoryDto::class,
         'version'=>'string'
     ];
 
     protected $hidden = [
-        'categoryList',
+        'categories',
         'definitionFile'
     ];
 

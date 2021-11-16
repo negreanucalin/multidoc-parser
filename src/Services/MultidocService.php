@@ -47,7 +47,7 @@ class MultidocService
             echo "\nLogo file is misspelled or does not exist";
         }
         try{
-            $this->outputService->exportExampleFiles($project->categoryList, $outputFolder);
+            $this->outputService->exportExampleFiles($project->categories, $outputFolder);
         } catch (IOException $e) {
             echo "\nFile does not exist";
         }

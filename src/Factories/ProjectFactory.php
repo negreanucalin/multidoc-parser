@@ -20,7 +20,7 @@ class ProjectFactory
     {
         $categoryList = $this->formatCategories($categoryList);
         $projectArray['buildDate'] = (new \DateTime())->format('U');
-        $projectArray['categoryList'] = CategoryDto::hydrate($categoryList);
+        $projectArray['categories'] = CategoryDto::hydrate($categoryList);
         $projectArray['environments'] = $this->formatEnvironments($projectArray);
         return new ProjectDto($projectArray);
     }

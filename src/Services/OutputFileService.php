@@ -72,7 +72,7 @@ class OutputFileService
         $this->fileService->dumpFile(
             $this->outputDirectory.DIRECTORY_SEPARATOR.$this->categoryListFileName,
             json_encode(
-                $this->categoryRenderer->renderList($project->categoryList), JSON_PRETTY_PRINT)
+                $this->categoryRenderer->renderList($project->categories), JSON_PRETTY_PRINT)
         );
     }
 

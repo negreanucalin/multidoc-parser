@@ -74,7 +74,7 @@ class AbstractFactory
                 $bigAssArray[ProjectFactory::PROJECT_KEY],
                 $bigAssArray[CategoryFactory::CATEGORY_PLURAL_KEY]
             );
-            $generatedEntities['categories'] = $generatedEntities['project']->categoryList;
+            $generatedEntities['categories'] = $generatedEntities['project']->categories;
         } else {
             throw new ProjectNotDefinedException();
         }
@@ -99,7 +99,7 @@ class AbstractFactory
         }
 
         $this->categoryFactory->assignRoutesToCategoryList(
-            $generatedEntities['project']->categoryList,
+            $generatedEntities['project']->categories,
             $generatedEntities['routes']
         );
 
