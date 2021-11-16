@@ -1,0 +1,150 @@
+{
+    "children": [
+        {
+            "id": "standard_1",
+            "name": "Default minimum set-up",
+            "children": [
+                {
+                    "id": "72f00b8cf7589535c7a87adefeab89048258f32a",
+                    "name": "User authentication",
+                    "description": "Within this route users get the access token in order to call the api and retrieve information",
+                    "request": {
+                        "url": "{{environment}}\/oauth",
+                        "method": "POST",
+                        "needsAuthentication": false,
+                        "params": [
+                            {
+                                "type": "post",
+                                "example": "test",
+                                "data_type": "string",
+                                "description": "Username of the current person",
+                                "isOptional": false,
+                                "name": "username"
+                            },
+                            {
+                                "type": "post",
+                                "example": "test",
+                                "data_type": "string",
+                                "description": "The users password",
+                                "isOptional": false,
+                                "name": "password"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "3312827a7f1ac7d3e02e23046b7fe7c512f0001d",
+                    "name": "User retrieval",
+                    "description": "Within this route users get the user",
+                    "request": {
+                        "url": "{{environment}}[\/:userId]",
+                        "method": "GET",
+                        "needsAuthentication": false,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User unique identifier",
+                                "isOptional": false,
+                                "name": "userId"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "9ae05182cebbb276b7b67c3709c2e3ea21f86a69",
+                    "name": "User retrieval",
+                    "description": "Within this route users get the user",
+                    "request": {
+                        "url": "{{environment}}[\/:userId]",
+                        "method": "PATCH",
+                        "needsAuthentication": false,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 12,
+                                "data_type": "int",
+                                "description": "The user's id",
+                                "isOptional": false,
+                                "name": "userId"
+                            },
+                            {
+                                "type": "post",
+                                "example": "Mark",
+                                "data_type": "string",
+                                "description": "The name of the user",
+                                "isOptional": true,
+                                "name": "name"
+                            },
+                            {
+                                "type": "post",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User's age",
+                                "isOptional": true,
+                                "name": "age"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "e3682621089be9e7ac2c2ddf9f6f5a863185d5af",
+                    "name": "User retrieval",
+                    "description": "Within this route users get the user",
+                    "request": {
+                        "url": "{{environment}}[\/:userId]",
+                        "method": "PUT",
+                        "needsAuthentication": false,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 12,
+                                "data_type": "int",
+                                "description": "The user's id",
+                                "isOptional": false,
+                                "name": "userId"
+                            },
+                            {
+                                "type": "post",
+                                "example": "Mark",
+                                "data_type": "string",
+                                "description": "The name of the user",
+                                "isOptional": true,
+                                "name": "name"
+                            },
+                            {
+                                "type": "post",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User's age",
+                                "isOptional": true,
+                                "name": "age"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "6914f3ec166cffe8b75f798933dfac546931d1b5",
+                    "name": "User retrieval",
+                    "description": "Within this route users get the user",
+                    "request": {
+                        "url": "{{environment}}[\/:userId]",
+                        "method": "DELETE",
+                        "needsAuthentication": false,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User unique identifier",
+                                "isOptional": false,
+                                "name": "userId"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

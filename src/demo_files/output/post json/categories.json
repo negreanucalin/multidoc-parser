@@ -1,0 +1,49 @@
+{
+    "children": [
+        {
+            "id": "post_json",
+            "name": "POST with json data",
+            "children": [
+                {
+                    "id": "bd45b49343663125531947c873f228c80eaffadd",
+                    "name": "User authentication",
+                    "description": "Within this route users get the access token in order to call the api and retrieve information",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com\/oauth\/json",
+                        "method": "POST",
+                        "needsAuthentication": false,
+                        "params": [
+                            {
+                                "type": "post",
+                                "example": "{\"user\":\"user input\",\"password\":\"S3cret p@ssw0rd\"}",
+                                "data_type": "json",
+                                "description": "Json with credentials",
+                                "isOptional": false,
+                                "name": "credentials"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "8c28d24b7bdffeb4a4f0cdc8c928d81b95eb24cf",
+                    "name": "User authentication 2",
+                    "description": "Within this route users get the access token in order to call the api and retrieve information",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com\/oauth\/json2",
+                        "method": "POST",
+                        "needsAuthentication": false,
+                        "params": [
+                            {
+                                "type": "post",
+                                "example": "{\"user\":\"user input\",\"password\":\"S3cret p@ssw0rd\"}",
+                                "data_type": "json",
+                                "description": "Json with credentials",
+                                "isOptional": false
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

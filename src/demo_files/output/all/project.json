@@ -1,0 +1,17 @@
+{
+    "name": "My Awesome project",
+    "version": "1",
+    "description": "My Awesome project with logo and environments",
+    "buildDate": "1637054599",
+    "environments": [
+        {
+            "name": "default",
+            "url": "https:\/\/jsonplaceholder.typicode.com"
+        },
+        {
+            "name": "dev",
+            "url": "https:\/\/preprod-jsonplaceholder.typicode.com"
+        }
+    ],
+    "logo": "demo-1.png"
+}
