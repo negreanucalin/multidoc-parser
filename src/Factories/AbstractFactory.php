@@ -47,8 +47,7 @@ class AbstractFactory
 
         $generatedEntities = array(
             'project' => null,
-            'routes' => array(),
-            'categories' => array()
+            'routes' => array()
         );
 
         if (isset($bigAssArray[ProjectFactory::PROJECT_KEY])) {
@@ -56,7 +55,6 @@ class AbstractFactory
                 $bigAssArray[ProjectFactory::PROJECT_KEY],
                 $bigAssArray[self::CATEGORY_PLURAL_KEY]
             );
-            $generatedEntities['categories'] = $generatedEntities['project']->categories;
         } else {
             throw new ProjectNotDefinedException();
         }
@@ -71,21 +69,14 @@ class AbstractFactory
         return $generatedEntities;
     }
 
-    /**
-     * @throws ObjectsNotLoadedException
-     */
-    public function linkObjects($generatedEntities): ProjectDto
+    public function linkObjects(ProjectDto $project, $routeList): ProjectDto
     {
-        if (!$generatedEntities['project'] instanceof ProjectDto) {
-            throw new ObjectsNotLoadedException('buildEntityListFromConfig');
-        }
-
         $this->categoryFactory->assignRoutesToCategoryList(
-            $generatedEntities['project']->categories,
-            $generatedEntities['routes']
+            $project->categories,
+            $routeList
         );
 
-        return $generatedEntities['project'];
+        return $project;
     }
 
 }

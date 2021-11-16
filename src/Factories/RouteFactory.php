@@ -8,14 +8,9 @@ class RouteFactory
 {
 
     const ROUTE_METHOD_POST = 'POST';
-
     const ROUTE_SINGULAR_KEY = 'route';
-
     const ROUTE_PLURAL_KEY = 'route_list';
-
     const FILE_PATH_KEY = 'definitionFile';
-
-    private static $lastId = 1;
 
     /**
      * @param $routeArray

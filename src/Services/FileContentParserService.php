@@ -3,9 +3,11 @@
 namespace Multidoc\Services;
 
 use Multidoc\DTO\ProjectDto;
+use Multidoc\Exceptions\ObjectsNotLoadedException;
 use Multidoc\Factories\AbstractFactory;
 use Multidoc\Factories\ProjectFactory;
 use Multidoc\Factories\RouteFactory;
+use SplFileObject;
 use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Yaml;
 
@@ -23,10 +25,11 @@ class FileContentParserService
 
     /**
      * Array with paths pointing to the input configuration file list
-     * @param \SplFileObject[] $fileList
+     * @param SplFileObject[] $fileList
      * @return ProjectDto
+     * @throws ObjectsNotLoadedException
      */
-    public function getProjectFromFileList($fileList)
+    public function getProjectFromFileList(array $fileList):ProjectDto
     {
         $data = array(
             'route_list' => array()
@@ -39,13 +42,13 @@ class FileContentParserService
                     $definitionArray[ProjectFactory::PROJECT_KEY][ProjectFactory::FILE_PATH_KEY] = $file->getPath();
                 }
                 //If the current file contains a route definition
-                if (array_key_exists('route', $definitionArray)) {
-                    $definitionArray['route_list'] = array($definitionArray['route']);
-                    $definitionArray['route'][RouteFactory::FILE_PATH_KEY] = $file->getPath();
-                    unset($definitionArray['route']);
+                if (array_key_exists(RouteFactory::ROUTE_SINGULAR_KEY, $definitionArray)) {
+                    $definitionArray[RouteFactory::ROUTE_PLURAL_KEY] = array($definitionArray['route']);
+                    $definitionArray[RouteFactory::ROUTE_SINGULAR_KEY][RouteFactory::FILE_PATH_KEY] = $file->getPath();
+                    unset($definitionArray[RouteFactory::ROUTE_SINGULAR_KEY]);
                 }
                 //We inject the file path
-                if (array_key_exists('route_list', $definitionArray)) {
+                if (array_key_exists(RouteFactory::ROUTE_PLURAL_KEY, $definitionArray)) {
                     $definitionArray = $this->hydrateFilesToRouteDefinitionList($definitionArray, $file);
                 }
                 //If the current file contains a list of routes we unify
@@ -55,7 +58,15 @@ class FileContentParserService
             }
         }
         $generatedEntities = $this->abstractFactory->buildEntityListFromConfig($data);
-        return $this->abstractFactory->linkObjects($generatedEntities);
+
+        if (!$generatedEntities['project'] instanceof ProjectDto) {
+            throw new ObjectsNotLoadedException('buildEntityListFromConfig');
+        }
+
+        return $this->abstractFactory->linkObjects(
+            $generatedEntities['project'],
+            $generatedEntities['routes']
+        );
     }
 
     /**
@@ -63,13 +74,13 @@ class FileContentParserService
      * which it might use for POST requests
      *
      * @param $routeDefinitionList
-     * @param \SplFileObject $file
+     * @param SplFileObject $file
      * @return mixed
      */
     private function hydrateFilesToRouteDefinitionList($routeDefinitionList, $file)
     {
-        foreach ($routeDefinitionList['route_list'] as $key => $routeDefinition) {
-            $routeDefinitionList['route_list'][$key][RouteFactory::FILE_PATH_KEY] = $file->getPath();
+        foreach ($routeDefinitionList[RouteFactory::ROUTE_PLURAL_KEY] as $key => $routeDefinition) {
+            $routeDefinitionList[RouteFactory::ROUTE_PLURAL_KEY][$key][RouteFactory::FILE_PATH_KEY] = $file->getPath();
         }
         return $routeDefinitionList;
     }
