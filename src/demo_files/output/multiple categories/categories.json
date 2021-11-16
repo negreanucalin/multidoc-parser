@@ -21,7 +21,7 @@
                                             "name": "Fifth level",
                                             "children": [
                                                 {
-                                                    "id": "ca2e2a0bf5bde768668f8892d0d042f48798b64f",
+                                                    "id": "64414936c709d7be9cbb2a9472250d83d5224fc4",
                                                     "name": "User retrieval",
                                                     "description": "Within this route users get created",
                                                     "request": {
@@ -63,7 +63,7 @@
                                             ]
                                         },
                                         {
-                                            "id": "0b8fde6ab3728cbad5abe23ba53b0def96e7d11a",
+                                            "id": "98d10e475581867a79ad06b93fcf1b94a53dfe2e",
                                             "name": "User partial update",
                                             "description": "Within this route users get updated",
                                             "request": {
@@ -105,7 +105,7 @@
                                     ]
                                 },
                                 {
-                                    "id": "aa9fd60db728fd8de9e7d820a95496459acc7e76",
+                                    "id": "ece0e4fae3d2fd759cd38df442962e9dbeb48183",
                                     "name": "User retrieval",
                                     "description": "Within this route users get the user",
                                     "request": {
@@ -131,7 +131,7 @@
                             ]
                         },
                         {
-                            "id": "118b90df2ae6bc183aa46f6babaf9894c3037ca7",
+                            "id": "4e4468e86fbb6d014ef2d54b36181d8d5c643e89",
                             "name": "User authentication",
                             "description": "Within this route users get the access token in order to call the api and retrieve information",
                             "request": {
@@ -169,7 +169,7 @@
                     "name": "Another level",
                     "children": [
                         {
-                            "id": "0f511e243f8e39d533de5f3260e86bea3903c37b",
+                            "id": "249419b3a0025364c479a4bd514776438a44c320",
                             "name": "User delete",
                             "description": "Within this route users get deleted",
                             "request": {

@@ -11,6 +11,7 @@ use SparkleDTO\DataTransferObject;
  * @property $data_type string
  * @property $description string
  * @property $optional boolean
+ * @property $default string
  */
 class ParameterDto extends DataTransferObject
 {
@@ -29,6 +30,9 @@ class ParameterDto extends DataTransferObject
         ];
         if ($this->name) {
             $data['name'] = $this->name;
+        }
+        if ($this->default) {
+            $data['default'] = $this->default;
         }
         return $data;
     }

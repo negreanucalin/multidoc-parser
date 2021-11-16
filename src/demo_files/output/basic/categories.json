@@ -5,7 +5,7 @@
             "name": "Basic",
             "children": [
                 {
-                    "id": "0f32b3ddad46c5207e28de5d17e814cb3cdff690",
+                    "id": "c1e1ea93730d53ad603759ac5634da7557e969c6",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information. Headers will be set AUTOMATICALLY if not defined\n",
                     "request": {
@@ -33,7 +33,7 @@
                     }
                 },
                 {
-                    "id": "6dcc93baa9d5ee1a063b5b5b7f888f846868074f",
+                    "id": "28a5d8c1a7bb25dbbf891979801acfda552d7a4a",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -53,7 +53,36 @@
                     }
                 },
                 {
-                    "id": "568d021fc036fbe87722149b81cd6750296df82a",
+                    "id": "00f43f56386ae4cdef9e2fcbcf32d883a4bc7a61",
+                    "name": "User activity",
+                    "description": "Get user activity in the last x days",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com\/[:userId]\/activity\/?days=[:days]",
+                        "method": "GET",
+                        "needsAuthentication": false,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User unique identifier",
+                                "isOptional": false,
+                                "name": "userId"
+                            },
+                            {
+                                "type": "uri",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User unique identifier",
+                                "isOptional": false,
+                                "name": "days",
+                                "default": 7
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "d48729b6c774d9727649bd2ca2f2871635c272e7",
                     "name": "User partial update",
                     "description": "Within this route users partial update the user",
                     "request": {
@@ -89,7 +118,7 @@
                     }
                 },
                 {
-                    "id": "d65de639f98f4978980094d42750460c09158866",
+                    "id": "0bcb497c7584e65eaaedc24c40cb6a0e153ccdca",
                     "name": "User partial update",
                     "description": "Within this route users get updated",
                     "request": {
@@ -125,7 +154,7 @@
                     }
                 },
                 {
-                    "id": "2e9d3f7cbe75abeaebca6a112cf481afed56248b",
+                    "id": "b788ace3b15c4e3e1619c54c2dc8c37281548566",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
