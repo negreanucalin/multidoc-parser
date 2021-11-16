@@ -42,7 +42,7 @@ class CategoryRenderer
             $children = array_pop($renderedList);
         }
         if ($category->routeList) {
-            $children = array_merge($children,$category->routeList);
+            $children = array_merge($children, $category->routeList);
         }
 
         $data['children'] = $children;

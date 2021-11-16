@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: KA
- * Date: 1/25/2017
- * Time: 9:53 PM
- */
-
 namespace Multidoc\Factories;
 
 use Multidoc\DTO\ProjectDto;
@@ -18,23 +11,12 @@ class AbstractFactory
 {
     public const TAGS_KEY = 'tags';
     public const STATUS_PLURAL_LIST = 'status_codes';
-    public const AUTHORIZATION_KEY = 'secured';
-    public const PARAMETER_PLURAL_KEY = 'params';
     public const PARAMETER_TYPE_FILE = 'file';
-    /**
-     * @var ProjectFactory
-     */
-    private $projectFactory;
+    public const CATEGORY_PLURAL_KEY = 'categories';
 
-    /**
-     * @var RouteFactory
-     */
-    private $routeFactory;
-
-    /**
-     * @var CategoryFactory
-     */
-    private $categoryFactory;
+    private ProjectFactory $projectFactory;
+    private RouteFactory $routeFactory;
+    private CategoryFactory $categoryFactory;
 
     /**
      * AbstractFactory constructor.
@@ -51,16 +33,15 @@ class AbstractFactory
 
     /**
      * @param array $bigAssArray
-     * @param \SplFileObject $projectFile
      *
      * @return array
      * @throws CategoriesNotFoundException
      * @throws ProjectNotDefinedException
      * @throws RoutesNotDefinedException
      */
-    public function buildEntityListFromConfig($bigAssArray)
+    public function buildEntityListFromConfig(array $bigAssArray): array
     {
-        if (!isset($bigAssArray[CategoryFactory::CATEGORY_PLURAL_KEY])) {
+        if (!isset($bigAssArray[self::CATEGORY_PLURAL_KEY])) {
             throw new CategoriesNotFoundException();
         }
 
@@ -69,10 +50,11 @@ class AbstractFactory
             'routes' => array(),
             'categories' => array()
         );
+
         if (isset($bigAssArray[ProjectFactory::PROJECT_KEY])) {
             $generatedEntities['project'] = $this->projectFactory->buildProjectFromArray(
                 $bigAssArray[ProjectFactory::PROJECT_KEY],
-                $bigAssArray[CategoryFactory::CATEGORY_PLURAL_KEY]
+                $bigAssArray[self::CATEGORY_PLURAL_KEY]
             );
             $generatedEntities['categories'] = $generatedEntities['project']->categories;
         } else {
@@ -92,7 +74,7 @@ class AbstractFactory
     /**
      * @throws ObjectsNotLoadedException
      */
-    public function linkObjects($generatedEntities)
+    public function linkObjects($generatedEntities): ProjectDto
     {
         if (!$generatedEntities['project'] instanceof ProjectDto) {
             throw new ObjectsNotLoadedException('buildEntityListFromConfig');

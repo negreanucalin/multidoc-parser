@@ -6,39 +6,11 @@ use Multidoc\DTO\RouteDto;
 
 class CategoryFactory
 {
-    const CATEGORY_PLURAL_KEY = 'categories';
-
-    /**
-     * @param string $id
-     * @param $categoryArray
-     * @return CategoryDto
-     */
-    private function buildCategoryFromArray($id, $categoryArray)
-    {
-        $categoryData = [
-            'id'=>$id,
-            'name'=>$categoryArray['name']
-        ];
-        if(isset($categoryArray[self::CATEGORY_PLURAL_KEY])){
-            $categoryData['categories'] = $this->buildCategoryListFromArray($categoryArray[self::CATEGORY_PLURAL_KEY]);
-        }
-        return new CategoryDto($categoryData);
-    }
-
-    public function buildCategoryListFromArray($categoryMap)
-    {
-        $categoryList = array();
-        foreach ($categoryMap as $categoryId => $categoryArray){
-            $categoryList[]=$this->buildCategoryFromArray($categoryId, $categoryArray);
-        }
-        return $categoryList;
-    }
-
     /**
      * @param CategoryDto[] $categoryList
      * @param RouteDto[] $routeList
      */
-    public function assignRoutesToCategoryList($categoryList, $routeList)
+    public function assignRoutesToCategoryList(array $categoryList, array $routeList)
     {
         foreach ($routeList as $route) {
             $route->category = $this->assignRouteCategory($categoryList, $route);
@@ -50,7 +22,7 @@ class CategoryFactory
      * @param RouteDto $route
      * @return CategoryDto|null
      */
-    public function assignRouteCategory($categoryList, $route)
+    public function assignRouteCategory(array $categoryList, RouteDto $route): ?CategoryDto
     {
         foreach($categoryList as $category) {
             if ($category->id == $route->categoryId){
