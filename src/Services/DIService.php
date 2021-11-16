@@ -15,21 +15,14 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 class DIService
 {
     /**
-     * @var ContainerBuilder
+     * @return ContainerBuilder
+     * @throws \Exception
      */
-    static $service;
-
-    public static function load()
+    public function load()
     {
-        if(is_null(DIService::$service)){
-            DIService::$service = new ContainerBuilder();
-            $loader = new YamlFileLoader(DIService::$service, new FileLocator(__DIR__ . "/../config/"));
-            $loader->load('dependencies.yml');
-        }
-        return DIService::$service;
-    }
-
-    public function get($serviceName){
-        return DIService::$service->get($serviceName);
+        $service = new ContainerBuilder();
+        $loader = new YamlFileLoader($service, new FileLocator(__DIR__ . "/../config/"));
+        $loader->load('dependencies.yml');
+        return $service;
     }
 }

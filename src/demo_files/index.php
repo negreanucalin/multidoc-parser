@@ -6,7 +6,7 @@ use Multidoc\Services\MultidocService;
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../Services/DIService.php';
 
-$service = DIService::load();
+$service = (new DIService())->load();
 /**
  * @var $multidoc MultidocService
  */

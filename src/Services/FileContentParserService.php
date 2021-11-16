@@ -4,7 +4,6 @@ namespace Multidoc\Services;
 
 use Multidoc\DTO\ProjectDto;
 use Multidoc\Factories\AbstractFactory;
-
 use Multidoc\Factories\ProjectFactory;
 use Multidoc\Factories\RouteFactory;
 use Symfony\Component\Yaml\Exception\ParseException;
@@ -20,7 +19,6 @@ class FileContentParserService
     public function __construct(AbstractFactory $abstractFactory)
     {
         $this->abstractFactory = $abstractFactory;
-
     }
 
     /**
@@ -31,23 +29,23 @@ class FileContentParserService
     public function getProjectFromFileList($fileList)
     {
         $data = array(
-            'route_list'=>array()
+            'route_list' => array()
         );
         foreach ($fileList as $file) {
             try {
                 $definitionArray = Yaml::parse(file_get_contents($file));
                 //If the current file contains the project definition
-                if(array_key_exists(ProjectFactory::PROJECT_KEY, $definitionArray)){
+                if (array_key_exists(ProjectFactory::PROJECT_KEY, $definitionArray)) {
                     $definitionArray[ProjectFactory::PROJECT_KEY][ProjectFactory::FILE_PATH_KEY] = $file->getPath();
                 }
                 //If the current file contains a route definition
-                if(array_key_exists('route',$definitionArray)) {
+                if (array_key_exists('route', $definitionArray)) {
                     $definitionArray['route_list'] = array($definitionArray['route']);
                     $definitionArray['route'][RouteFactory::FILE_PATH_KEY] = $file->getPath();
                     unset($definitionArray['route']);
                 }
                 //We inject the file path
-                if(array_key_exists('route_list',$definitionArray)) {
+                if (array_key_exists('route_list', $definitionArray)) {
                     $definitionArray = $this->hydrateFilesToRouteDefinitionList($definitionArray, $file);
                 }
                 //If the current file contains a list of routes we unify
@@ -70,7 +68,7 @@ class FileContentParserService
      */
     private function hydrateFilesToRouteDefinitionList($routeDefinitionList, $file)
     {
-        foreach($routeDefinitionList['route_list'] as $key=>$routeDefinition){
+        foreach ($routeDefinitionList['route_list'] as $key => $routeDefinition) {
             $routeDefinitionList['route_list'][$key][RouteFactory::FILE_PATH_KEY] = $file->getPath();
         }
         return $routeDefinitionList;
