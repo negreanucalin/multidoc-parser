@@ -98,7 +98,6 @@ class OutputFileService
     /**
      * @param CategoryDto[] $categoryList
      * @param string $outputFolder
-     * @return null
      */
     public function exportExampleFiles($categoryList, $outputFolder)
     {
