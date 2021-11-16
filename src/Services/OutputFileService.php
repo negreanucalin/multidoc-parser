@@ -124,6 +124,10 @@ class OutputFileService
              * @var $paramList ParameterDto[]
              */
             $paramList = $route->request->params;
+            // Some POST endpoints do not have body params
+            if (empty($paramList)) {
+                return;
+            }
             foreach($paramList as $parameter) {
                 if($parameter->data_type == AbstractFactory::PARAMETER_TYPE_FILE){
                     $this->fileService->copy(
