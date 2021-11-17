@@ -1,6 +1,6 @@
 <?php
 
-namespace Multidoc\Services;
+namespace MultidocParser\Services;
 
 use Symfony\Component\Finder\Finder;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Multidoc\DTO;
+namespace MultidocParser\DTO;
 
 use SparkleDTO\DataTransferObject;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Multidoc\Exceptions;
+namespace MultidocParser\Exceptions;
 
 class CategoriesNotFoundException extends \Exception
 {

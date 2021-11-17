@@ -1,16 +1,16 @@
 <?php
 
-use Multidoc\Services\DIService;
-use Multidoc\Services\MultidocService;
+use MultidocParser\Services\DIService;
+use MultidocParser\Services\MultidocParserService;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 require_once __DIR__ . '/../Services/DIService.php';
 
 $service = (new DIService())->load();
 /**
- * @var $multidoc MultidocService
+ * @var $multidoc MultidocParserService
  */
-$multidoc = $service->get('multidoc_service');
+$multidoc = $service->get('multidoc_parser_service');
 
 $multidoc->generate(__DIR__ . '/input/basic','output/basic');
 $multidoc->generate(__DIR__ . '/input/basic_minimized','output/basic_minimized');

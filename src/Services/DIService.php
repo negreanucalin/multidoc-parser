@@ -1,5 +1,5 @@
 <?php
-namespace Multidoc\Services;
+namespace MultidocParser\Services;
 
 use Exception;
 use Symfony\Component\Config\FileLocator;

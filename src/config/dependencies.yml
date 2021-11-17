@@ -2,22 +2,22 @@ services:
   file_system:
     class: \Symfony\Component\Filesystem\Filesystem
   category_normalizer:
-    class: \Multidoc\Normalizers\CategoryNormalizer
+    class: \MultidocParser\Normalizers\CategoryNormalizer
   data_normalizer:
-    class: \Multidoc\Normalizers\DataNormalizer
+    class: \MultidocParser\Normalizers\DataNormalizer
   environment_renderer:
-    class: \Multidoc\Renderers\EnvironmentRenderer
+    class: \MultidocParser\Renderers\EnvironmentRenderer
   category_renderer:
-    class: \Multidoc\Renderers\CategoryRenderer
+    class: \MultidocParser\Renderers\CategoryRenderer
     arguments: [ ]
   file_content_parser_service:
-    class: \Multidoc\Services\FileContentParserService
+    class: \MultidocParser\Services\FileContentParserService
     arguments: [ '@data_normalizer', '@category_normalizer' ]
   input_file_service:
-    class: \Multidoc\Services\InputFileService
+    class: \MultidocParser\Services\InputFileService
   output_file_service:
-    class: \Multidoc\Services\OutputFileService
+    class: \MultidocParser\Services\OutputFileService
     arguments: [ '@file_system','@category_renderer' ]
-  multidoc_service:
-    class: \Multidoc\Services\MultidocService
+  multidoc_parser_service:
+    class: \MultidocParser\Services\MultidocParserService
     arguments: [ '@input_file_service', '@file_content_parser_service','@output_file_service' ]

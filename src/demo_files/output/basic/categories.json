@@ -5,7 +5,7 @@
             "name": "Basic",
             "children": [
                 {
-                    "id": "39bcbaadcc793e56d0a3a9d5a2cad71eab00ca7a",
+                    "id": "d1ad6b589f67b74bcdbf4f14bef9ad0573eb0730",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information. Headers will be set AUTOMATICALLY if not defined\n",
                     "request": {
@@ -33,7 +33,7 @@
                     }
                 },
                 {
-                    "id": "763b89a387c7488d09015a6bb73a0d486217e53b",
+                    "id": "bdb51e328632fdbde02a71b71d523eca381b05d0",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -53,7 +53,7 @@
                     }
                 },
                 {
-                    "id": "30c962735bdf79b163fe7797aeac5c6bff295e31",
+                    "id": "55aed162578b8522ee27bdf7423013c0cbdef4b1",
                     "name": "User activity",
                     "description": "Get user activity in the last x days",
                     "request": {
@@ -82,7 +82,7 @@
                     }
                 },
                 {
-                    "id": "b23f89075c4bf65d0f92f6bb6449da83dbb81935",
+                    "id": "e53f5e40c162f9bd779e9640e9df53d78021fddf",
                     "name": "User partial update",
                     "description": "Within this route users partial update the user",
                     "request": {
@@ -118,7 +118,7 @@
                     }
                 },
                 {
-                    "id": "67cc5d6847b848a91922fa7c50e2d7d9062b8e36",
+                    "id": "5dfc1bba6604c6515b08aa0eba92314338b66f1f",
                     "name": "User partial update",
                     "description": "Within this route users get updated",
                     "request": {
@@ -154,7 +154,7 @@
                     }
                 },
                 {
-                    "id": "823300c40e125fee7df40b8b14ef8afdf239401c",
+                    "id": "6e685b262ee18b6407dcc1f0a6d75fb7ef40d53f",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {

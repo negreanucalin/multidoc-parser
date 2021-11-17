@@ -5,7 +5,7 @@
             "name": "Basic compact config & headers and response",
             "children": [
                 {
-                    "id": "c8bf2846ab5ae061b4baee39a9c91e4f7057fe38",
+                    "id": "87c440923141052de99536f2b853d7a90d1727d5",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "response": {

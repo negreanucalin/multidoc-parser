@@ -1,7 +1,7 @@
 <?php
-namespace Multidoc\Renderers;
+namespace MultidocParser\Renderers;
 
-use Multidoc\DTO\CategoryDto;
+use MultidocParser\DTO\CategoryDto;
 
 class CategoryRenderer
 {

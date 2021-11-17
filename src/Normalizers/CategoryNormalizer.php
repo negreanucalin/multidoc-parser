@@ -1,9 +1,9 @@
 <?php
 
-namespace Multidoc\Normalizers;
-use Multidoc\DTO\CategoryDto;
-use Multidoc\DTO\ProjectDto;
-use Multidoc\DTO\RouteDto;
+namespace MultidocParser\Normalizers;
+use MultidocParser\DTO\CategoryDto;
+use MultidocParser\DTO\ProjectDto;
+use MultidocParser\DTO\RouteDto;
 
 class CategoryNormalizer
 {

@@ -1,11 +1,11 @@
 <?php
-namespace Multidoc\Services;
+namespace MultidocParser\Services;
 
-use Multidoc\DTO\CategoryDto;
-use Multidoc\DTO\ParameterDto;
-use Multidoc\DTO\ProjectDto;
-use Multidoc\DTO\RouteDto;
-use Multidoc\Renderers\CategoryRenderer;
+use MultidocParser\DTO\CategoryDto;
+use MultidocParser\DTO\ParameterDto;
+use MultidocParser\DTO\ProjectDto;
+use MultidocParser\DTO\RouteDto;
+use MultidocParser\Renderers\CategoryRenderer;
 use Symfony\Component\Filesystem\Filesystem;
 
 class OutputFileService

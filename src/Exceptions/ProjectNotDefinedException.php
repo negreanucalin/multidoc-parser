@@ -1,6 +1,6 @@
 <?php
 
-namespace Multidoc\Exceptions;
+namespace MultidocParser\Exceptions;
 
 class ProjectNotDefinedException extends \Exception
 {

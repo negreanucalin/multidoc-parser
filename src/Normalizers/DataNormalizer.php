@@ -1,9 +1,9 @@
 <?php
 
-namespace Multidoc\Normalizers;
+namespace MultidocParser\Normalizers;
 
-use Multidoc\Exceptions\UndefinedTemplateException;
-use Multidoc\Services\FileContentParserService;
+use MultidocParser\Exceptions\UndefinedTemplateException;
+use MultidocParser\Services\FileContentParserService;
 use Symfony\Component\Finder\SplFileInfo;
 
 class DataNormalizer

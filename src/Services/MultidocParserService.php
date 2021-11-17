@@ -1,9 +1,9 @@
 <?php
-namespace Multidoc\Services;
+namespace MultidocParser\Services;
 
 use Symfony\Component\Filesystem\Exception\IOException;
 
-class MultidocService
+class MultidocParserService
 {
     /**
      * @var InputFileService

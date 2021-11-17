@@ -10,12 +10,12 @@
   ],
   "autoload": {
     "psr-4": {
-      "Multidoc\\": "src/"
+      "MultidocParser\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Multidoc\\Tests\\": "tests/"
+      "MultidocParser\\Tests\\": "tests/"
     }
   },
   "require-dev": {

@@ -1,15 +1,15 @@
 <?php
 
-namespace Multidoc\Services;
+namespace MultidocParser\Services;
 
-use Multidoc\DTO\ProjectDto;
-use Multidoc\DTO\RouteDto;
-use Multidoc\Exceptions\CategoriesNotFoundException;
-use Multidoc\Exceptions\ProjectNotDefinedException;
-use Multidoc\Exceptions\RoutesNotDefinedException;
-use Multidoc\Exceptions\UndefinedTemplateException;
-use Multidoc\Normalizers\CategoryNormalizer;
-use Multidoc\Normalizers\DataNormalizer;
+use MultidocParser\DTO\ProjectDto;
+use MultidocParser\DTO\RouteDto;
+use MultidocParser\Exceptions\CategoriesNotFoundException;
+use MultidocParser\Exceptions\ProjectNotDefinedException;
+use MultidocParser\Exceptions\RoutesNotDefinedException;
+use MultidocParser\Exceptions\UndefinedTemplateException;
+use MultidocParser\Normalizers\CategoryNormalizer;
+use MultidocParser\Normalizers\DataNormalizer;
 use SplFileObject;
 use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Yaml;
