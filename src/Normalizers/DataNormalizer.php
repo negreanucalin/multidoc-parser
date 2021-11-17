@@ -34,7 +34,10 @@ class DataNormalizer
             if (isset($routeDefinition['request']) && isset($routeDefinition['request']['headers'])) {
                 $headers = [];
                 foreach ($routeDefinition['request']['headers'] as $index => $header) {
-                    $headers[] = [$index => $header];
+                    $headers[] = [
+                        'name'=>array_keys($header)[0],
+                        'value'=>array_values($header)[0]
+                    ];
                 }
                 $routeDefinitionList[$routeIndex]['request']['headers'] = $headers;
             }
@@ -68,7 +71,7 @@ class DataNormalizer
             return $routeDefinitionList;
         }
 
-        foreach($routeDefinitionList as $routeIndex => $routeDefinition) {
+        foreach ($routeDefinitionList as $routeIndex => $routeDefinition) {
             $routeDefinitionList[$routeIndex] = $this->parseParameters($templates, $routeDefinition);
             $routeDefinitionList[$routeIndex] = $this->parseHeaders($templates, $routeDefinitionList[$routeIndex]);
         }
@@ -113,21 +116,19 @@ class DataNormalizer
         }
         $templatesToFill = [];
         foreach ($routeArray['request']['headers'] as $index => $headerTemplate) {
-            if (!isset($headerTemplate[0]) || !is_string($headerTemplate[0])) {// Header is defined as map
+            if (!is_string($headerTemplate)) {// Header is defined as map
                 continue;
             }
-            $templateName = $headerTemplate[0];
-            if (!isset($templates['headers'][$templateName])) {
-                throw new UndefinedTemplateException($templateName);
+            if (!isset($templates['headers'][$headerTemplate])) {
+                throw new UndefinedTemplateException($headerTemplate);
             }
-            $templatesToFill[] = $templateName;
+            $templatesToFill[] = $headerTemplate;
             unset($routeArray['request']['headers'][$index]);
-
         }
         foreach($templatesToFill as $template) {
             $routeArray['request']['headers'] = array_merge_recursive(
-                $routeArray['request']['headers'],
-                $templates['headers'][$template]
+                $templates['headers'][$template],
+                $routeArray['request']['headers']
             );
         }
         return $routeArray;
@@ -137,7 +138,7 @@ class DataNormalizer
     {
         $projectDefinition['buildDate'] = (new \DateTime())->format('U');
         if (isset($projectDefinition['environments'])) {
-            $projectDefinition['environments'] = $this->formatEnvironments($projectDefinition['environments']);
+            $projectDefinition['environments'] = $this->normalizeEnvironments($projectDefinition['environments']);
         }
         return $projectDefinition;
     }
@@ -159,7 +160,7 @@ class DataNormalizer
         return $newCatList;
     }
 
-    private function formatEnvironments($environmentList)
+    private function normalizeEnvironments($environmentList)
     {
         if (empty($environmentList['environments'])) {
             return null;

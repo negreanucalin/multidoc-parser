@@ -50,8 +50,8 @@ class FileContentParserService
         $data = $this->readFiles($fileList);
         $this->validateParsedData($data);
 
-        $data[self::ROUTE_PLURAL_KEY] = $this->dataNormalizer->formatTagsAndStatusAndHeaders($data[self::ROUTE_PLURAL_KEY]);
         $data[self::ROUTE_PLURAL_KEY] = $this->dataNormalizer->fillInTemplates($data['templates'], $data[self::ROUTE_PLURAL_KEY]);
+        $data[self::ROUTE_PLURAL_KEY] = $this->dataNormalizer->formatTagsAndStatusAndHeaders($data[self::ROUTE_PLURAL_KEY]);
         $data[self::PROJECT_KEY] = $this->dataNormalizer->normalizeProjectData($data[self::PROJECT_KEY]);
         $data[self::CATEGORY_PLURAL_KEY] = $this->dataNormalizer->normalizeCategoryList($data[self::CATEGORY_PLURAL_KEY]);
 

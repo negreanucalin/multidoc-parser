@@ -12,12 +12,12 @@ route_list:
            }
          }
       headers:
-        Content-Type: application/vnd.test-multidoc.v1+json
+        - Content-Type: application/vnd.test-multidoc.v1+json
     request:
       url: 'https://jsonplaceholder.typicode.com/oauth'
       method: POST
       headers:
-        Content-Type: application/vnd.test-multidoc.v1+json
+        - Content-Type: application/vnd.test-multidoc.v1+json
       params:
         - name: username
           type: post

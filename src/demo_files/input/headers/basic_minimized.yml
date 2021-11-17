@@ -6,8 +6,8 @@ route_list:
       url: 'https://jsonplaceholder.typicode.com/oauth'
       method: POST
       headers:
-        Content-Type: application/vnd.test-multidoc.v1+json
-        Accept: application/vnd.test-multidoc.v1+json
+        - Content-Type: application/vnd.test-multidoc.v1+json
+        - Accept: application/vnd.test-multidoc.v1+json
       params:
         - name: username
           type: post

@@ -10,9 +10,5 @@ use SparkleDTO\DataTransferObject;
  */
 class HeaderDto extends DataTransferObject
 {
-    public function __construct($arguments)
-    {
-        $arguments = ['name' => array_keys($arguments)[0], 'value' => array_values($arguments)[0]];
-        parent::__construct($arguments);
-    }
+
 }
