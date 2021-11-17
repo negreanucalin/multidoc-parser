@@ -89,18 +89,19 @@ class DataNormalizer
         }
         $templatesToFill = [];
         foreach ($routeArray['request']['params'] as $index => $paramDefined) {
-            if (!isset($paramDefined['name'])) { // template
-                if (!isset($templates['params'][$paramDefined])) {
-                    throw new UndefinedTemplateException($paramDefined);
-                }
-                $templatesToFill[] = $paramDefined;
-                unset($routeArray['request']['params'][$index]);
+            if (isset($paramDefined['name'])) { // template
+                continue;
             }
+            if (!isset($templates['params'][$paramDefined])) {
+                throw new UndefinedTemplateException($paramDefined);
+            }
+            $templatesToFill[] = $paramDefined;
+            unset($routeArray['request']['params'][$index]);
         }
         foreach($templatesToFill as $template) {
             $routeArray['request']['params'] = array_merge_recursive(
-                $routeArray['request']['params'],
-                $templates['params'][$template]
+                $templates['params'][$template],
+                $routeArray['request']['params']
             );
         }
         return $routeArray;
