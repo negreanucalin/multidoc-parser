@@ -3,9 +3,7 @@
 namespace Multidoc\Services;
 
 use Multidoc\DTO\ProjectDto;
-use Multidoc\Exceptions\ObjectsNotLoadedException;
 use Multidoc\Factories\AbstractFactory;
-use Multidoc\Factories\ProjectFactory;
 use Multidoc\Factories\RouteFactory;
 use SplFileObject;
 use Symfony\Component\Yaml\Yaml;
@@ -29,7 +27,6 @@ class FileContentParserService
      * Array with paths pointing to the input configuration file list
      * @param SplFileObject[] $fileList
      * @return ProjectDto
-     * @throws ObjectsNotLoadedException
      */
     public function getProjectFromFileList(array $fileList): ProjectDto
     {
@@ -40,10 +37,6 @@ class FileContentParserService
         $data[AbstractFactory::CATEGORY_PLURAL_KEY] = $this->dataNormalizer->normalizeCategoryList($data[AbstractFactory::CATEGORY_PLURAL_KEY]);
 
         $generatedEntities = $this->abstractFactory->buildEntityListFromConfig($data);
-
-        if (!$generatedEntities['project'] instanceof ProjectDto) {
-            throw new ObjectsNotLoadedException('buildEntityListFromConfig');
-        }
 
         return $this->abstractFactory->linkObjects(
             $generatedEntities['project'],

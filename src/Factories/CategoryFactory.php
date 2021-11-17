@@ -25,7 +25,7 @@ class CategoryFactory
     public function assignRouteCategory(array $categoryList, RouteDto $route): ?CategoryDto
     {
         foreach($categoryList as $category) {
-            if ($category->id == $route->categoryId){
+            if ($category->id == $route->categoryId) {
                 $category->addRoute($route);
                 return $category;
             }

@@ -3,15 +3,12 @@ services:
       class: \Symfony\Component\Filesystem\Filesystem
     category_factory:
       class: \Multidoc\Factories\CategoryFactory
-    project_factory:
-      class: \Multidoc\Factories\ProjectFactory
-      arguments: []
     route_factory:
       class: \Multidoc\Factories\RouteFactory
       arguments: []
     abstract_factory:
       class: \Multidoc\Factories\AbstractFactory
-      arguments: ['@project_factory', '@route_factory', '@category_factory']
+      arguments: ['@route_factory', '@category_factory']
     environment_renderer:
       class: \Multidoc\Renderers\EnvironmentRenderer
     category_renderer:

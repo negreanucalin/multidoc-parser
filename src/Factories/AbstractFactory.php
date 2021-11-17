@@ -16,19 +16,16 @@ class AbstractFactory
     public const PROJECT_KEY = 'project';
     public const FILE_PATH_KEY = 'definitionFile';
 
-    private ProjectFactory $projectFactory;
     private RouteFactory $routeFactory;
     private CategoryFactory $categoryFactory;
 
     /**
      * AbstractFactory constructor.
-     * @param ProjectFactory $projectFactory
      * @param RouteFactory $routeFactory
      * @param CategoryFactory $categoryFactory
      */
-    public function __construct(ProjectFactory $projectFactory, RouteFactory $routeFactory, CategoryFactory $categoryFactory)
+    public function __construct(RouteFactory $routeFactory, CategoryFactory $categoryFactory)
     {
-        $this->projectFactory = $projectFactory;
         $this->routeFactory = $routeFactory;
         $this->categoryFactory = $categoryFactory;
     }
@@ -53,10 +50,8 @@ class AbstractFactory
         );
 
         if (isset($bigAssArray[self::PROJECT_KEY])) {
-            $generatedEntities['project'] = $this->projectFactory->buildProjectFromArray(
-                $bigAssArray[self::PROJECT_KEY],
-                $bigAssArray[self::CATEGORY_PLURAL_KEY]
-            );
+            $bigAssArray[self::PROJECT_KEY][self::CATEGORY_PLURAL_KEY] = $bigAssArray[self::CATEGORY_PLURAL_KEY];
+            $generatedEntities['project'] = new ProjectDto($bigAssArray[self::PROJECT_KEY]);
         } else {
             throw new ProjectNotDefinedException();
         }

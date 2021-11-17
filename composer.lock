@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "negreanucalin/sparkle-dto",
-            "version": "1.1.8",
+            "version": "1.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/negreanucalin/sparkle-dto.git",
-                "reference": "cf2c70db9d9321803df252680d0b7cf006465852"
+                "reference": "c44c113853219174938101cc2ef8c5908bd0f561"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/negreanucalin/sparkle-dto/zipball/cf2c70db9d9321803df252680d0b7cf006465852",
-                "reference": "cf2c70db9d9321803df252680d0b7cf006465852",
+                "url": "https://api.github.com/repos/negreanucalin/sparkle-dto/zipball/c44c113853219174938101cc2ef8c5908bd0f561",
+                "reference": "c44c113853219174938101cc2ef8c5908bd0f561",
                 "shasum": ""
             },
             "require": {
@@ -44,9 +44,9 @@
             ],
             "support": {
                 "issues": "https://github.com/negreanucalin/sparkle-dto/issues",
-                "source": "https://github.com/negreanucalin/sparkle-dto/tree/1.1.8"
+                "source": "https://github.com/negreanucalin/sparkle-dto/tree/1.1.9"
             },
-            "time": "2021-11-16T16:25:12+00:00"
+            "time": "2021-11-17T11:58:43+00:00"
         },
         {
             "name": "psr/container",

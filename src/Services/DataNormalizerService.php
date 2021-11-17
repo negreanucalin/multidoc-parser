@@ -8,7 +8,6 @@ use SplFileObject;
 
 class DataNormalizerService
 {
-
     /**
      * This method adds a file path to the given route list in order to keep track of files
      * which it might use for POST requests
