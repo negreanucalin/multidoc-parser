@@ -2,5 +2,15 @@
     "name": "My Awesome project",
     "version": "1",
     "description": "My Awesome project",
-    "buildDate": "1637162024"
+    "buildDate": "1637162379",
+    "environments": [
+        {
+            "name": "default",
+            "url": "https:\/\/jsonplaceholder.typicode.com"
+        },
+        {
+            "name": "dev",
+            "url": "https:\/\/preprod-jsonplaceholder.typicode.com"
+        }
+    ]
 }

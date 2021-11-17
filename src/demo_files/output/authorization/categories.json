@@ -5,7 +5,7 @@
             "name": "Default minimum with tags & authorization",
             "children": [
                 {
-                    "id": "23e74c206fd67cd66ac5b77e452e11edecd89022",
+                    "id": "480ec3923d9ebef1e03ff57733eb1f12eccfed40",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
@@ -37,7 +37,7 @@
                     ]
                 },
                 {
-                    "id": "4433deeb0b507d0f8f576f34ed331e62b6e891cd",
+                    "id": "338a17275fbed572e8d07c47a688e834c96b2e2c",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -61,7 +61,7 @@
                     ]
                 },
                 {
-                    "id": "e6419273db48f6a111b177f7f3fb2008d1d7e141",
+                    "id": "9b52b8e762d8a483558dd3986f0309fed55df997",
                     "name": "User partial update",
                     "description": "Within this route users get updated",
                     "request": {
@@ -101,7 +101,7 @@
                     ]
                 },
                 {
-                    "id": "aeb7186b92e639576ed0830bfc3be1bdac7ebf70",
+                    "id": "42130470a0d3df3a2005d8be544e856384f518e0",
                     "name": "User retrieval",
                     "description": "Within this route users get created",
                     "request": {
@@ -141,7 +141,7 @@
                     ]
                 },
                 {
-                    "id": "ff909bda07b1cf87bee2c41ecbbba69a06803e41",
+                    "id": "40e5839cbecdeb6ffeb30eac4b673b328c207a66",
                     "name": "User delete",
                     "description": "Within this route users get deleted",
                     "request": {

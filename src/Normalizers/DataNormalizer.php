@@ -139,7 +139,7 @@ class DataNormalizer
     {
         $projectDefinition['buildDate'] = (new \DateTime())->format('U');
         if (isset($projectDefinition['environments'])) {
-            $projectDefinition['environments'] = $this->normalizeEnvironments($projectDefinition['environments']);
+            $projectDefinition['environments'] = $this->normalizeEnvironments($projectDefinition);
         }
         return $projectDefinition;
     }
@@ -161,13 +161,13 @@ class DataNormalizer
         return $newCatList;
     }
 
-    private function normalizeEnvironments($environmentList)
+    private function normalizeEnvironments($projectDefinition)
     {
-        if (empty($environmentList['environments'])) {
+        if (!isset($projectDefinition['environments'])) {
             return null;
         }
         $list = [];
-        foreach ($environmentList['environments'] as $name => $link) {
+        foreach ($projectDefinition['environments'] as $name => $link) {
             $list[] = [
                 'name' => $name,
                 'url' => $link
