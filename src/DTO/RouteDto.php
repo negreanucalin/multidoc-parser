@@ -2,7 +2,7 @@
 
 namespace MultidocParser\DTO;
 
-use SparkleDTO\DataTransferObjectWithId;
+use SparkleDto\DataTransferObjectWithId;
 
 /**
  * @property $id mixed

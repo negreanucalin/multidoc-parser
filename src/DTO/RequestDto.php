@@ -2,7 +2,7 @@
 
 namespace MultidocParser\DTO;
 
-use SparkleDTO\DataTransferObject;
+use SparkleDto\DataTransferObject;
 
 /**
  * @property $url string

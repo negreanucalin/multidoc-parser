@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "negreanucalin/sparkle-dto",
-            "version": "1.1.9",
+            "version": "1.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/negreanucalin/sparkle-dto.git",
-                "reference": "c44c113853219174938101cc2ef8c5908bd0f561"
+                "reference": "e58c0294a4c184ddc5df054e62ef8f6207fce10a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/negreanucalin/sparkle-dto/zipball/c44c113853219174938101cc2ef8c5908bd0f561",
-                "reference": "c44c113853219174938101cc2ef8c5908bd0f561",
+                "url": "https://api.github.com/repos/negreanucalin/sparkle-dto/zipball/e58c0294a4c184ddc5df054e62ef8f6207fce10a",
+                "reference": "e58c0294a4c184ddc5df054e62ef8f6207fce10a",
                 "shasum": ""
             },
             "require": {
@@ -29,7 +29,7 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "SparkleDTO\\": "src/"
+                    "SparkleDto\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -44,9 +44,9 @@
             ],
             "support": {
                 "issues": "https://github.com/negreanucalin/sparkle-dto/issues",
-                "source": "https://github.com/negreanucalin/sparkle-dto/tree/1.1.9"
+                "source": "https://github.com/negreanucalin/sparkle-dto/tree/1.1.10"
             },
-            "time": "2021-11-17T11:58:43+00:00"
+            "time": "2021-11-17T15:31:43+00:00"
         },
         {
             "name": "psr/container",
