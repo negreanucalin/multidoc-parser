@@ -5,7 +5,7 @@
             "name": "Default minimum with tags",
             "children": [
                 {
-                    "id": "045d9f84c667f61ba9285aa86f97cd8e029e57ee",
+                    "id": "bb709d179721a5f0ffb161e37b70539380ba08e0",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -35,7 +35,7 @@
                     }
                 },
                 {
-                    "id": "8d3587a43375df125b63922d79a884f471a46854",
+                    "id": "dea567e3470dbae125f0a67de39e68b861f36825",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
