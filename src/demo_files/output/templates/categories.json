@@ -1,0 +1,60 @@
+{
+    "children": [
+        {
+            "id": "standard_2111",
+            "name": "Default minimum with tags",
+            "children": [
+                {
+                    "id": "045d9f84c667f61ba9285aa86f97cd8e029e57ee",
+                    "name": "User retrieval",
+                    "description": "Within this route users get the user",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
+                        "method": "GET",
+                        "needsAuthentication": false,
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer APPLICATION_TOKEN"
+                            }
+                        ],
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 1,
+                                "data_type": "int",
+                                "description": "User unique identifier",
+                                "isOptional": false,
+                                "name": "userId"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "8d3587a43375df125b63922d79a884f471a46854",
+                    "name": "User retrieval",
+                    "description": "Within this route users get the user",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com\/[:userId]\/friends",
+                        "method": "GET",
+                        "needsAuthentication": false,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 2,
+                                "data_type": "int",
+                                "description": "User unique identifier",
+                                "isOptional": false,
+                                "name": "userId"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+templates:
+  params:
+    user_id:
+      - name: userId
+        type: uri
+        data_type: int
+        description: User unique identifier
+        example: 1

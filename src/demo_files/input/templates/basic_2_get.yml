@@ -1,0 +1,16 @@
+route:
+  name: User retrieval
+  description: Within this route users get the user
+  category: standard_2111
+  request:
+    url: 'https://jsonplaceholder.typicode.com[/:userId]'
+    method: GET
+    headers:
+      - json_with_auth
+    params:
+      - user_id
+templates:
+  headers:
+    json_with_auth:
+      - Accept: application/json
+      - Authorization: Bearer APPLICATION_TOKEN

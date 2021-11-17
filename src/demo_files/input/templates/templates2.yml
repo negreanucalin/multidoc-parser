@@ -1,0 +1,12 @@
+templates:
+  params:
+    user_id_2:
+      - name: userId
+        type: uri
+        data_type: int
+        description: User unique identifier
+        example: 2
+  headers:
+    json_with_auth_2:
+      - Accept: application/json
+      - Authorization: Bearer APPLICATION_TOKEN

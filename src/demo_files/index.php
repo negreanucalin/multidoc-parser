@@ -23,6 +23,7 @@ $multidoc->generate(__DIR__ . '/input/files','output/files');
 $multidoc->generate(__DIR__ . '/input/headers','output/headers');
 $multidoc->generate(__DIR__ . '/input/headers and response','output/headers and response');
 $multidoc->generate(__DIR__ . '/input/post json','output/post json');
+$multidoc->generate(__DIR__ . '/input/templates','output/templates');
 
 //Project logo as project for ALL
 $multidoc->generate(__DIR__ . '/input','output/all',array(
@@ -37,5 +38,6 @@ $multidoc->generate(__DIR__ . '/input','output/all',array(
         __DIR__.'/input/headers/basic_project.yml',
         __DIR__.'/input/headers and response/basic_project.yml',
         __DIR__.'/input/post json/basic_project.yml',
+        __DIR__.'/input/templates/basic_project.yml',
     )
 );

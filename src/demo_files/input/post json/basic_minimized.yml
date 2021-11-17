@@ -19,6 +19,7 @@ route_list:
       method: POST
       params:
         - type: post
+          name: post_data
           data_type: json
           description: Json with credentials
           example: '{"user":"user input","password":"S3cret p@ssw0rd"}'

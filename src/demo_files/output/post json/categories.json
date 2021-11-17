@@ -5,7 +5,7 @@
             "name": "POST with json data",
             "children": [
                 {
-                    "id": "670d87b570b777b4cafab0593e363b3e7b48bceb",
+                    "id": "6efcbce6206fbedd5e7aed701e207a1f5459dabd",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
@@ -25,7 +25,7 @@
                     }
                 },
                 {
-                    "id": "50e957effe83576930ddbc40a0ffd6dfc646e1ee",
+                    "id": "bf4ab1bf4977d557808b28a14a410b4d0541ac83",
                     "name": "User authentication 2",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
@@ -38,7 +38,8 @@
                                 "example": "{\"user\":\"user input\",\"password\":\"S3cret p@ssw0rd\"}",
                                 "data_type": "json",
                                 "description": "Json with credentials",
-                                "isOptional": false
+                                "isOptional": false,
+                                "name": "post_data"
                             }
                         ]
                     }

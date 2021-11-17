@@ -13,6 +13,7 @@ class AbstractFactory
     public const STATUS_PLURAL_LIST = 'status_codes';
     public const PARAMETER_TYPE_FILE = 'file';
     public const CATEGORY_PLURAL_KEY = 'categories';
+    public const TEMPLATES_KEY = 'templates';
 
     private ProjectFactory $projectFactory;
     private RouteFactory $routeFactory;
@@ -61,7 +62,10 @@ class AbstractFactory
         if (isset($bigAssArray[RouteFactory::ROUTE_PLURAL_KEY])) {
             $generatedEntities['routes'] = array_merge(
                 $generatedEntities['routes'],
-                $this->routeFactory->buildRouteListFromArray($bigAssArray[RouteFactory::ROUTE_PLURAL_KEY])
+                $this->routeFactory->buildRouteListFromArray(
+                    $bigAssArray[self::TEMPLATES_KEY],
+                    $bigAssArray[RouteFactory::ROUTE_PLURAL_KEY]
+                )
             );
         } else {
             throw new RoutesNotDefinedException();

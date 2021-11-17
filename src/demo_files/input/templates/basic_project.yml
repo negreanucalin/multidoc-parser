@@ -1,0 +1,7 @@
+project:
+  name: My Awesome project test2
+  version: 1
+  description: My Awesome project
+categories:
+  standard_2111:
+    name: Default minimum with tags

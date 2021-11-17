@@ -31,7 +31,9 @@ class FileContentParserService
      */
     public function getProjectFromFileList(array $fileList):ProjectDto
     {
-        $data = array();
+        $data = array(
+            'templates'=>[]
+        );
 
         foreach ($fileList as $file) {
             try {
