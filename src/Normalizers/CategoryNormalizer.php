@@ -1,10 +1,10 @@
 <?php
 
-namespace Multidoc\Factories;
+namespace Multidoc\Normalizers;
 use Multidoc\DTO\CategoryDto;
 use Multidoc\DTO\RouteDto;
 
-class CategoryFactory
+class CategoryNormalizer
 {
     /**
      * @param CategoryDto[] $categoryList

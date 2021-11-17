@@ -1,14 +1,16 @@
 services:
     file_system:
       class: \Symfony\Component\Filesystem\Filesystem
-    category_factory:
-      class: \Multidoc\Factories\CategoryFactory
+    category_normalizer:
+      class: \Multidoc\Normalizers\CategoryNormalizer
+    data_normalizer:
+      class: \Multidoc\Normalizers\DataNormalizer
     route_factory:
       class: \Multidoc\Factories\RouteFactory
       arguments: []
     abstract_factory:
       class: \Multidoc\Factories\AbstractFactory
-      arguments: ['@route_factory', '@category_factory']
+      arguments: ['@route_factory', '@category_normalizer']
     environment_renderer:
       class: \Multidoc\Renderers\EnvironmentRenderer
     category_renderer:
@@ -19,8 +21,6 @@ services:
       arguments: ['@abstract_factory','@data_normalizer']
     input_file_service:
       class: \Multidoc\Services\InputFileService
-    data_normalizer:
-      class: \Multidoc\Services\DataNormalizerService
     output_file_service:
       class: \Multidoc\Services\OutputFileService
       arguments: ['@file_system','@category_renderer']

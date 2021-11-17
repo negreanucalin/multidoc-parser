@@ -1,12 +1,12 @@
 <?php
 
-namespace Multidoc\Services;
+namespace Multidoc\Normalizers;
 
 use Multidoc\Exceptions\UndefinedTemplateException;
 use Multidoc\Factories\RouteFactory;
 use SplFileObject;
 
-class DataNormalizerService
+class DataNormalizer
 {
     /**
      * This method adds a file path to the given route list in order to keep track of files

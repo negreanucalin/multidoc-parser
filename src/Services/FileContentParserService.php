@@ -5,6 +5,7 @@ namespace Multidoc\Services;
 use Multidoc\DTO\ProjectDto;
 use Multidoc\Factories\AbstractFactory;
 use Multidoc\Factories\RouteFactory;
+use Multidoc\Normalizers\DataNormalizer;
 use SplFileObject;
 use Symfony\Component\Yaml\Yaml;
 
@@ -15,9 +16,9 @@ class FileContentParserService
      */
     private AbstractFactory $abstractFactory;
 
-    private DataNormalizerService $dataNormalizer;
+    private DataNormalizer $dataNormalizer;
 
-    public function __construct(AbstractFactory $abstractFactory, DataNormalizerService $dataNormalizer)
+    public function __construct(AbstractFactory $abstractFactory, DataNormalizer $dataNormalizer)
     {
         $this->abstractFactory = $abstractFactory;
         $this->dataNormalizer = $dataNormalizer;
