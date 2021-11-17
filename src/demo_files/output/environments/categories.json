@@ -5,7 +5,7 @@
             "name": "Default minimum set-up",
             "children": [
                 {
-                    "id": "3de30843945e338785a16cc05f7cf4b7c0930516",
+                    "id": "8e91bbae8956c2e43f00bb6949840a1a7d9be158",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
@@ -33,7 +33,7 @@
                     }
                 },
                 {
-                    "id": "01ca637cae3b27cca67e7ecd3a5e3d274ad20782",
+                    "id": "4ea32abcd6fe3e80df0241f79679f012cb06a46e",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -53,7 +53,7 @@
                     }
                 },
                 {
-                    "id": "b6e3644659aab10cb82fafad9c651a4a5186dc73",
+                    "id": "35be17ce301e782b7c9de10bbc7d70b4590cc18e",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -89,7 +89,7 @@
                     }
                 },
                 {
-                    "id": "6bc22d64d8c87f67efee8a4c0992a621728debfa",
+                    "id": "1dda1498e3bd7a1bcdf2d35e7d7ef8d3824ee2fc",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -125,7 +125,7 @@
                     }
                 },
                 {
-                    "id": "c675fc79919da1d1445b329655424053d7d2e320",
+                    "id": "4dcec97a1a99ca858489eecbf7a3d169e83b82c2",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {

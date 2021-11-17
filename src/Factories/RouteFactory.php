@@ -40,6 +40,13 @@ class RouteFactory
         if (array_key_exists('request', $routeArray)) {
             $routData['request'] = $routeArray['request'];
         }
+        if (isset($routeArray['request']) && isset($routeArray['request']['headers'])) {
+            $headers = [];
+            foreach ($routeArray['request']['headers'] as $index=>$header) {
+                $headers[] = [$index=>$header];
+            }
+            $routData['request']['headers'] = $headers;
+        }
         $routData['inputPath'] = $routeArray[self::FILE_PATH_KEY];
         return new RouteDto($routData);
     }

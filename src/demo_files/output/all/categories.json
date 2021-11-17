@@ -5,7 +5,7 @@
             "name": "Default minimum with tags & authorization",
             "children": [
                 {
-                    "id": "f0b8cd030ae9d3997fbe8324004ca145c259b1cf",
+                    "id": "8be8cb798c8abc297b50f98a47fbde30b5042e38",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
@@ -37,7 +37,7 @@
                     ]
                 },
                 {
-                    "id": "0beecea183862deaf4b1b4a80486422006ada3aa",
+                    "id": "0131028e70d748a84374a6d464ef3eca739d63b2",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -61,7 +61,7 @@
                     ]
                 },
                 {
-                    "id": "a6483cfb7a0bfbb8018208f0b9df1d3dcfcf61ac",
+                    "id": "5acba999e3e6e12444858b57fb30ae5ff483e849",
                     "name": "User partial update",
                     "description": "Within this route users get updated",
                     "request": {
@@ -101,7 +101,7 @@
                     ]
                 },
                 {
-                    "id": "a04e68d104f5ec14f4ee94b2509463b996dd0a85",
+                    "id": "dc6b2bbfc418b7ce51239b0be5f36d6e3a56502b",
                     "name": "User retrieval",
                     "description": "Within this route users get created",
                     "request": {
@@ -141,7 +141,7 @@
                     ]
                 },
                 {
-                    "id": "ee4b309e56ce06f64f32b02d2578ba7b66ce1c62",
+                    "id": "6efcae3dc48b62e9425e1829fd13221905d93c8c",
                     "name": "User delete",
                     "description": "Within this route users get deleted",
                     "request": {
@@ -171,7 +171,7 @@
             "name": "Basic",
             "children": [
                 {
-                    "id": "a36956c40168a080a88c5e3368c9f2287ba6dc5d",
+                    "id": "feb9db1dff28da37561c338bfc8ea1b11f9c72e2",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information. Headers will be set AUTOMATICALLY if not defined\n",
                     "request": {
@@ -199,7 +199,7 @@
                     }
                 },
                 {
-                    "id": "6230fddf5856a1f4b0828683403c55342e583a29",
+                    "id": "1d7cf3362bd1a20604b485e5d3311053f76c251e",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -219,7 +219,7 @@
                     }
                 },
                 {
-                    "id": "b3b8f2cd2153f208fb638788611cd4407a2c3fe8",
+                    "id": "26f2c83fcbe32b687d8e75685324cf0a76fb9614",
                     "name": "User activity",
                     "description": "Get user activity in the last x days",
                     "request": {
@@ -248,7 +248,7 @@
                     }
                 },
                 {
-                    "id": "c0d8c043ff0cbb9f655d63f3b34b33141b677e41",
+                    "id": "7609f077d8880fde75842598215bbeb6a4bdb1a0",
                     "name": "User partial update",
                     "description": "Within this route users partial update the user",
                     "request": {
@@ -284,7 +284,7 @@
                     }
                 },
                 {
-                    "id": "810dc745eb4af6c7627433b322927d607b9ae8bc",
+                    "id": "0237460f2f710ee683c90246f5236ab8fe1af9f3",
                     "name": "User partial update",
                     "description": "Within this route users get updated",
                     "request": {
@@ -320,7 +320,7 @@
                     }
                 },
                 {
-                    "id": "8848548fa706047cb3150bcd40ade4bc553ef034",
+                    "id": "8f4fc0e327c91118577c6a5536a261c38a56d5a9",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -346,7 +346,7 @@
             "name": "Basic compact config",
             "children": [
                 {
-                    "id": "c3d843b61635fd65b9ffdcd25f924353955bea93",
+                    "id": "ff26a51c9a94562085cdc916647a8038aec70952",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
@@ -374,7 +374,7 @@
                     }
                 },
                 {
-                    "id": "bbf973130a2a41fc11227a72191a3d2acc0199b1",
+                    "id": "3d4900b88b5848e1dcd29fc7854046b797c867ca",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -394,7 +394,7 @@
                     }
                 },
                 {
-                    "id": "d151b4a1ce6ea828d124a419ddee511dbb1f0960",
+                    "id": "06da9e806f3b49e2cfbf15600558cec179a72713",
                     "name": "User partial update",
                     "description": "Within this route users partial update the user",
                     "request": {
@@ -430,7 +430,7 @@
                     }
                 },
                 {
-                    "id": "ea79986372182d740e1a5663524afdf76d66d3c7",
+                    "id": "fd11e1818f439a6b9dc20bdaa1f5920aac247e56",
                     "name": "User partial update",
                     "description": "Within this route users get updated",
                     "request": {
@@ -466,7 +466,7 @@
                     }
                 },
                 {
-                    "id": "1c39693feeb7b38b4780a3f6150453db22dc724e",
+                    "id": "1ab6f29edbb329c534b4ebfdb02bdfff2f44a637",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -492,7 +492,7 @@
             "name": "Default minimum set-up",
             "children": [
                 {
-                    "id": "2417fd069d8b9f1f96dca2366ec17b37166e78ac",
+                    "id": "7d9a71d153a9bfb531557d4a5fce52f10d8c3698",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
@@ -520,7 +520,7 @@
                     }
                 },
                 {
-                    "id": "ff923d995aa021c86fcafb22c850fb4235855a2c",
+                    "id": "0e3f1dfd4ccfc7db843b520a5c017b669cb5bcd7",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -540,7 +540,7 @@
                     }
                 },
                 {
-                    "id": "bf33f7e56f78e271ac79fa3a5bd6ce7281db0c49",
+                    "id": "80615819a8fdb3bc3adc291e1bf5245f78f9d228",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -576,7 +576,7 @@
                     }
                 },
                 {
-                    "id": "b23f15823c7f7df9700b66fe473ae51acd730aa3",
+                    "id": "c37c9820f7c27f0379b8c734883ee4a2b6424e48",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -612,7 +612,7 @@
                     }
                 },
                 {
-                    "id": "d3b530a0e70bbd6823536beff35b44e5c470ee18",
+                    "id": "ce17c0beb50ae929839434cc5ae0468746cd9ce8",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -638,7 +638,7 @@
             "name": "File upload demo",
             "children": [
                 {
-                    "id": "64ab31ff9b97a792131144e335dd69aef405237c",
+                    "id": "5cff1f23b03f35c9e41c35ade82cd24112d8ba1e",
                     "name": "File upload",
                     "description": "File upload demo",
                     "request": {
@@ -675,17 +675,23 @@
             "name": "Basic compact config & headers",
             "children": [
                 {
-                    "id": "3ec1e646bedfca98328be70b59a2e7663084f42d",
+                    "id": "971d33931b159f802445adaa647a5527a5a3797f",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/oauth",
                         "method": "POST",
                         "needsAuthentication": false,
-                        "headers": {
-                            "name": "Content-Type",
-                            "value": "application\/vnd.test-multidoc.v1+json"
-                        },
+                        "headers": [
+                            {
+                                "name": "Content-Type",
+                                "value": "application\/vnd.test-multidoc.v1+json"
+                            },
+                            {
+                                "name": "Accept",
+                                "value": "application\/vnd.test-multidoc.v1+json"
+                            }
+                        ],
                         "params": [
                             {
                                 "type": "post",
@@ -713,7 +719,7 @@
             "name": "Basic compact config & headers and response",
             "children": [
                 {
-                    "id": "29fde2424a5328e804d843d94409c7b78ece26b4",
+                    "id": "850c08644bb1a0c9e54400ef925db394504a2a8c",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "response": {
@@ -728,10 +734,12 @@
                         "url": "https:\/\/jsonplaceholder.typicode.com\/oauth",
                         "method": "POST",
                         "needsAuthentication": false,
-                        "headers": {
-                            "name": "Content-Type",
-                            "value": "application\/vnd.test-multidoc.v1+json"
-                        },
+                        "headers": [
+                            {
+                                "name": "Content-Type",
+                                "value": "application\/vnd.test-multidoc.v1+json"
+                            }
+                        ],
                         "params": [
                             {
                                 "type": "post",
@@ -775,7 +783,7 @@
                                             "name": "Fifth level",
                                             "children": [
                                                 {
-                                                    "id": "6e63da721153abdd40a1bd985c647c1df5c3b723",
+                                                    "id": "ff194854ff3e7d81eb26f0d4f833d08e17705576",
                                                     "name": "User retrieval",
                                                     "description": "Within this route users get created",
                                                     "request": {
@@ -817,7 +825,7 @@
                                             ]
                                         },
                                         {
-                                            "id": "399c61d8a106a1f03f85c0e2b52f28caaddd956d",
+                                            "id": "5b5a4a12b52bd55d77c633a85b1def2e2f9901d6",
                                             "name": "User partial update",
                                             "description": "Within this route users get updated",
                                             "request": {
@@ -859,7 +867,7 @@
                                     ]
                                 },
                                 {
-                                    "id": "2dcce6ccf07e5f4e27bfebba34d250c3694ed48f",
+                                    "id": "4a50a9b2a9e33202777e8d0dd021347e9eb3270e",
                                     "name": "User retrieval",
                                     "description": "Within this route users get the user",
                                     "request": {
@@ -885,7 +893,7 @@
                             ]
                         },
                         {
-                            "id": "3cdd656104dfc022df7e70451301895f7b2d3b29",
+                            "id": "d1f103dd139f4a9a02066e017dc24de609016e96",
                             "name": "User authentication",
                             "description": "Within this route users get the access token in order to call the api and retrieve information",
                             "request": {
@@ -923,7 +931,7 @@
                     "name": "Another level",
                     "children": [
                         {
-                            "id": "539bf86e74dc0e123a6e298c4f8a5dc202878e3b",
+                            "id": "4f303f02a271abf5cd460bbbfbc7dd314bbbcf6d",
                             "name": "User delete",
                             "description": "Within this route users get deleted",
                             "request": {
@@ -955,7 +963,7 @@
             "name": "POST with json data",
             "children": [
                 {
-                    "id": "35a0f9209380a1677ad397a4fee5313601800d1c",
+                    "id": "b7ac08df9979476b762a5b8c16041596fc45e828",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
@@ -975,7 +983,7 @@
                     }
                 },
                 {
-                    "id": "6936db88131fa3ae02daf4962bd3b35a7fe78e13",
+                    "id": "7db3aaecc5852c84167334f43a0489dd66f260a5",
                     "name": "User authentication 2",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
@@ -1001,7 +1009,7 @@
             "name": "Basic compact",
             "children": [
                 {
-                    "id": "1bb2156faf59a4efaf412a5704033fb8074f9b28",
+                    "id": "fe9b09195603190b6bef621cf819c7ddbb6b2abe",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
@@ -1035,7 +1043,7 @@
             "name": "Default minimum with tags",
             "children": [
                 {
-                    "id": "07ade07fdc8e5e9c1086a21636a5b94205c0c7a3",
+                    "id": "f1ecd902f11dcc0fe1a0d5c32c1e64d2e35e1b90",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
@@ -1067,7 +1075,7 @@
                     ]
                 },
                 {
-                    "id": "110a2946d8ab0c39b14c90545cbb0a438fc7b3cb",
+                    "id": "5a5d6cf808f46a772c3c86ed9d6b92e8565d485c",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -1091,7 +1099,7 @@
                     ]
                 },
                 {
-                    "id": "6e456bbf12fbdc05d714033542c837c8d0a2f542",
+                    "id": "b34601a88c3cbe828193afeaa1f12db844712b07",
                     "name": "User partial update",
                     "description": "Within this route users get updated",
                     "request": {
@@ -1131,7 +1139,7 @@
                     ]
                 },
                 {
-                    "id": "915e282b155231ceb395252f308953c3bbea0b1c",
+                    "id": "6333b2119e29d0dafa606afe540ca8d0d9d6ee9e",
                     "name": "User retrieval",
                     "description": "Within this route users get created",
                     "request": {
@@ -1171,7 +1179,7 @@
                     ]
                 },
                 {
-                    "id": "63ede25d11e5336a820fb2ff64c6e4d42331ae35",
+                    "id": "15f58a4d1992ae15a8c2638e154013f7c7325d95",
                     "name": "User delete",
                     "description": "Within this route users get deleted",
                     "request": {

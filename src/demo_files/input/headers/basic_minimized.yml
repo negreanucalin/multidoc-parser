@@ -7,6 +7,7 @@ route_list:
       method: POST
       headers:
         Content-Type: application/vnd.test-multidoc.v1+json
+        Accept: application/vnd.test-multidoc.v1+json
       params:
         - name: username
           type: post

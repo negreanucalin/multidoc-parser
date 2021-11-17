@@ -5,7 +5,7 @@
             "name": "Default minimum with tags",
             "children": [
                 {
-                    "id": "bb709d179721a5f0ffb161e37b70539380ba08e0",
+                    "id": "d9a06d760a93fe5cc0b40d24c62663f72a92b234",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -14,12 +14,16 @@
                         "needsAuthentication": false,
                         "headers": [
                             {
-                                "name": "Accept",
-                                "value": "application\/json"
+                                "name": 0,
+                                "value": {
+                                    "Accept": "application\/json"
+                                }
                             },
                             {
-                                "name": "Authorization",
-                                "value": "Bearer APPLICATION_TOKEN"
+                                "name": 1,
+                                "value": {
+                                    "Authorization": "Bearer APPLICATION_TOKEN"
+                                }
                             }
                         ],
                         "params": [
@@ -35,7 +39,7 @@
                     }
                 },
                 {
-                    "id": "dea567e3470dbae125f0a67de39e68b861f36825",
+                    "id": "4ec9fe61ff0c8cbd26edee62bbc6d5a6d1478e0d",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {

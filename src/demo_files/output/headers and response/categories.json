@@ -5,7 +5,7 @@
             "name": "Basic compact config & headers and response",
             "children": [
                 {
-                    "id": "2ac4239155243d6ed2897c5bada11841c836a296",
+                    "id": "842c8efeeabeb25653fea007ff10c786ba6942f2",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "response": {
@@ -20,10 +20,12 @@
                         "url": "https:\/\/jsonplaceholder.typicode.com\/oauth",
                         "method": "POST",
                         "needsAuthentication": false,
-                        "headers": {
-                            "name": "Content-Type",
-                            "value": "application\/vnd.test-multidoc.v1+json"
-                        },
+                        "headers": [
+                            {
+                                "name": "Content-Type",
+                                "value": "application\/vnd.test-multidoc.v1+json"
+                            }
+                        ],
                         "params": [
                             {
                                 "type": "post",
