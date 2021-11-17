@@ -26,6 +26,10 @@ class RouteDto extends DataTransferObjectWithId
         'request' => RequestDto::class
     ];
 
+    protected $alias = [
+        'definitionFile'=>'inputPath'
+    ];
+
     public function jsonSerialize()
     {
         $data = array(

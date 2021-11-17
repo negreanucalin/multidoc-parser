@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: canegreanu
- * Date: 1/27/2017
- * Time: 9:40 AM
- */
-
 namespace Multidoc\Renderers;
 
 use Multidoc\DTO\CategoryDto;

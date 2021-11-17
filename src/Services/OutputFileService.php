@@ -1,19 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: KA
- * Date: 1/26/2017
- * Time: 9:00 PM
- */
-
 namespace Multidoc\Services;
 
 use Multidoc\DTO\CategoryDto;
 use Multidoc\DTO\ParameterDto;
 use Multidoc\DTO\ProjectDto;
 use Multidoc\DTO\RouteDto;
-use Multidoc\Factories\AbstractFactory;
-use Multidoc\Factories\RouteFactory;
 use Multidoc\Renderers\CategoryRenderer;
 use Symfony\Component\Filesystem\Filesystem;
 
@@ -119,7 +110,7 @@ class OutputFileService
      */
     private function moveExampleFilesFromRoute(RouteDto $route, $outputFolder)
     {
-        if($route->request->method == RouteFactory::ROUTE_METHOD_POST){
+        if($route->request->method == FileContentParserService::ROUTE_METHOD_POST){
             /**
              * @var $paramList ParameterDto[]
              */
@@ -129,7 +120,7 @@ class OutputFileService
                 return;
             }
             foreach($paramList as $parameter) {
-                if($parameter->data_type == AbstractFactory::PARAMETER_TYPE_FILE){
+                if($parameter->data_type == FileContentParserService::PARAMETER_TYPE_FILE){
                     $this->fileService->copy(
                         $route->inputPath.DIRECTORY_SEPARATOR.$parameter->example,
                         $outputFolder.DIRECTORY_SEPARATOR.$parameter->example,

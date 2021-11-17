@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: canegreanu
- * Date: 18-May-17
- * Time: 5:28 PM
- */
-
 namespace Multidoc\Services;
 
 use Symfony\Component\Filesystem\Exception\IOException;

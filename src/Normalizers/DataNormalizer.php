@@ -3,8 +3,8 @@
 namespace Multidoc\Normalizers;
 
 use Multidoc\Exceptions\UndefinedTemplateException;
-use Multidoc\Factories\RouteFactory;
-use SplFileObject;
+use Multidoc\Services\FileContentParserService;
+use Symfony\Component\Finder\SplFileInfo;
 
 class DataNormalizer
 {
@@ -12,25 +12,23 @@ class DataNormalizer
      * This method adds a file path to the given route list in order to keep track of files
      * which it might use for POST requests
      *
-     * @param $routeDefinitionList
-     * @param SplFileObject $file
-     * @return mixed
+     * @param array $routeDefinitionList
+     * @param SplFileInfo $file
+     * @return array
      */
-    public function hydrateFilesToRouteDefinitionList($routeDefinitionList, $file)
+    public function hydrateFilesToRouteDefinitionList(SplFileInfo $file, $routeDefinitionList)
     {
-        foreach ($routeDefinitionList[RouteFactory::ROUTE_PLURAL_KEY] as $key => $routeDefinition) {
-            $routeDefinitionList[RouteFactory::ROUTE_PLURAL_KEY][$key][RouteFactory::FILE_PATH_KEY] = $file->getPath();
+        foreach ($routeDefinitionList[FileContentParserService::ROUTE_PLURAL_KEY] as $key => $routeDefinition) {
+            $routeDefinitionList[FileContentParserService::ROUTE_PLURAL_KEY][$key][FileContentParserService::FILE_PATH_KEY] = $file->getPath();
         }
         return $routeDefinitionList;
     }
 
     /**
-     * Pre-convert data for DTO
-     *
-     * @param $routeDefinitionList
-     * @return array
+     * @param array[] $routeDefinitionList
+     * @return array[]
      */
-    public function formatHeaders($routeDefinitionList)
+    public function formatTagsAndStatusAndHeaders($routeDefinitionList)
     {
         foreach ($routeDefinitionList as $routeIndex => $routeDefinition) {
             if (isset($routeDefinition['request']) && isset($routeDefinition['request']['headers'])) {
@@ -40,6 +38,22 @@ class DataNormalizer
                 }
                 $routeDefinitionList[$routeIndex]['request']['headers'] = $headers;
             }
+            if (array_key_exists(FileContentParserService::TAGS_KEY, $routeDefinition)) {
+                $routeDefinitionList[$routeIndex]['tagList'] = [];
+                foreach ($routeDefinition[FileContentParserService::TAGS_KEY] as $tag) {
+                    $routeDefinitionList[$routeIndex]['tagList'][] = ['name' => $tag];
+                }
+                unset($routeDefinitionList[$routeIndex][FileContentParserService::TAGS_KEY]);
+            }
+            if (array_key_exists(FileContentParserService::STATUS_PLURAL_LIST, $routeDefinition)) {
+                $routeDefinitionList[$routeIndex]['statusList'] = [];
+                foreach ($routeDefinition[FileContentParserService::STATUS_PLURAL_LIST] as $status) {
+                    $routeDefinitionList[$routeIndex]['statusList'][] = ['name' => $status];
+                }
+                unset($routeDefinitionList[$routeIndex][FileContentParserService::STATUS_PLURAL_LIST]);
+            }
+            $routeDefinitionList[$routeIndex]['categoryId'] = $routeDefinitionList[$routeIndex]['category'];
+            unset($routeDefinitionList[$routeIndex]['category']);
         }
         return $routeDefinitionList;
     }

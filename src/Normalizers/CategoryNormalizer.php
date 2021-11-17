@@ -2,6 +2,7 @@
 
 namespace Multidoc\Normalizers;
 use Multidoc\DTO\CategoryDto;
+use Multidoc\DTO\ProjectDto;
 use Multidoc\DTO\RouteDto;
 
 class CategoryNormalizer
@@ -36,4 +37,13 @@ class CategoryNormalizer
         return null;
     }
 
+    public function linkObjects(ProjectDto $project, $routeList): ProjectDto
+    {
+        $this->assignRoutesToCategoryList(
+            $project->categories,
+            $routeList
+        );
+
+        return $project;
+    }
 }
