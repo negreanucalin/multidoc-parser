@@ -19,9 +19,11 @@ services:
       arguments: []
     file_content_parser_service:
       class: \Multidoc\Services\FileContentParserService
-      arguments: ['@abstract_factory']
+      arguments: ['@abstract_factory','@data_normalizer']
     input_file_service:
       class: \Multidoc\Services\InputFileService
+    data_normalizer:
+      class: \Multidoc\Services\DataNormalizerService
     output_file_service:
       class: \Multidoc\Services\OutputFileService
       arguments: ['@file_system','@category_renderer']

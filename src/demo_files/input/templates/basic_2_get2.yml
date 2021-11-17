@@ -6,4 +6,4 @@ route:
     url: 'https://jsonplaceholder.typicode.com/[:userId]/friends'
     method: GET
     params:
-      - user_id_2
+      - template_user_id_2

@@ -1,6 +1,6 @@
 templates:
   params:
-    user_id_2:
+    template_user_id_2:
       - name: userId
         type: uri
         data_type: int

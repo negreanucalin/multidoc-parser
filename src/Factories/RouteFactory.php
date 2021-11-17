@@ -3,7 +3,6 @@
 namespace Multidoc\Factories;
 
 use Multidoc\DTO\RouteDto;
-use Multidoc\Exceptions\UndefinedTemplateException;
 
 class RouteFactory
 {
@@ -40,94 +39,17 @@ class RouteFactory
         if (array_key_exists('request', $routeArray)) {
             $routData['request'] = $routeArray['request'];
         }
-        if (isset($routeArray['request']) && isset($routeArray['request']['headers'])) {
-            $headers = [];
-            foreach ($routeArray['request']['headers'] as $index=>$header) {
-                $headers[] = [$index=>$header];
-            }
-            $routData['request']['headers'] = $headers;
-        }
         $routData['inputPath'] = $routeArray[self::FILE_PATH_KEY];
         return new RouteDto($routData);
     }
 
-    public function buildRouteListFromArray($templates, $routeListArray)
+    public function buildRouteListFromArray($routeListArray)
     {
         $routeList = array();
         foreach ($routeListArray as $routeArray) {
-            $routeArray = $this->fillInTemplates($templates, $routeArray);
             $routeList[] = $this->buildRouteFromArray($routeArray);
         }
         return $routeList;
-    }
-
-    /**
-     * @throws UndefinedTemplateException
-     */
-    private function fillInTemplates($templates, $routeArray)
-    {
-        if (empty($templates)) {
-            return $routeArray;
-        }
-        $routeArray = $this->parseParameters($templates, $routeArray);
-        return $this->parseHeaders($templates, $routeArray);
-    }
-
-    /**
-     * @throws UndefinedTemplateException
-     */
-    private function parseParameters($templates, $routeArray)
-    {
-        if (!isset($routeArray['request']['params'])) {
-            return $routeArray;
-        }
-        $templatesToFill = [];
-        foreach ($routeArray['request']['params'] as $index => $paramDefined) {
-            if (!isset($paramDefined['name'])) { // template
-                if (!isset($templates['params'][$paramDefined])) {
-                    throw new UndefinedTemplateException($paramDefined);
-                }
-                $templatesToFill[] = $paramDefined;
-                unset($routeArray['request']['params'][$index]);
-            }
-        }
-        foreach($templatesToFill as $template) {
-            $routeArray['request']['params'] = array_merge_recursive(
-                $routeArray['request']['params'],
-                $templates['params'][$template]
-            );
-        }
-        return $routeArray;
-    }
-
-    /**
-     * @throws UndefinedTemplateException
-     */
-    private function parseHeaders($templates, $routeArray)
-    {
-        if (!isset($routeArray['request']['headers'])) {
-            return $routeArray;
-        }
-        $templatesToFill = [];
-        foreach ($routeArray['request']['headers'] as $index => $headerTemplate) {
-            if (is_array($headerTemplate)) {
-                continue;
-            }
-            if (is_numeric($index)) { // template
-                if (!isset($templates['headers'][$headerTemplate])) {
-                    throw new UndefinedTemplateException($headerTemplate);
-                }
-                $templatesToFill[] = $headerTemplate;
-                unset($routeArray['request']['headers'][$index]);
-            }
-        }
-        foreach($templatesToFill as $template) {
-            $routeArray['request']['headers'] = array_merge_recursive(
-                $routeArray['request']['headers'],
-                $templates['headers'][$template]
-            );
-        }
-        return $routeArray;
     }
 
 }

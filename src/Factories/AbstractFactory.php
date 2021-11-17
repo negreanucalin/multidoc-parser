@@ -3,7 +3,6 @@ namespace Multidoc\Factories;
 
 use Multidoc\DTO\ProjectDto;
 use Multidoc\Exceptions\CategoriesNotFoundException;
-use Multidoc\Exceptions\ObjectsNotLoadedException;
 use Multidoc\Exceptions\ProjectNotDefinedException;
 use Multidoc\Exceptions\RoutesNotDefinedException;
 
@@ -14,6 +13,8 @@ class AbstractFactory
     public const PARAMETER_TYPE_FILE = 'file';
     public const CATEGORY_PLURAL_KEY = 'categories';
     public const TEMPLATES_KEY = 'templates';
+    public const PROJECT_KEY = 'project';
+    public const FILE_PATH_KEY = 'definitionFile';
 
     private ProjectFactory $projectFactory;
     private RouteFactory $routeFactory;
@@ -51,9 +52,9 @@ class AbstractFactory
             'routes' => array()
         );
 
-        if (isset($bigAssArray[ProjectFactory::PROJECT_KEY])) {
+        if (isset($bigAssArray[self::PROJECT_KEY])) {
             $generatedEntities['project'] = $this->projectFactory->buildProjectFromArray(
-                $bigAssArray[ProjectFactory::PROJECT_KEY],
+                $bigAssArray[self::PROJECT_KEY],
                 $bigAssArray[self::CATEGORY_PLURAL_KEY]
             );
         } else {
@@ -63,7 +64,6 @@ class AbstractFactory
             $generatedEntities['routes'] = array_merge(
                 $generatedEntities['routes'],
                 $this->routeFactory->buildRouteListFromArray(
-                    $bigAssArray[self::TEMPLATES_KEY],
                     $bigAssArray[RouteFactory::ROUTE_PLURAL_KEY]
                 )
             );
