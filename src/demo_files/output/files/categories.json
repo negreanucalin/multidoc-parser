@@ -5,13 +5,13 @@
             "name": "File upload demo",
             "children": [
                 {
-                    "id": "55f1f1c25f6eb725993eedd126dad23f3891d11c",
+                    "id": "059867164d9d32216fdac563e1c600d0b7d270bc",
                     "name": "File upload",
                     "description": "File upload demo",
                     "request": {
                         "url": "{{environment}}\/upload",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "post",

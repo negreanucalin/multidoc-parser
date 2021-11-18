@@ -5,13 +5,13 @@
             "name": "Basic compact",
             "children": [
                 {
-                    "id": "c90bb12b66cafe60954f6629f8ba2a9492a964b0",
+                    "id": "ec93fb0314341953221b05ddc777632222cb41df",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/oauth",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "post",

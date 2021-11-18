@@ -21,13 +21,13 @@
                                             "name": "Fifth level",
                                             "children": [
                                                 {
-                                                    "id": "a02efcf80c63d0aa538353b0f6ca8d17ca333198",
+                                                    "id": "329b6edff914e1d8043a9df2215ccc0ad85bfd7c",
                                                     "name": "User retrieval",
                                                     "description": "Within this route users get created",
                                                     "request": {
                                                         "url": "{{environment}}[\/:userId]",
                                                         "method": "PUT",
-                                                        "needsAuthentication": false,
+                                                        "isSecured": false,
                                                         "params": [
                                                             {
                                                                 "type": "uri",
@@ -63,13 +63,13 @@
                                             ]
                                         },
                                         {
-                                            "id": "f4496c341debef4f5a572af4478026395d7ab989",
+                                            "id": "910710b7fad7f0c0fd837d61d4b6566928c0b5d1",
                                             "name": "User partial update",
                                             "description": "Within this route users get updated",
                                             "request": {
                                                 "url": "{{environment}}[\/:userId]",
                                                 "method": "PATCH",
-                                                "needsAuthentication": false,
+                                                "isSecured": false,
                                                 "params": [
                                                     {
                                                         "type": "uri",
@@ -105,13 +105,13 @@
                                     ]
                                 },
                                 {
-                                    "id": "4f3a13a841e4eb75a48995d293498dbea8fb9b8f",
+                                    "id": "750f36af890fa01fbb5a714924881f4b65c2a9b4",
                                     "name": "User retrieval",
                                     "description": "Within this route users get the user",
                                     "request": {
                                         "url": "{{environment}}[\/:userId]",
                                         "method": "GET",
-                                        "needsAuthentication": false,
+                                        "isSecured": false,
                                         "params": [
                                             {
                                                 "type": "uri",
@@ -131,13 +131,13 @@
                             ]
                         },
                         {
-                            "id": "dbbad7c809ccdeb6eb9f3d7005d1e223dde55609",
+                            "id": "89b86268f7e499662063e371c9e99e0f478df623",
                             "name": "User authentication",
                             "description": "Within this route users get the access token in order to call the api and retrieve information",
                             "request": {
                                 "url": "{{environment}}\/oauth",
                                 "method": "POST",
-                                "needsAuthentication": false,
+                                "isSecured": false,
                                 "params": [
                                     {
                                         "type": "post",
@@ -169,13 +169,13 @@
                     "name": "Another level",
                     "children": [
                         {
-                            "id": "25d803e7d4352c60c642b1f70c95fdd81a284c3f",
+                            "id": "8189f54a7e72efc72cbc42bbf52b607c30cec011",
                             "name": "User delete",
                             "description": "Within this route users get deleted",
                             "request": {
                                 "url": "{{environment}}[\/:userId]",
                                 "method": "DELETE",
-                                "needsAuthentication": false,
+                                "isSecured": false,
                                 "params": [
                                     {
                                         "type": "uri",

@@ -24,7 +24,7 @@ class RequestDto extends DataTransferObject
         $data = array(
             'url'=>$this->url,
             'method'=>$this->method,
-            'needsAuthentication'=>$this->secured
+            'isSecured'=> $this->secured
         );
         if($this->headers){
             $data['headers'] = $this->headers;

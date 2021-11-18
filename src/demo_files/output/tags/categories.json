@@ -5,13 +5,13 @@
             "name": "Default minimum with tags",
             "children": [
                 {
-                    "id": "70b48efd03b6c4601c5d05e851ed20cccde24c82",
+                    "id": "196dfe3e43b76008cfa768ead4bb7af5da3f1396",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
                         "url": "{{environment}}\/oauth",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "post",
@@ -37,13 +37,13 @@
                     ]
                 },
                 {
-                    "id": "90f9debf7d6d1f48ad8709be249a40375f710051",
+                    "id": "d086d2bd29c4178099a972e0890376846215f184",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "GET",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -61,13 +61,13 @@
                     ]
                 },
                 {
-                    "id": "9dc70b40bbc0df1776ad4b28b5f73ed75b19be3f",
+                    "id": "0021e071a9f725dcee9cd18e703a488b9976d957",
                     "name": "User partial update",
                     "description": "Within this route users get updated",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "PATCH",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -101,13 +101,13 @@
                     ]
                 },
                 {
-                    "id": "7030acb6690b1e84756824f9cf725e07a26ff132",
+                    "id": "30fd7d98c16da58079cab9921c14a57a0416328e",
                     "name": "User retrieval",
                     "description": "Within this route users get created",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "PUT",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -141,13 +141,13 @@
                     ]
                 },
                 {
-                    "id": "836255c912d3d69a6d544a134a1409d43bb869e8",
+                    "id": "4487245be54946365b17c1ed86740f6d70895830",
                     "name": "User delete",
                     "description": "Within this route users get deleted",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "DELETE",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",

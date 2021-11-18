@@ -5,13 +5,13 @@
             "name": "Default minimum with tags & authorization",
             "children": [
                 {
-                    "id": "21d262b2be7d7278edc055153e729e6d9232bbf5",
+                    "id": "32ab39a228315819ce5c2a461b04b747b26f7120",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
                         "url": "{{environment}}\/oauth",
                         "method": "POST",
-                        "needsAuthentication": true,
+                        "isSecured": true,
                         "params": [
                             {
                                 "type": "post",
@@ -37,13 +37,13 @@
                     ]
                 },
                 {
-                    "id": "6d8ad55d4bbdce1e81e43ed6ada619c92ac1b888",
+                    "id": "f101272c0c3a24b581af1fb85fe90b7d8ab525a5",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "GET",
-                        "needsAuthentication": true,
+                        "isSecured": true,
                         "params": [
                             {
                                 "type": "uri",
@@ -61,13 +61,13 @@
                     ]
                 },
                 {
-                    "id": "6bf5838e30094568afeb9a29f6d09a26e166aa4f",
+                    "id": "fa04397bfefdb1e87bf96b31b1dd6df56298b73f",
                     "name": "User partial update",
                     "description": "Within this route users get updated",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "PATCH",
-                        "needsAuthentication": true,
+                        "isSecured": true,
                         "params": [
                             {
                                 "type": "uri",
@@ -101,13 +101,13 @@
                     ]
                 },
                 {
-                    "id": "b7b9264d402ae384c83f15d1ae2f2c4b87cd61ab",
+                    "id": "85a5de6f95100de0962b4ff68b6aef529aff68d8",
                     "name": "User retrieval",
                     "description": "Within this route users get created",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "PUT",
-                        "needsAuthentication": true,
+                        "isSecured": true,
                         "params": [
                             {
                                 "type": "uri",
@@ -141,13 +141,13 @@
                     ]
                 },
                 {
-                    "id": "cf86f43e58d6604b76df7250aa46f3917110620e",
+                    "id": "f3f4ba40416a2a7088495446054063758b6d4f3a",
                     "name": "User delete",
                     "description": "Within this route users get deleted",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "DELETE",
-                        "needsAuthentication": true,
+                        "isSecured": true,
                         "params": [
                             {
                                 "type": "uri",
@@ -171,13 +171,13 @@
             "name": "Basic",
             "children": [
                 {
-                    "id": "8d2041e82d54b6e2f8bc6f768ed8975470f26b8d",
+                    "id": "4ff3bae74d0c3f19f7eed16e169784ba303bb019",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information. Headers will be set AUTOMATICALLY if not defined\n",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/oauth",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "post",
@@ -199,13 +199,13 @@
                     }
                 },
                 {
-                    "id": "e2ce77339e44ab5a188de44fe15f728c30ca0ead",
+                    "id": "d8a2f6c5535b3ec4a8957733511388489c053785",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
                         "method": "GET",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -219,13 +219,13 @@
                     }
                 },
                 {
-                    "id": "9ae09b51acaa6e9c8ad5cbfd6ec8e5fce198f4bf",
+                    "id": "58057109ceeefb7fa042fd3deb0c2b5d77cedd07",
                     "name": "User activity",
                     "description": "Get user activity in the last x days",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/[:userId]\/activity\/?days=[:days]",
                         "method": "GET",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -248,13 +248,13 @@
                     }
                 },
                 {
-                    "id": "a3dc96ca35029a298c097857e13ab6cccae45f1e",
+                    "id": "f3fd2cf1bb084e263f267a5d6409fe4efef91426",
                     "name": "User partial update",
                     "description": "Within this route users partial update the user",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
                         "method": "PATCH",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -284,13 +284,13 @@
                     }
                 },
                 {
-                    "id": "eca243dfecc1cbcbddd17093dd5db307fcb36448",
+                    "id": "083508ff01b431df3f0c97af83905a865ed60791",
                     "name": "User partial update",
                     "description": "Within this route users get updated",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
                         "method": "PUT",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -320,13 +320,13 @@
                     }
                 },
                 {
-                    "id": "8989009a069c9e1cd7b9ec2df51025e52a467412",
+                    "id": "bcdee5b1e69bce71c0dde24f80be3372b1a43c85",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
                         "method": "DELETE",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -346,13 +346,13 @@
             "name": "Basic compact config",
             "children": [
                 {
-                    "id": "a569c82389c4ea2d5eafb7df96f102583ca4fc15",
+                    "id": "ba19af342240e2b8471cf29b4d7b0f5be9541203",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/oauth",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "post",
@@ -374,13 +374,13 @@
                     }
                 },
                 {
-                    "id": "d162ac9df1083bcd6f7b242d34893fe9cc9006c6",
+                    "id": "8f89bd09e6d8316b3861620e48ad4f4a1adee6e7",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
                         "method": "GET",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -394,13 +394,13 @@
                     }
                 },
                 {
-                    "id": "b8c62290edde3cc87baac080bbf9f67479b9e000",
+                    "id": "518f1c83b14774bb19e18256c57efa3c6cf5b266",
                     "name": "User partial update",
                     "description": "Within this route users partial update the user",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
                         "method": "PATCH",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -430,13 +430,13 @@
                     }
                 },
                 {
-                    "id": "a9cb29695fcb278b477de54039c345af6afae1ee",
+                    "id": "b97189f1aa0efe609afe7b5dda43ae880fa99e5e",
                     "name": "User partial update",
                     "description": "Within this route users get updated",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
                         "method": "PUT",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -466,13 +466,13 @@
                     }
                 },
                 {
-                    "id": "384c3dc3a2b26cbc4aa61df752648dd2d716dc66",
+                    "id": "f81ab403c86355aa91e481966a8e4625de9074a6",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
                         "method": "DELETE",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -492,13 +492,13 @@
             "name": "Default minimum set-up",
             "children": [
                 {
-                    "id": "94d0cd4d6998bf9d327da26283fdd8bf1c14ad78",
+                    "id": "88fbc4f09a3b79f4ad1494b8dbd0040752322cd3",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
                         "url": "{{environment}}\/oauth",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "post",
@@ -520,13 +520,13 @@
                     }
                 },
                 {
-                    "id": "dee1a5bfbce3c98d1c7f8c65998e3893ac4a02a0",
+                    "id": "e0ec37dd31e664901157b63c17d3e69cd7e8de72",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "GET",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -540,13 +540,13 @@
                     }
                 },
                 {
-                    "id": "db9033aab21ad8bd670b42bff35708d92630128e",
+                    "id": "a03620ef16a62f4662802e1dd5b7e3ddc559762c",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "PATCH",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -576,13 +576,13 @@
                     }
                 },
                 {
-                    "id": "014f7b882d22631e108df5ac4657781c4b35d54d",
+                    "id": "7a57236f286279067476bf46a4e78ff95083685f",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "PUT",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -612,13 +612,13 @@
                     }
                 },
                 {
-                    "id": "6571067284a5198a3128febac4b64400fae54d4f",
+                    "id": "19e4da9c1e5c5372d2a4cf5e12a2746504202748",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "DELETE",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -638,13 +638,13 @@
             "name": "File upload demo",
             "children": [
                 {
-                    "id": "6506facb810d1c72e99e275e10f6ea87fd855d3e",
+                    "id": "f49b2511dfa35e92466075a6661e1fd9f830ddc1",
                     "name": "File upload",
                     "description": "File upload demo",
                     "request": {
                         "url": "{{environment}}\/upload",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "post",
@@ -675,13 +675,13 @@
             "name": "Basic compact config & headers",
             "children": [
                 {
-                    "id": "94b2e86cd335c4e5d781ca830f35654a8773031d",
+                    "id": "1fa468d79b6b75a84c9b45357eec48729b756643",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/oauth",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "headers": [
                             {
                                 "name": "Content-Type",
@@ -719,7 +719,7 @@
             "name": "Basic compact config & headers and response",
             "children": [
                 {
-                    "id": "c089bbf7d342d45e702214a2aa142576420b4411",
+                    "id": "42c5af682b154650db9a760f541d2ffea5acbea5",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "response": {
@@ -734,7 +734,7 @@
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/oauth",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "headers": [
                             {
                                 "name": "Content-Type",
@@ -784,13 +784,13 @@
                                             "name": "Fifth level",
                                             "children": [
                                                 {
-                                                    "id": "c7da7487e2257ef91e52f6e87a5c002090cac4de",
+                                                    "id": "c97d1eee375df27d9f4951b19bd4b125a158c84b",
                                                     "name": "User retrieval",
                                                     "description": "Within this route users get created",
                                                     "request": {
                                                         "url": "{{environment}}[\/:userId]",
                                                         "method": "PUT",
-                                                        "needsAuthentication": false,
+                                                        "isSecured": false,
                                                         "params": [
                                                             {
                                                                 "type": "uri",
@@ -826,13 +826,13 @@
                                             ]
                                         },
                                         {
-                                            "id": "c6ca3b5f046672ff2c89e4669a4c4a896ad443a0",
+                                            "id": "e823e9266ce61aaea43ded2c269e049ee56c1466",
                                             "name": "User partial update",
                                             "description": "Within this route users get updated",
                                             "request": {
                                                 "url": "{{environment}}[\/:userId]",
                                                 "method": "PATCH",
-                                                "needsAuthentication": false,
+                                                "isSecured": false,
                                                 "params": [
                                                     {
                                                         "type": "uri",
@@ -868,13 +868,13 @@
                                     ]
                                 },
                                 {
-                                    "id": "b9fe7a610020f020c03bb48893c0453619bfadd8",
+                                    "id": "b1cb3384bf508f7baf7794a63c26fa2494525ae7",
                                     "name": "User retrieval",
                                     "description": "Within this route users get the user",
                                     "request": {
                                         "url": "{{environment}}[\/:userId]",
                                         "method": "GET",
-                                        "needsAuthentication": false,
+                                        "isSecured": false,
                                         "params": [
                                             {
                                                 "type": "uri",
@@ -894,13 +894,13 @@
                             ]
                         },
                         {
-                            "id": "a3daacb92cc97eed4f1f17d9dd9e82009af586ab",
+                            "id": "706e3f70cd1e9a5d06efe2160aa4359064fdf240",
                             "name": "User authentication",
                             "description": "Within this route users get the access token in order to call the api and retrieve information",
                             "request": {
                                 "url": "{{environment}}\/oauth",
                                 "method": "POST",
-                                "needsAuthentication": false,
+                                "isSecured": false,
                                 "params": [
                                     {
                                         "type": "post",
@@ -932,13 +932,13 @@
                     "name": "Another level",
                     "children": [
                         {
-                            "id": "9dfb29caae370b1a0f49cef992f3b8c92a951692",
+                            "id": "ddb057e336b9a1164f9fdeb8570c71aecb34b633",
                             "name": "User delete",
                             "description": "Within this route users get deleted",
                             "request": {
                                 "url": "{{environment}}[\/:userId]",
                                 "method": "DELETE",
-                                "needsAuthentication": false,
+                                "isSecured": false,
                                 "params": [
                                     {
                                         "type": "uri",
@@ -964,13 +964,13 @@
             "name": "POST with json data",
             "children": [
                 {
-                    "id": "cabe472162659c89e3e1d0544f9c15b99ae309e1",
+                    "id": "043f30a17ac4fd62b95baf072525e60c310051a9",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/oauth\/json",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "post",
@@ -984,13 +984,13 @@
                     }
                 },
                 {
-                    "id": "70f49a8e1e169e01fd99100164679fdbaab51ae1",
+                    "id": "7901f3d15e7d15e9b7e6e0580127c809d0989f2b",
                     "name": "User authentication 2",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/oauth\/json2",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "post",
@@ -1010,13 +1010,13 @@
             "name": "Basic compact",
             "children": [
                 {
-                    "id": "b1fbb8e2185e61b4b663fc20f5bd554fcd56d1f6",
+                    "id": "0accbb5542c8360660d745ab1563cdfb7e896696",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/oauth",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "post",
@@ -1044,13 +1044,13 @@
             "name": "Default minimum with tags",
             "children": [
                 {
-                    "id": "0eede1d4b6720b0665278145d53b054f7b97adc1",
+                    "id": "8af43ddafdfefb9bee37ce671d7a5ac65c1fb668",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
                         "url": "{{environment}}\/oauth",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "post",
@@ -1076,13 +1076,13 @@
                     ]
                 },
                 {
-                    "id": "d45a363bc5bcce749c1620846b42084db0dd6bdd",
+                    "id": "d3f266e2b4d811413621ebde4dfac6aaca6efa92",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "GET",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -1100,13 +1100,13 @@
                     ]
                 },
                 {
-                    "id": "b1e3f57fdc0fdab788a8487a5252e21f86bed255",
+                    "id": "17b4a6b542b1e3a4ad2497a2497c750f1752e47f",
                     "name": "User partial update",
                     "description": "Within this route users get updated",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "PATCH",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -1140,13 +1140,13 @@
                     ]
                 },
                 {
-                    "id": "b4c5fcfd7d018e0dd42e73c505ef604a75bff19b",
+                    "id": "4594409703ab25af9bee55063012fd8ca93bcf10",
                     "name": "User retrieval",
                     "description": "Within this route users get created",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "PUT",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -1180,13 +1180,13 @@
                     ]
                 },
                 {
-                    "id": "ccd1854195ced8cf080a1179aa154aed4c8b5e64",
+                    "id": "96867c1e7d36dedc09b854d4d7a7d45337c70671",
                     "name": "User delete",
                     "description": "Within this route users get deleted",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "DELETE",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",

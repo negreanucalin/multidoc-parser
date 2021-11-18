@@ -5,13 +5,13 @@
             "name": "Basic compact config",
             "children": [
                 {
-                    "id": "14c576030ab89e8b5982b3e71d6fae095a2ab388",
+                    "id": "27d7f061ffa31a2a951e24a04e8b75ca39aeb4ad",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/oauth",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "post",
@@ -33,13 +33,13 @@
                     }
                 },
                 {
-                    "id": "72d8e1630e892894fa6af2b97e4942b37780a9b0",
+                    "id": "a77f0cbcb71edb5a1a0789bf7092cd13580b9e0f",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
                         "method": "GET",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -53,13 +53,13 @@
                     }
                 },
                 {
-                    "id": "d50c70527c8d69a052a854f0e5660d9f293a2e98",
+                    "id": "4a9a8eb2b300a389f8628108be64951f491ede8b",
                     "name": "User partial update",
                     "description": "Within this route users partial update the user",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
                         "method": "PATCH",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -89,13 +89,13 @@
                     }
                 },
                 {
-                    "id": "68bac48854d29396f90430691638f853664a33f7",
+                    "id": "97307c0a0dac273f81341b6fe5cd75d19f58239f",
                     "name": "User partial update",
                     "description": "Within this route users get updated",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
                         "method": "PUT",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -125,13 +125,13 @@
                     }
                 },
                 {
-                    "id": "cdffdcfc91653b5385059407e01026cc17cd342b",
+                    "id": "c425b127481175a4d3f20c5385a9e49a0738f811",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
                         "method": "DELETE",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",

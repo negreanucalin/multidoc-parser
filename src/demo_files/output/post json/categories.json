@@ -5,13 +5,13 @@
             "name": "POST with json data",
             "children": [
                 {
-                    "id": "7d332810eb59d95a83dbc13608a81c5595d47877",
+                    "id": "64cfc1c0b6833dd296648827194c504d7473b03f",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/oauth\/json",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "post",
@@ -25,13 +25,13 @@
                     }
                 },
                 {
-                    "id": "4d98c790e3637342b6513bac09e068881462ef15",
+                    "id": "7fd092fc6733ab421475a7b9ab7d3e2afd1ea8b6",
                     "name": "User authentication 2",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/oauth\/json2",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "post",

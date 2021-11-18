@@ -5,7 +5,7 @@
             "name": "Basic compact config & headers and response",
             "children": [
                 {
-                    "id": "838b0778d290edd2bde1b9f41d45aa3700e2f8d9",
+                    "id": "962d77abcb1f6455ce3af493b2ec3c8c144f2ce1",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "response": {
@@ -20,7 +20,7 @@
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/oauth",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "headers": [
                             {
                                 "name": "Content-Type",

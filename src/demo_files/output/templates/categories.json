@@ -5,13 +5,13 @@
             "name": "Default minimum with tags",
             "children": [
                 {
-                    "id": "a6e0306f41ae4768ca1eba7a5ec408622816e309",
+                    "id": "58e900212b70e9aa7139d2802a3ddefdd920e596",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
                         "method": "GET",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "headers": [
                             {
                                 "name": "Accept",
@@ -35,13 +35,13 @@
                     }
                 },
                 {
-                    "id": "ec9c5950309c6f37717f068aa7ffbf5d2d1b384e",
+                    "id": "46e830ecd2f311fd0f76fa9054a11a386fa50a2c",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/[:userId]\/friends",
                         "method": "GET",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",

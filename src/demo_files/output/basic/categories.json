@@ -5,13 +5,13 @@
             "name": "Basic",
             "children": [
                 {
-                    "id": "d4bd7866d888032b28bc85902bab6166c3deab81",
+                    "id": "e46d553b5133c63f05272aa8337b9c0b7963f517",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information. Headers will be set AUTOMATICALLY if not defined\n",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/oauth",
                         "method": "POST",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "post",
@@ -33,13 +33,13 @@
                     }
                 },
                 {
-                    "id": "df91882e96f82165ee1020a68271d801af7e4758",
+                    "id": "2b7a2673f4c0cb3dbf3b8bfb783bec9ad8484f02",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
                         "method": "GET",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -53,13 +53,13 @@
                     }
                 },
                 {
-                    "id": "bc595abd1a32feb0212258b7f23e08a4b29e2637",
+                    "id": "ba75edab004c81477d76d93a992051c035d688a2",
                     "name": "User activity",
                     "description": "Get user activity in the last x days",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/[:userId]\/activity\/?days=[:days]",
                         "method": "GET",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -82,13 +82,13 @@
                     }
                 },
                 {
-                    "id": "0951f100e4e8efa59b06ae491d877dccdf5d10ed",
+                    "id": "ee610fc299ef99a863fc51955f3571745a78b30f",
                     "name": "User partial update",
                     "description": "Within this route users partial update the user",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
                         "method": "PATCH",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -118,13 +118,13 @@
                     }
                 },
                 {
-                    "id": "0c3da82733788e030810d9c24d4a7fe79fef163e",
+                    "id": "22ecaadc2b75862b22fb6e3ccf9abb490cff43d7",
                     "name": "User partial update",
                     "description": "Within this route users get updated",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
                         "method": "PUT",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
@@ -154,13 +154,13 @@
                     }
                 },
                 {
-                    "id": "b74d0466e4c5b3943bb5ba81e257a82e84403d63",
+                    "id": "3fda01e1b809d17913c53b7ecd609d944d84b4dd",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
                         "method": "DELETE",
-                        "needsAuthentication": false,
+                        "isSecured": false,
                         "params": [
                             {
                                 "type": "uri",
