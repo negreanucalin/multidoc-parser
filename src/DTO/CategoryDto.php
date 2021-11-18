@@ -5,10 +5,10 @@ namespace MultidocParser\DTO;
 use SparkleDto\DataTransferObject;
 
 /**
- * @property $id mixed
- * @property $name string
- * @property $categories CategoryDto[]
- * @property $routeList RouteDto[]
+ * @property mixed $id
+ * @property string $name
+ * @property CategoryDto[] $categories
+ * @property RouteDto[] $routeList
  */
 class CategoryDto extends DataTransferObject
 {

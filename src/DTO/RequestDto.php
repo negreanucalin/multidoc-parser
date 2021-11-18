@@ -5,11 +5,11 @@ namespace MultidocParser\DTO;
 use SparkleDto\DataTransferObject;
 
 /**
- * @property $url string
- * @property $method string
- * @property $secured string
- * @property $headers HeaderDto[]|null
- * @property $params ParameterDto[]|null
+ * @property string $url
+ * @property string $method
+ * @property string $secured
+ * @property HeaderDto[]|null $headers
+ * @property ParameterDto[]|null $params
  */
 class RequestDto extends DataTransferObject
 {

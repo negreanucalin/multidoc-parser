@@ -5,13 +5,13 @@ namespace MultidocParser\DTO;
 use SparkleDto\DataTransferObject;
 
 /**
- * @property $type string
- * @property $name string
- * @property $example string
- * @property $data_type string
- * @property $description string
- * @property $optional boolean
- * @property $default string
+ * @property string $type
+ * @property string $name
+ * @property string $example
+ * @property string $data_type
+ * @property string $description
+ * @property boolean $optional
+ * @property string $default
  */
 class ParameterDto extends DataTransferObject
 {

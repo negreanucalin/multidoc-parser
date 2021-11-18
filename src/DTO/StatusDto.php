@@ -5,9 +5,9 @@ namespace MultidocParser\DTO;
 use SparkleDto\DataTransferObject;
 
 /**
- * @property $code int
- * @property $message string
- * @property $description string
+ * @property int $code
+ * @property string $message
+ * @property string $description
  */
 class StatusDto extends DataTransferObject
 {

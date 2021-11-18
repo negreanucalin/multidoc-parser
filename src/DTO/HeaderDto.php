@@ -5,8 +5,8 @@ namespace MultidocParser\DTO;
 use SparkleDto\DataTransferObject;
 
 /**
- * @property $name string
- * @property $value string
+ * @property string $name
+ * @property string $value
  */
 class HeaderDto extends DataTransferObject
 {

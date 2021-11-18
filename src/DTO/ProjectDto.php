@@ -5,12 +5,12 @@ namespace MultidocParser\DTO;
 use SparkleDto\DataTransferObject;
 
 /**
- * @property $name string
- * @property $description string
- * @property $version string
- * @property $buildDate int
- * @property $logo string
- * @property $definitionFile string
+ * @property string $name
+ * @property string $description
+ * @property string $version
+ * @property int $buildDate
+ * @property string $logo
+ * @property string $definitionFile
  * @property CategoryDto[] $categories
  * @property EnvironmentDto[] $environments
  */

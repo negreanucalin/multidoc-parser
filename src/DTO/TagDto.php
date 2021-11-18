@@ -5,7 +5,7 @@ namespace MultidocParser\DTO;
 use SparkleDto\DataTransferObject;
 
 /**
- * @property $name string
+ * @property string $name
  */
 class TagDto extends DataTransferObject
 {

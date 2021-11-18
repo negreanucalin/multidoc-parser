@@ -6,5 +6,8 @@ route:
     url: 'https://jsonplaceholder.typicode.com[/:userId]'
     method: GET
     params:
-      - user_id_2
-      - user_id
+      - name: userId
+        type: uri
+        data_type: int
+        description: User unique identifier
+        example: 23

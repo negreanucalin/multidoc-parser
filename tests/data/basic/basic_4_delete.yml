@@ -1,10 +1,10 @@
 route:
-  name: User retrieval
+  name: User removal
   description: Within this route users get the user
   category: basic_1
   request:
-    url: 'https://jsonplaceholder.typicode.com/[:userId]/friends'
-    method: GET
+    url: 'https://jsonplaceholder.typicode.com[/:userId]'
+    method: DELETE
     params:
       - name: userId
         type: uri

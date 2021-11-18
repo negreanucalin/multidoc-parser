@@ -5,8 +5,8 @@ namespace MultidocParser\DTO;
 use SparkleDto\DataTransferObject;
 
 /**
- * @property $name string
- * @property $url string
+ * @property string $name
+ * @property string $url
  */
 class EnvironmentDto extends DataTransferObject
 {
