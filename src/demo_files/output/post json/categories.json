@@ -3,48 +3,7 @@
         {
             "id": "post_json",
             "name": "POST with json data",
-            "children": [
-                {
-                    "id": "64cfc1c0b6833dd296648827194c504d7473b03f",
-                    "name": "User authentication",
-                    "description": "Within this route users get the access token in order to call the api and retrieve information",
-                    "request": {
-                        "url": "https:\/\/jsonplaceholder.typicode.com\/oauth\/json",
-                        "method": "POST",
-                        "isSecured": false,
-                        "params": [
-                            {
-                                "type": "post",
-                                "example": "{\"user\":\"user input\",\"password\":\"S3cret p@ssw0rd\"}",
-                                "data_type": "json",
-                                "description": "Json with credentials",
-                                "isOptional": false,
-                                "name": "credentials"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "id": "7fd092fc6733ab421475a7b9ab7d3e2afd1ea8b6",
-                    "name": "User authentication 2",
-                    "description": "Within this route users get the access token in order to call the api and retrieve information",
-                    "request": {
-                        "url": "https:\/\/jsonplaceholder.typicode.com\/oauth\/json2",
-                        "method": "POST",
-                        "isSecured": false,
-                        "params": [
-                            {
-                                "type": "post",
-                                "example": "{\"user\":\"user input\",\"password\":\"S3cret p@ssw0rd\"}",
-                                "data_type": "json",
-                                "description": "Json with credentials",
-                                "isOptional": false,
-                                "name": "post_data"
-                            }
-                        ]
-                    }
-                }
-            ]
+            "children": []
         }
     ]
 }

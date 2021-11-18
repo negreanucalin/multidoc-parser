@@ -4,11 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a7252af9fcc4cc8d60432216ec5543aa",
+    "content-hash": "5acfc98ea15eca7fe4b6fbcfae56849d",
     "packages": [
         {
             "name": "negreanucalin/sparkle-dto",
-            "version": "1.1.11",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/negreanucalin/sparkle-dto.git",
@@ -44,7 +44,7 @@
             ],
             "support": {
                 "issues": "https://github.com/negreanucalin/sparkle-dto/issues",
-                "source": "https://github.com/negreanucalin/sparkle-dto/tree/1.1.11"
+                "source": "https://github.com/negreanucalin/sparkle-dto/tree/0.1.0"
             },
             "time": "2021-11-18T09:39:08+00:00"
         },

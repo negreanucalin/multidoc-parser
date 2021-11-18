@@ -10,24 +10,25 @@ Just manual-functional testing for now  provided in folder `demo_files` by runni
 
 * Define mandatory and optional parameters by adding demo files
 * Validate route params
-	1. If FILE and JSON or named POST variables present throw error (only 1 of them)
-	2. Parameter type validation (from list:uri,post, get)
-	3. GET cannot have JSON and FILE
-	4. Route validation:
-		I. If parameter present in route check if it exists in list
-		II. If parameter present check if uri
+    1. If FILE and JSON or named POST variables present throw error (only 1 of them)
+    2. Parameter type validation (from list:uri,post, get)
+    3. GET cannot have JSON and FILE
+    4. Route validation:
+        I. If parameter present in route check if it exists in list
+        II. If parameter present check if uri
 * Parses `*.yaml` files and generates a flat document containing the application's documentation
-* Notes
-	* No filename convention required
-	* You can organize however you want
-	* A sugestion would be to have multiple files:
-		* `_project.yaml` - Project description
-		* `_categories.yaml` - Menu items and sub-items
-		* `user_route.yaml` - Route example
-		* `another_route.yaml` - Route example
+* 
+### Notes
+* No filename convention required
+* You can organize however you want
+* A sugestion would be to have multiple files:
+	* `_project.yaml` - Project description
+	* `_categories.yaml` - Menu items and sub-items
+	* `user_route.yaml` - Route example
+	* `another_route.yaml` - Route example
 		
 * Project
-	* File name `_my_awesome_project.yaml`
+    * File name `_my_awesome_project.yaml`
 ```
 project:
   name: My Awesome project

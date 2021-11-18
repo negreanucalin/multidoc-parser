@@ -3,58 +3,7 @@
         {
             "id": "standard_2111",
             "name": "Default minimum with tags",
-            "children": [
-                {
-                    "id": "58e900212b70e9aa7139d2802a3ddefdd920e596",
-                    "name": "User retrieval",
-                    "description": "Within this route users get the user",
-                    "request": {
-                        "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
-                        "method": "GET",
-                        "isSecured": false,
-                        "headers": [
-                            {
-                                "name": "Accept",
-                                "value": "application\/json"
-                            },
-                            {
-                                "name": "Authorization",
-                                "value": "Bearer APPLICATION_TOKEN"
-                            }
-                        ],
-                        "params": [
-                            {
-                                "type": "uri",
-                                "example": 1,
-                                "data_type": "int",
-                                "description": "User unique identifier",
-                                "isOptional": false,
-                                "name": "userId"
-                            }
-                        ]
-                    }
-                },
-                {
-                    "id": "46e830ecd2f311fd0f76fa9054a11a386fa50a2c",
-                    "name": "User retrieval",
-                    "description": "Within this route users get the user",
-                    "request": {
-                        "url": "https:\/\/jsonplaceholder.typicode.com\/[:userId]\/friends",
-                        "method": "GET",
-                        "isSecured": false,
-                        "params": [
-                            {
-                                "type": "uri",
-                                "example": 2,
-                                "data_type": "int",
-                                "description": "User unique identifier",
-                                "isOptional": false,
-                                "name": "userId"
-                            }
-                        ]
-                    }
-                }
-            ]
+            "children": []
         }
     ]
 }

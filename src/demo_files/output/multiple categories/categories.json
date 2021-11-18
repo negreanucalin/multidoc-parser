@@ -19,147 +19,10 @@
                                         {
                                             "id": "4_standard_4",
                                             "name": "Fifth level",
-                                            "children": [
-                                                {
-                                                    "id": "329b6edff914e1d8043a9df2215ccc0ad85bfd7c",
-                                                    "name": "User retrieval",
-                                                    "description": "Within this route users get created",
-                                                    "request": {
-                                                        "url": "{{environment}}[\/:userId]",
-                                                        "method": "PUT",
-                                                        "isSecured": false,
-                                                        "params": [
-                                                            {
-                                                                "type": "uri",
-                                                                "example": 12,
-                                                                "data_type": "int",
-                                                                "description": "The user's id",
-                                                                "isOptional": false,
-                                                                "name": "userId"
-                                                            },
-                                                            {
-                                                                "type": "post",
-                                                                "example": "Mark",
-                                                                "data_type": "string",
-                                                                "description": "The name of the user",
-                                                                "isOptional": true,
-                                                                "name": "name"
-                                                            },
-                                                            {
-                                                                "type": "post",
-                                                                "example": 23,
-                                                                "data_type": "int",
-                                                                "description": "User's age",
-                                                                "isOptional": true,
-                                                                "name": "age"
-                                                            }
-                                                        ]
-                                                    },
-                                                    "tags": [
-                                                        "users",
-                                                        "partial update"
-                                                    ]
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "id": "910710b7fad7f0c0fd837d61d4b6566928c0b5d1",
-                                            "name": "User partial update",
-                                            "description": "Within this route users get updated",
-                                            "request": {
-                                                "url": "{{environment}}[\/:userId]",
-                                                "method": "PATCH",
-                                                "isSecured": false,
-                                                "params": [
-                                                    {
-                                                        "type": "uri",
-                                                        "example": 12,
-                                                        "data_type": "int",
-                                                        "description": "The user's id",
-                                                        "isOptional": false,
-                                                        "name": "userId"
-                                                    },
-                                                    {
-                                                        "type": "post",
-                                                        "example": "Mark",
-                                                        "data_type": "string",
-                                                        "description": "The name of the user",
-                                                        "isOptional": true,
-                                                        "name": "name"
-                                                    },
-                                                    {
-                                                        "type": "post",
-                                                        "example": 23,
-                                                        "data_type": "int",
-                                                        "description": "User's age",
-                                                        "isOptional": true,
-                                                        "name": "age"
-                                                    }
-                                                ]
-                                            },
-                                            "tags": [
-                                                "users",
-                                                "update"
-                                            ]
+                                            "children": []
                                         }
                                     ]
-                                },
-                                {
-                                    "id": "750f36af890fa01fbb5a714924881f4b65c2a9b4",
-                                    "name": "User retrieval",
-                                    "description": "Within this route users get the user",
-                                    "request": {
-                                        "url": "{{environment}}[\/:userId]",
-                                        "method": "GET",
-                                        "isSecured": false,
-                                        "params": [
-                                            {
-                                                "type": "uri",
-                                                "example": 23,
-                                                "data_type": "int",
-                                                "description": "User unique identifier",
-                                                "isOptional": false,
-                                                "name": "userId"
-                                            }
-                                        ]
-                                    },
-                                    "tags": [
-                                        "users",
-                                        "get"
-                                    ]
                                 }
-                            ]
-                        },
-                        {
-                            "id": "89b86268f7e499662063e371c9e99e0f478df623",
-                            "name": "User authentication",
-                            "description": "Within this route users get the access token in order to call the api and retrieve information",
-                            "request": {
-                                "url": "{{environment}}\/oauth",
-                                "method": "POST",
-                                "isSecured": false,
-                                "params": [
-                                    {
-                                        "type": "post",
-                                        "example": "test",
-                                        "data_type": "string",
-                                        "description": "Username of the current person",
-                                        "isOptional": false,
-                                        "name": "username"
-                                    },
-                                    {
-                                        "type": "post",
-                                        "example": "test",
-                                        "data_type": "string",
-                                        "description": "The users password",
-                                        "isOptional": false,
-                                        "name": "password"
-                                    }
-                                ]
-                            },
-                            "tags": [
-                                "users",
-                                "create"
                             ]
                         }
                     ]
@@ -167,32 +30,7 @@
                 {
                     "id": "5_standard_4",
                     "name": "Another level",
-                    "children": [
-                        {
-                            "id": "8189f54a7e72efc72cbc42bbf52b607c30cec011",
-                            "name": "User delete",
-                            "description": "Within this route users get deleted",
-                            "request": {
-                                "url": "{{environment}}[\/:userId]",
-                                "method": "DELETE",
-                                "isSecured": false,
-                                "params": [
-                                    {
-                                        "type": "uri",
-                                        "example": 23,
-                                        "data_type": "int",
-                                        "description": "User unique identifier",
-                                        "isOptional": false,
-                                        "name": "userId"
-                                    }
-                                ]
-                            },
-                            "tags": [
-                                "users",
-                                "delete"
-                            ]
-                        }
-                    ]
+                    "children": []
                 }
             ]
         }

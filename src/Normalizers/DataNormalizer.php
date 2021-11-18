@@ -2,6 +2,7 @@
 
 namespace MultidocParser\Normalizers;
 
+use MultidocParser\Exceptions\NoCategoryRouteException;
 use MultidocParser\Exceptions\UndefinedTemplateException;
 use MultidocParser\Services\FileContentParserService;
 use Symfony\Component\Finder\SplFileInfo;
@@ -27,6 +28,7 @@ class DataNormalizer
     /**
      * @param array[] $routeDefinitionList
      * @return array[]
+     * @throws NoCategoryRouteException
      */
     public function formatTagsAndStatusAndHeaders($routeDefinitionList)
     {
@@ -54,6 +56,9 @@ class DataNormalizer
                     $routeDefinitionList[$routeIndex]['statusList'][] = ['name' => $status];
                 }
                 unset($routeDefinitionList[$routeIndex][FileContentParserService::STATUS_PLURAL_LIST]);
+            }
+            if (!isset($routeDefinitionList[$routeIndex]['category'])) {
+                throw new NoCategoryRouteException($routeDefinitionList[$routeIndex]['name']);
             }
             $routeDefinitionList[$routeIndex]['categoryId'] = $routeDefinitionList[$routeIndex]['category'];
             unset($routeDefinitionList[$routeIndex]['category']);

@@ -1,4 +1,5 @@
 <?php
+
 namespace MultidocParser\Services;
 
 use MultidocParser\DTO\CategoryDto;
@@ -22,7 +23,7 @@ class OutputFileService
      */
     private $categoryRenderer;
 
-    private $outputDirectory = __DIR__.'\..\\';
+    private $outputDirectory = __DIR__ . '\..\\';
 
     private $projectFileName = 'project.json';
 
@@ -30,7 +31,7 @@ class OutputFileService
 
 
     public function __construct(
-        Filesystem $fileService,
+        Filesystem       $fileService,
         CategoryRenderer $categoryRenderer
     )
     {
@@ -40,7 +41,7 @@ class OutputFileService
 
     public function prepareOutputFolder($outputPath)
     {
-        if(empty($outputPath)) {
+        if (empty($outputPath)) {
             $outputPath = self::DEFAULT_OUTPUT_PATH;
         }
         $this->outputDirectory = $outputPath;
@@ -56,12 +57,12 @@ class OutputFileService
     {
         $this->removeCurrentFilesInOutput();
         $this->fileService->dumpFile(
-            $this->outputDirectory.DIRECTORY_SEPARATOR.$this->projectFileName,
+            $this->outputDirectory . DIRECTORY_SEPARATOR . $this->projectFileName,
             json_encode($project, JSON_PRETTY_PRINT)
         );
 
         $this->fileService->dumpFile(
-            $this->outputDirectory.DIRECTORY_SEPARATOR.$this->categoryListFileName,
+            $this->outputDirectory . DIRECTORY_SEPARATOR . $this->categoryListFileName,
             json_encode(
                 $this->categoryRenderer->renderList($project->categories), JSON_PRETTY_PRINT)
         );
@@ -70,8 +71,8 @@ class OutputFileService
     private function removeCurrentFilesInOutput()
     {
         $this->fileService->remove(array(
-            $this->outputDirectory.DIRECTORY_SEPARATOR,
-            $this->outputDirectory.DIRECTORY_SEPARATOR
+            $this->outputDirectory . DIRECTORY_SEPARATOR,
+            $this->outputDirectory . DIRECTORY_SEPARATOR
         ));
     }
 
@@ -79,8 +80,8 @@ class OutputFileService
     {
         if ($project->logo) {
             $this->fileService->copy(
-                $project->definitionFile.DIRECTORY_SEPARATOR.$project->logo,
-                $outputFolder.DIRECTORY_SEPARATOR.$project->logo,
+                $project->definitionFile . DIRECTORY_SEPARATOR . $project->logo,
+                $outputFolder . DIRECTORY_SEPARATOR . $project->logo,
                 true
             );
         }
@@ -92,7 +93,7 @@ class OutputFileService
      */
     public function exportExampleFiles($categoryList, $outputFolder)
     {
-        foreach($categoryList as $category) {
+        foreach ($categoryList as $category) {
             if ($category->routeList) {
                 foreach ($category->routeList as $route) {
                     $this->moveExampleFilesFromRoute($route, $outputFolder);
@@ -110,7 +111,7 @@ class OutputFileService
      */
     private function moveExampleFilesFromRoute(RouteDto $route, $outputFolder)
     {
-        if($route->request->method == FileContentParserService::ROUTE_METHOD_POST){
+        if ($route->request->method == FileContentParserService::ROUTE_METHOD_POST) {
             /**
              * @var $paramList ParameterDto[]
              */
@@ -119,11 +120,11 @@ class OutputFileService
             if (empty($paramList)) {
                 return;
             }
-            foreach($paramList as $parameter) {
-                if($parameter->data_type == FileContentParserService::PARAMETER_TYPE_FILE){
+            foreach ($paramList as $parameter) {
+                if ($parameter->data_type == FileContentParserService::PARAMETER_TYPE_FILE) {
                     $this->fileService->copy(
-                        $route->inputPath.DIRECTORY_SEPARATOR.$parameter->example,
-                        $outputFolder.DIRECTORY_SEPARATOR.$parameter->example,
+                        $route->inputPath . DIRECTORY_SEPARATOR . $parameter->example,
+                        $outputFolder . DIRECTORY_SEPARATOR . $parameter->example,
                         true
                     );
                 }
