@@ -10,8 +10,5 @@ use SparkleDto\DataTransferObject;
  */
 class EnvironmentDto extends DataTransferObject
 {
-    public function __construct($arguments)
-    {
-        parent::__construct($arguments);
-    }
+
 }

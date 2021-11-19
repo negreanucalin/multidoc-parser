@@ -1,0 +1,41 @@
+{
+    "children": [
+        {
+            "id": "files",
+            "name": "File upload demo",
+            "children": [
+                {
+                    "id": "aa126a69b88b3c6a3196bf8eb7aaaf6f47d88a1a",
+                    "name": "File upload",
+                    "description": "File upload demo",
+                    "request": {
+                        "url": "{{environment}}\/upload",
+                        "method": "POST",
+                        "isSecured": null,
+                        "params": [
+                            {
+                                "type": "post",
+                                "example": "test",
+                                "data_type": "string",
+                                "description": "Username of the current person",
+                                "isOptional": false,
+                                "name": "username"
+                            },
+                            {
+                                "type": "post",
+                                "example": "user.csv",
+                                "data_type": "file",
+                                "description": "The user's file",
+                                "isOptional": false,
+                                "name": "csv"
+                            }
+                        ]
+                    },
+                    "tags": [
+                        "upload"
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -19,10 +19,7 @@ class InputFileService
 
         if (!empty($exceptionList)) {
             $filter = function (\SplFileInfo $file) use ($exceptionList) {
-                if (in_array($file->getRealPath(), $exceptionList)) {
-                    return false;
-                }
-                return true;
+                return !in_array($file->getPathname(), $exceptionList);
             };
             $finder->files()->filter($filter);
         }

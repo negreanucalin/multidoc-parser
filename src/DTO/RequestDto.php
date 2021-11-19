@@ -7,12 +7,14 @@ use SparkleDto\DataTransferObject;
 /**
  * @property string $url
  * @property string $method
- * @property string $secured
+ * @property string $isSecured
  * @property HeaderDto[]|null $headers
  * @property ParameterDto[]|null $params
  */
 class RequestDto extends DataTransferObject
 {
+    protected $alias = ['secured'=>'isSecured'];
+
     protected $casts = [
         'params' => ParameterDto::class,
         'headers' => HeaderDto::class,
@@ -24,7 +26,7 @@ class RequestDto extends DataTransferObject
         $data = array(
             'url'=>$this->url,
             'method'=>$this->method,
-            'isSecured'=> $this->secured
+            'isSecured'=> $this->isSecured
         );
         if($this->headers){
             $data['headers'] = $this->headers;

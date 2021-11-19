@@ -1,0 +1,38 @@
+{
+    "children": [
+        {
+            "id": "basic_5",
+            "name": "Basic compact",
+            "children": [
+                {
+                    "id": "2e657abb357f7eb2b81d11d50f447f44663bf0a6",
+                    "name": "User authentication",
+                    "description": "Within this route users get the access token in order to call the api and retrieve information",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com\/oauth",
+                        "method": "POST",
+                        "isSecured": null,
+                        "params": [
+                            {
+                                "type": "post",
+                                "example": "test",
+                                "data_type": "string",
+                                "description": "Username of the current person",
+                                "isOptional": false,
+                                "name": "username"
+                            },
+                            {
+                                "type": "post",
+                                "example": "test",
+                                "data_type": "string",
+                                "description": "The users password",
+                                "isOptional": false,
+                                "name": "password"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,9 +1,0 @@
-{
-    "children": [
-        {
-            "id": "headers_response",
-            "name": "Basic compact config & headers and response",
-            "children": []
-        }
-    ]
-}

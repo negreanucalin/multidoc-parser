@@ -1,6 +1,11 @@
 <?php
 namespace MultidocParser\Services;
 
+use MultidocParser\DTO\ProjectDto;
+use MultidocParser\Exceptions\CategoriesNotFoundException;
+use MultidocParser\Exceptions\ProjectNotDefinedException;
+use MultidocParser\Exceptions\RoutesNotDefinedException;
+use MultidocParser\Exceptions\UndefinedTemplateException;
 use Symfony\Component\Filesystem\Exception\IOException;
 
 class MultidocParserService
@@ -27,6 +32,16 @@ class MultidocParserService
         $this->outputService = $outputService;
     }
 
+    /**
+     * @param $inputFolder
+     * @param $outputFolder
+     * @param array $excludeList
+     * @return ProjectDto
+     * @throws CategoriesNotFoundException
+     * @throws ProjectNotDefinedException
+     * @throws RoutesNotDefinedException
+     * @throws UndefinedTemplateException
+     */
     public function generate($inputFolder, $outputFolder, $excludeList=array())
     {
         $fileList = $this->fileService->getFileListFromPath($inputFolder, $excludeList);
@@ -43,5 +58,6 @@ class MultidocParserService
         } catch (IOException $e) {
             echo "\nFile does not exist";
         }
+        return $project;
     }
 }

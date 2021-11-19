@@ -1,0 +1,53 @@
+{
+    "children": [
+        {
+            "id": "headers_response",
+            "name": "Basic compact config & headers_and_response",
+            "children": [
+                {
+                    "id": "6cb14375fc21ce878f131fb6f295907eef8dc501",
+                    "name": "User authentication",
+                    "description": "Within this route users get the access token in order to call the api and retrieve information",
+                    "response": {
+                        "code": 200,
+                        "text": "{\n  \"menu\": {\n    \"id\": \"file\",\n    \"value\": \"File\"\n  }\n}\n",
+                        "headers": [
+                            {
+                                "Content-Type": "application\/vnd.test-multidoc.v1+json"
+                            }
+                        ]
+                    },
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com\/oauth",
+                        "method": "POST",
+                        "isSecured": null,
+                        "headers": [
+                            {
+                                "name": "Content-Type",
+                                "value": "application\/vnd.test-multidoc.v1+json"
+                            }
+                        ],
+                        "params": [
+                            {
+                                "type": "post",
+                                "example": "test",
+                                "data_type": "string",
+                                "description": "Username of the current person",
+                                "isOptional": false,
+                                "name": "username"
+                            },
+                            {
+                                "type": "post",
+                                "example": "test",
+                                "data_type": "string",
+                                "description": "The users password",
+                                "isOptional": false,
+                                "name": "password"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,7 +1,0 @@
-project:
-  name: My Awesome project
-  version: 1
-  description: My Awesome project
-  environments:
-    default: https://jsonplaceholder.typicode.com
-    dev: https://preprod-jsonplaceholder.typicode.com

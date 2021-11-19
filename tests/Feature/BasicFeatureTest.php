@@ -2,39 +2,42 @@
 
 namespace MultidocParser\Tests\Feature;
 
-use MultidocParser\Services\DIService;
-use MultidocParser\Services\FileContentParserService;
-use MultidocParser\Services\InputFileService;
+use MultidocParser\Tests\MultidocParserTestFeature;
 
 class BasicFeatureTest extends MultidocParserTestFeature
 {
-    private InputFileService $fileService;
-    private FileContentParserService $parser;
 
-    public function setUp(): void
-    {
-        $service = (new DIService())->load();
-        $this->fileService = $service->get('input_file_service');
-        $this->parser = $service->get('file_content_parser_service');
-    }
+    protected string $dataPath = __DIR__.'/../data_in/basic';
+    protected string $outPath = __DIR__.'/../data_out/basic';
 
     public function test_basic()
     {
-        $fileList = $this->fileService->getFileListFromPath(__DIR__.'/../data/basic');
-        $project = $this->parser->getProjectFromFileList($fileList);
+        $this->assertEquals('My Awesome project basic', $this->project->name);
+        $this->assertEquals('basicVersion', $this->project->version);
+        $this->assertEquals('My Awesome project basic description', $this->project->description);
 
-        $this->assertEquals('My Awesome project basic', $project->name);
-        $this->assertEquals('basicVersion', $project->version);
-        $this->assertEquals('My Awesome project basic description', $project->description);
+        $this->assertCount(1, $this->project->categories);
+        $this->assertProjectHasCategory('Basic', $this->project);
+        $this->assertCount(6, $this->project->categories[0]->routeList);
 
-        $this->assertCount(1, $project->categories, 1);
-        $this->assertEquals('Basic', $project->categories[0]->name);
-
-        $this->assertCount(6, $project->categories[0]->routeList);
-
-        foreach ($project->categories[0]->routeList as $route) {
+        foreach ($this->project->categories[0]->routeList as $route) {
             $this->assertEquals('Basic', $route->category->name);
             $this->assertEquals('basic_1', $route->categoryId);
         }
+    }
+
+    public function test_basic2()
+    {
+        $this->assertRouteNameExists('User retrieval', $this->project);
+
+        $this->assertRouteHasParamsCount(1, 'User retrieval', $this->project);
+        $this->assertRouteHasMethod('GET', 'User retrieval', $this->project);
+
+        $this->assertRouteHasParamsCount(2, 'User activity', $this->project);
+        $this->assertRouteHasMethod('GET', 'User activity', $this->project);
+
+        $this->assertRouteHasParameterName('userId','User retrieval', $this->project);
+
+        $this->assertRouteHasNoTags('User activity', $this->project);
     }
 }

@@ -1,0 +1,170 @@
+{
+    "children": [
+        {
+            "id": "standard_3",
+            "name": "Default minimum with tags & authorization",
+            "children": [
+                {
+                    "id": "6009f785f80939f74c18e773fc4930f2246ac9ab",
+                    "name": "User authentication",
+                    "description": "Within this route users get the access token in order to call the api and retrieve information",
+                    "request": {
+                        "url": "{{environment}}\/oauth",
+                        "method": "POST",
+                        "isSecured": true,
+                        "params": [
+                            {
+                                "type": "post",
+                                "example": "test",
+                                "data_type": "string",
+                                "description": "Username of the current person",
+                                "isOptional": false,
+                                "name": "username"
+                            },
+                            {
+                                "type": "post",
+                                "example": "test",
+                                "data_type": "string",
+                                "description": "The users password",
+                                "isOptional": false,
+                                "name": "password"
+                            }
+                        ]
+                    },
+                    "tags": [
+                        "users",
+                        "create"
+                    ]
+                },
+                {
+                    "id": "7817140184ceab2d7716a3a455f9904d35e20d1a",
+                    "name": "User retrieval",
+                    "description": "Within this route users get the user",
+                    "request": {
+                        "url": "{{environment}}[\/:userId]",
+                        "method": "GET",
+                        "isSecured": true,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User unique identifier",
+                                "isOptional": false,
+                                "name": "userId"
+                            }
+                        ]
+                    },
+                    "tags": [
+                        "users",
+                        "get"
+                    ]
+                },
+                {
+                    "id": "d61866ddfc81b87a8d09e6e0a44bd1e5fdac1680",
+                    "name": "User partial update",
+                    "description": "Within this route users get updated",
+                    "request": {
+                        "url": "{{environment}}[\/:userId]",
+                        "method": "PATCH",
+                        "isSecured": true,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 12,
+                                "data_type": "int",
+                                "description": "The user's id",
+                                "isOptional": false,
+                                "name": "userId"
+                            },
+                            {
+                                "type": "post",
+                                "example": "Mark",
+                                "data_type": "string",
+                                "description": "The name of the user",
+                                "isOptional": true,
+                                "name": "name"
+                            },
+                            {
+                                "type": "post",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User's age",
+                                "isOptional": true,
+                                "name": "age"
+                            }
+                        ]
+                    },
+                    "tags": [
+                        "users",
+                        "update"
+                    ]
+                },
+                {
+                    "id": "34ceedec0f253d715a184bb5414d31ca0ce99847",
+                    "name": "User retrieval",
+                    "description": "Within this route users get created",
+                    "request": {
+                        "url": "{{environment}}[\/:userId]",
+                        "method": "PUT",
+                        "isSecured": true,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 12,
+                                "data_type": "int",
+                                "description": "The user's id",
+                                "isOptional": false,
+                                "name": "userId"
+                            },
+                            {
+                                "type": "post",
+                                "example": "Mark",
+                                "data_type": "string",
+                                "description": "The name of the user",
+                                "isOptional": true,
+                                "name": "name"
+                            },
+                            {
+                                "type": "post",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User's age",
+                                "isOptional": true,
+                                "name": "age"
+                            }
+                        ]
+                    },
+                    "tags": [
+                        "users",
+                        "partial update"
+                    ]
+                },
+                {
+                    "id": "349586fe086d5d0a72d8ea10326a16ae52591f09",
+                    "name": "User delete",
+                    "description": "Within this route users get deleted",
+                    "request": {
+                        "url": "{{environment}}[\/:userId]",
+                        "method": "DELETE",
+                        "isSecured": true,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User unique identifier",
+                                "isOptional": false,
+                                "name": "userId"
+                            }
+                        ]
+                    },
+                    "tags": [
+                        "users",
+                        "delete"
+                    ]
+                }
+            ]
+        }
+    ]
+}

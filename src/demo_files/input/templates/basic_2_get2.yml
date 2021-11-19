@@ -1,9 +1,0 @@
-route:
-  name: User retrieval
-  description: Within this route users get the user
-  category: standard_2111
-  request:
-    url: 'https://jsonplaceholder.typicode.com/[:userId]/friends'
-    method: GET
-    params:
-      - template_user_id_2

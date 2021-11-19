@@ -1,0 +1,50 @@
+{
+    "children": [
+        {
+            "id": "post_json",
+            "name": "POST with json data",
+            "children": [
+                {
+                    "id": "bd093d3c1bac0b2b124e5350fdd7d4b03465b6e5",
+                    "name": "User authentication",
+                    "description": "Within this route users get the access token in order to call the api and retrieve information",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com\/oauth\/json",
+                        "method": "POST",
+                        "isSecured": null,
+                        "params": [
+                            {
+                                "type": "post",
+                                "example": "{\"user\":\"user input\",\"password\":\"S3cret p@ssw0rd\"}",
+                                "data_type": "json",
+                                "description": "Json with credentials",
+                                "isOptional": false,
+                                "name": "credentials"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "87a453e08e4426d31c6e17249aa4131d2db14470",
+                    "name": "User authentication 2",
+                    "description": "Within this route users get the access token in order to call the api and retrieve information",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com\/oauth\/json2",
+                        "method": "POST",
+                        "isSecured": null,
+                        "params": [
+                            {
+                                "type": "post",
+                                "example": "{\"user\":\"user input\",\"password\":\"S3cret p@ssw0rd\"}",
+                                "data_type": "json",
+                                "description": "Json with credentials",
+                                "isOptional": false,
+                                "name": "post_data"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

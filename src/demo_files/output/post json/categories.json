@@ -1,9 +1,0 @@
-{
-    "children": [
-        {
-            "id": "post_json",
-            "name": "POST with json data",
-            "children": []
-        }
-    ]
-}

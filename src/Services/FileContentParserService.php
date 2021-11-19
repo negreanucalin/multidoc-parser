@@ -5,6 +5,7 @@ namespace MultidocParser\Services;
 use MultidocParser\DTO\ProjectDto;
 use MultidocParser\DTO\RouteDto;
 use MultidocParser\Exceptions\CategoriesNotFoundException;
+use MultidocParser\Exceptions\MultipleProjectsException;
 use MultidocParser\Exceptions\ProjectNotDefinedException;
 use MultidocParser\Exceptions\RoutesNotDefinedException;
 use MultidocParser\Exceptions\UndefinedTemplateException;
@@ -69,20 +70,26 @@ class FileContentParserService
 
     /**
      * @param $fileList
-     * @throws ParseException
      * @return array[]
+     * @throws ParseException|MultipleProjectsException
      */
     private function readFiles($fileList)
     {
         $data = array(
             'templates' => []
         );
-
+        $initialProjectFile = null;
+        $projectLoaded = false;
         foreach ($fileList as $file) {
             $definitionArray = Yaml::parse(file_get_contents($file));
             //If the current file contains the project definition
             if (array_key_exists(self::PROJECT_KEY, $definitionArray)) {
+                if ($projectLoaded) {
+                    throw new MultipleProjectsException([$file,$initialProjectFile]);
+                }
+                $initialProjectFile = $file;
                 $definitionArray[self::PROJECT_KEY][self::FILE_PATH_KEY] = $file->getPath();
+                $projectLoaded = true;
             }
             //If the current file contains a route definition
             if (array_key_exists(self::ROUTE_SINGULAR_KEY, $definitionArray)) {

@@ -1,0 +1,179 @@
+{
+    "children": [
+        {
+            "id": "basic_1",
+            "name": "Basic",
+            "children": [
+                {
+                    "id": "4262797004559e73b176c83ab13529dda687e0cf",
+                    "name": "User authentication",
+                    "description": "Within this route users get the access token in order to call the api and retrieve information. Headers will be set AUTOMATICALLY if not defined\n",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com\/oauth",
+                        "method": "POST",
+                        "isSecured": null,
+                        "params": [
+                            {
+                                "type": "post",
+                                "example": "test",
+                                "data_type": "string",
+                                "description": "Username of the current person",
+                                "isOptional": false,
+                                "name": "username"
+                            },
+                            {
+                                "type": "post",
+                                "example": "test",
+                                "data_type": "string",
+                                "description": "The users password",
+                                "isOptional": false,
+                                "name": "password"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "2baf4d0f01f75e2a85f308f8f3a07864edb31b84",
+                    "name": "User retrieval",
+                    "description": "Within this route users get the user",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
+                        "method": "GET",
+                        "isSecured": null,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User unique identifier",
+                                "isOptional": false,
+                                "name": "userId"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "88c59c33d82b1c48729d4cc3c459f57a61b18b51",
+                    "name": "User activity",
+                    "description": "Get user activity in the last x days",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com\/[:userId]\/activity\/?days=[:days]",
+                        "method": "GET",
+                        "isSecured": null,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User unique identifier",
+                                "isOptional": false,
+                                "name": "userId"
+                            },
+                            {
+                                "type": "uri",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User unique identifier",
+                                "isOptional": false,
+                                "name": "days",
+                                "default": 7
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "b4384114a3831cfda6d19106c1e1984fe44b7fd3",
+                    "name": "User partial update",
+                    "description": "Within this route users partial update the user",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
+                        "method": "PATCH",
+                        "isSecured": null,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 12,
+                                "data_type": "int",
+                                "description": "The user's id",
+                                "isOptional": false,
+                                "name": "userId"
+                            },
+                            {
+                                "type": "post",
+                                "example": "Mark",
+                                "data_type": "string",
+                                "description": "The name of the user",
+                                "isOptional": true,
+                                "name": "name"
+                            },
+                            {
+                                "type": "post",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User's age",
+                                "isOptional": true,
+                                "name": "age"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "3b4f85c3f7aa534d16a33d1b9b28d2f67ae78ad4",
+                    "name": "User full update",
+                    "description": "Within this route users get updated",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
+                        "method": "PUT",
+                        "isSecured": null,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 12,
+                                "data_type": "int",
+                                "description": "The user's id",
+                                "isOptional": false,
+                                "name": "userId"
+                            },
+                            {
+                                "type": "post",
+                                "example": "Mark",
+                                "data_type": "string",
+                                "description": "The name of the user",
+                                "isOptional": true,
+                                "name": "name"
+                            },
+                            {
+                                "type": "post",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User's age",
+                                "isOptional": true,
+                                "name": "age"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "id": "91888ed142dad68d2f8ca49e1066bf05e0762a8c",
+                    "name": "User removal",
+                    "description": "Within this route users get the user",
+                    "request": {
+                        "url": "https:\/\/jsonplaceholder.typicode.com[\/:userId]",
+                        "method": "DELETE",
+                        "isSecured": null,
+                        "params": [
+                            {
+                                "type": "uri",
+                                "example": 23,
+                                "data_type": "int",
+                                "description": "User unique identifier",
+                                "isOptional": false,
+                                "name": "userId"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
