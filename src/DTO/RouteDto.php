@@ -21,7 +21,7 @@ class RouteDto extends DataTransferObjectWithId
     protected $casts = [
         'tagList' => TagDto::class,
         'statusList' => StatusDto::class,
-        'response' => ResponseDto::class,
+        'response*' => ResponseDto::class,
         'category' => CategoryDto::class,
         'request' => RequestDto::class
     ];

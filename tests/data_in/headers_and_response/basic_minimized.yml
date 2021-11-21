@@ -3,16 +3,16 @@ route_list:
     description: Within this route users get the access token in order to call the api and retrieve information
     category: headers_response
     response:
-      code: 200
-      text: >
-         {
-           "menu": {
-             "id": "file",
-             "value": "File"
+      - code: 200
+        text: >
+           {
+             "menu": {
+               "id": "file",
+               "value": "File"
+             }
            }
-         }
-      headers:
-        - Content-Type: application/vnd.test-multidoc.v1+json
+        headers:
+          - Content-Type: application/vnd.test-multidoc.v1+json
     request:
       url: 'https://jsonplaceholder.typicode.com/oauth'
       method: POST

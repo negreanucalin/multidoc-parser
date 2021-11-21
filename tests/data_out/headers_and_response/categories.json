@@ -5,18 +5,20 @@
             "name": "Basic compact config & headers_and_response",
             "children": [
                 {
-                    "id": "6cb14375fc21ce878f131fb6f295907eef8dc501",
+                    "id": "a46544b86ae3e9aad344f4bbe87111701e04a4c2",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
-                    "response": {
-                        "code": 200,
-                        "text": "{\n  \"menu\": {\n    \"id\": \"file\",\n    \"value\": \"File\"\n  }\n}\n",
-                        "headers": [
-                            {
-                                "Content-Type": "application\/vnd.test-multidoc.v1+json"
-                            }
-                        ]
-                    },
+                    "response": [
+                        {
+                            "code": 200,
+                            "text": "{\n  \"menu\": {\n    \"id\": \"file\",\n    \"value\": \"File\"\n  }\n}\n",
+                            "headers": [
+                                {
+                                    "Content-Type": "application\/vnd.test-multidoc.v1+json"
+                                }
+                            ]
+                        }
+                    ],
                     "request": {
                         "url": "https:\/\/jsonplaceholder.typicode.com\/oauth",
                         "method": "POST",
