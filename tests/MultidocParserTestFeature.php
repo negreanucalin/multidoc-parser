@@ -51,7 +51,7 @@ class MultidocParserTestFeature extends TestCase
                     return $route;
                 }
             }
-            if (count($category->categories)) {
+            if ($category->categories && count($category->categories)) {
                 return $this->findRouteRecursive($category->categories, $routeName);
             }
         }
@@ -68,6 +68,16 @@ class MultidocParserTestFeature extends TestCase
         $route = $this->findRouteRecursive($project->categories, $routeName);
         $this->assertEquals($routeName, $route->name);
         $this->assertTrue(true);
+    }
+
+    protected function assertHasVariables(ProjectDto $projectDto)
+    {
+        $this->assertIsArray($projectDto->variables);
+    }
+
+    protected function assertHasVariable($variableName, ProjectDto $projectDto)
+    {
+        $this->assertTrue(isset($projectDto->variables[$variableName]));
     }
 
     /**
@@ -207,10 +217,12 @@ class MultidocParserTestFeature extends TestCase
         foreach($headersMap as $headerKey=>$headerValue)
         {
             $found = false;
-            foreach($route->request->headers as $header) {
-                if ($header->name === $headerKey && $header->value === $headerValue) {
-                    $found = true;
-                    break;
+            if ($route->request->headers) {
+                foreach($route->request->headers as $header) {
+                    if ($header->name === $headerKey && $header->value === $headerValue) {
+                        $found = true;
+                        break;
+                    }
                 }
             }
             $this->assertTrue($found, "Missing header: " . $headerKey.':'.$headerValue);

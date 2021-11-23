@@ -3,6 +3,9 @@ project:
   version: 1
   description: My Awesome project with logo and environments
   logo: demo-1.png
-  environments:
-    default: https://jsonplaceholder.typicode.com
-    dev: https://preprod-jsonplaceholder.typicode.com
+  variables:
+    environment:
+      description: List of environments
+      values:
+        default: https://jsonplaceholder.typicode.com
+        dev: https://preprod-jsonplaceholder.typicode.com

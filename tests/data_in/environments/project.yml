@@ -2,6 +2,9 @@ project:
   name: My Awesome project with environments
   version: 1
   description: My Awesome project description with environments
-  environments:
-    default: https://jsonplaceholder.typicode.com
-    dev: https://preprod-jsonplaceholder.typicode.com
+  variables:
+    environment:
+      description: List of environments
+      values:
+        default: https://jsonplaceholder.typicode.com
+        dev: https://preprod-jsonplaceholder.typicode.com

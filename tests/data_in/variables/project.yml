@@ -1,0 +1,23 @@
+project:
+  name: My Awesome project with environments
+  version: 1
+  description: My Awesome project description with environments
+  variables:
+    environment:
+      description: List of environments
+      values:
+        default: https://jsonplaceholder.typicode.com
+        dev: https://preprod-jsonplaceholder.typicode.com
+    APPLICATION_TOKEN:
+      description: Application authorization token
+      values:
+        default: ''
+    OTHER_TOKEN:
+      description: Other token description
+      values:
+        default: ''
+templates:
+  headers:
+    json_with_auth_2:
+      - Accept: application/json
+      - Authorization: Bearer APPLICATION_TOKEN

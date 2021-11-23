@@ -12,14 +12,14 @@ use SparkleDto\DataTransferObject;
  * @property string $logo
  * @property string $definitionFile
  * @property CategoryDto[] $categories
- * @property EnvironmentDto[] $environments
+ * @property VariableDto[] $variables
  */
 class ProjectDto extends DataTransferObject
 {
     protected $casts = [
-        'environments' => EnvironmentDto::class,
         'categories' => CategoryDto::class,
-        'version'=>'string'
+        'version' => 'string',
+        'variables*' => VariableDto::class
     ];
 
     protected $hidden = [
@@ -35,13 +35,13 @@ class ProjectDto extends DataTransferObject
     public function jsonSerialize()
     {
         $return = [
-            'name'=>$this->name,
-            'version'=>$this->version,
-            'description'=>$this->description,
-            'buildDate'=>$this->buildDate,
+            'name' => $this->name,
+            'version' => $this->version,
+            'description' => $this->description,
+            'buildDate' => $this->buildDate,
         ];
-        if ($this->environments) {
-            $return['environments'] = $this->environments;
+        if ($this->variables) {
+            $return['variables'] = $this->variables;
         }
         if ($this->logo) {
             $return['logo'] = $this->logo;

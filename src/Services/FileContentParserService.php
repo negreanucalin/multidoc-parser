@@ -5,6 +5,7 @@ namespace MultidocParser\Services;
 use MultidocParser\DTO\ProjectDto;
 use MultidocParser\DTO\RouteDto;
 use MultidocParser\Exceptions\CategoriesNotFoundException;
+use MultidocParser\Exceptions\DefinitionFileException;
 use MultidocParser\Exceptions\MultipleProjectsException;
 use MultidocParser\Exceptions\ProjectNotDefinedException;
 use MultidocParser\Exceptions\RoutesNotDefinedException;
@@ -27,6 +28,9 @@ class FileContentParserService
     public const PARAMETER_TYPE_FILE = 'file';
     public const TEMPLATES_KEY = 'templates';
     public const PROJECT_KEY = 'project';
+    public const VARIABLES_KEY = 'variables';
+    // Protected because it composes routed in the ui
+    public const ENVIRONMENT_KEY = 'environment';
 
     private DataNormalizer $dataNormalizer;
     private CategoryNormalizer $categoryNormalizer;
@@ -112,6 +116,7 @@ class FileContentParserService
      * @throws ProjectNotDefinedException
      * @throws RoutesNotDefinedException
      * @throws CategoriesNotFoundException
+     * @throws DefinitionFileException
      */
     private function validateParsedData(array $data)
     {
