@@ -2,13 +2,25 @@
     "name": "My Awesome project with environments",
     "version": "1",
     "description": "My Awesome project description with environments",
-    "buildDate": "1637667937",
+    "buildDate": "1637668171",
     "variables": {
         "environment": {
             "description": "Test variable",
             "values": {
                 "default": "https:\/\/jsonplaceholder.typicode.com",
                 "dev": "https:\/\/preprod-jsonplaceholder.typicode.com"
+            }
+        },
+        "APPLICATION_TOKEN": {
+            "description": "Application authorization token",
+            "values": {
+                "default": ""
+            }
+        },
+        "OTHER_TOKEN": {
+            "description": "Application authorization token",
+            "values": {
+                "default": ""
             }
         }
     }

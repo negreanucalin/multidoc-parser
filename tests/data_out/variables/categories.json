@@ -5,7 +5,7 @@
             "name": "Default minimum set-up",
             "children": [
                 {
-                    "id": "143dd78bbb72ffef52018339f180b64b0cd570d9",
+                    "id": "72cb696e2141c90e6d6404ab9bbc6922cc5d8bf7",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
@@ -33,7 +33,7 @@
                     }
                 },
                 {
-                    "id": "35dc0a51d905b1849a104b3ef068551f93549aac",
+                    "id": "a6b27f8e6071859f4ea799ced655f800a4bdc275",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -53,8 +53,8 @@
                     }
                 },
                 {
-                    "id": "a7052e7a8134e3a642cc499c02bdb1bba85c61ba",
-                    "name": "User retrieval",
+                    "id": "17670aef30ed8c1a1a9297d257e07844dc55c254",
+                    "name": "User partial update",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
@@ -89,8 +89,8 @@
                     }
                 },
                 {
-                    "id": "ab9ac430ca57233ead971ff61aafee6b5dfcb9bf",
-                    "name": "User retrieval",
+                    "id": "73be9b95df377eb3ea3ca8a1dff9801df94b4449",
+                    "name": "User update",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
@@ -125,13 +125,23 @@
                     }
                 },
                 {
-                    "id": "3514d240aed2f4976f18fc432d3aac86cfe554f8",
-                    "name": "User retrieval",
+                    "id": "70180f40e5083e5408dce7d06a2ce2100af28ef1",
+                    "name": "User deletion",
                     "description": "Within this route users get the user",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "DELETE",
                         "isSecured": null,
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer APPLICATION_TOKEN"
+                            }
+                        ],
                         "params": [
                             {
                                 "type": "uri",

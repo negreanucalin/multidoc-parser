@@ -27,7 +27,7 @@
     "symfony/dependency-injection": "5.*",
     "symfony/filesystem": "5.*",
     "symfony/config": "5.*",
-    "negreanucalin/sparkle-dto": "~0.1",
+    "negreanucalin/sparkle-dto": "dev-dev",
     "ext-json": "*"
   }
 }

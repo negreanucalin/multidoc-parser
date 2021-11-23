@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5acfc98ea15eca7fe4b6fbcfae56849d",
+    "content-hash": "ef4712d457d46a02caf4ca6858921e74",
     "packages": [
         {
             "name": "negreanucalin/sparkle-dto",
-            "version": "0.1.1",
+            "version": "dev-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/negreanucalin/sparkle-dto.git",
-                "reference": "60c199400437fb103b8f314f32f5b97cb31dfafb"
+                "reference": "f79866973ab5dfc5570e6fd667744cbdc2f8cfb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/negreanucalin/sparkle-dto/zipball/60c199400437fb103b8f314f32f5b97cb31dfafb",
-                "reference": "60c199400437fb103b8f314f32f5b97cb31dfafb",
+                "url": "https://api.github.com/repos/negreanucalin/sparkle-dto/zipball/f79866973ab5dfc5570e6fd667744cbdc2f8cfb3",
+                "reference": "f79866973ab5dfc5570e6fd667744cbdc2f8cfb3",
                 "shasum": ""
             },
             "require": {
@@ -44,9 +44,9 @@
             ],
             "support": {
                 "issues": "https://github.com/negreanucalin/sparkle-dto/issues",
-                "source": "https://github.com/negreanucalin/sparkle-dto/tree/0.1.1"
+                "source": "https://github.com/negreanucalin/sparkle-dto/tree/dev"
             },
-            "time": "2021-11-19T17:46:52+00:00"
+            "time": "2021-11-21T11:02:01+00:00"
         },
         {
             "name": "psr/container",
@@ -2869,7 +2869,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "negreanucalin/sparkle-dto": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
