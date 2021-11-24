@@ -2,7 +2,7 @@
     "name": "My Awesome project",
     "version": "1",
     "description": "My Awesome project",
-    "buildDate": "1637754300",
+    "buildDate": "1637773161",
     "variables": {
         "environment": {
             "description": "List of environments",

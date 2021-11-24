@@ -11,11 +11,8 @@ project:
     APPLICATION_TOKEN:
       description: Application authorization token
       value: ''
-    OTHER_TOKEN:
-      description: Other token description
-      value: ''
 templates:
   headers:
     json_with_auth_2:
       - Accept: application/json
-      - Authorization: Bearer APPLICATION_TOKEN
+      - Authorization: Bearer {{APPLICATION_TOKEN}}

@@ -9,10 +9,11 @@ services:
     class: \MultidocParser\Renderers\EnvironmentRenderer
   category_renderer:
     class: \MultidocParser\Renderers\CategoryRenderer
-    arguments: [ ]
+  validation_service:
+    class: \MultidocParser\Services\ValidationService
   file_content_parser_service:
     class: \MultidocParser\Services\FileContentParserService
-    arguments: [ '@data_normalizer', '@category_normalizer' ]
+    arguments: [ '@validation_service','@data_normalizer', '@category_normalizer' ]
   input_file_service:
     class: \MultidocParser\Services\InputFileService
   output_file_service:

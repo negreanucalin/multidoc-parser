@@ -21,7 +21,7 @@ class MultidocParserTestFeature extends TestCase
     protected string $outPath = '';
     protected ProjectDto $project;
     protected MultidocParserService $parser;
-
+    protected array $excludeList = [];
     /**
      * @throws CategoriesNotFoundException
      * @throws ProjectNotDefinedException
@@ -35,7 +35,7 @@ class MultidocParserTestFeature extends TestCase
         }
         $service = (new DIService())->load();
         $this->parser = $service->get('multidoc_parser_service');
-        $this->project = $this->parser->generate($this->dataPath, $this->outPath);
+        $this->project = $this->parser->generate($this->dataPath, $this->outPath, $this->excludeList);
     }
 
     /**

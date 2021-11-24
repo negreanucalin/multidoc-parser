@@ -5,7 +5,7 @@
             "name": "Default minimum with tags",
             "children": [
                 {
-                    "id": "b4d8e433274cff4135a0f82ef6af60665cf5a2da",
+                    "id": "9be93ec2c0b29bc56abb84bc37c6a926579def3d",
                     "name": "User retrieval 1",
                     "description": "Within this route users get the user",
                     "request": {
@@ -19,7 +19,7 @@
                             },
                             {
                                 "name": "Authorization",
-                                "value": "Bearer APPLICATION_TOKEN"
+                                "value": "Bearer {{APPLICATION_TOKEN}}"
                             }
                         ],
                         "params": [
@@ -35,7 +35,7 @@
                     }
                 },
                 {
-                    "id": "bec68471709f6449088ecf21065eb08c7cad6bf1",
+                    "id": "9261fb5cbf825f742fd6d160f3c8935c0cb5dc5b",
                     "name": "User retrieval 2",
                     "description": "Within this route users get the user",
                     "request": {

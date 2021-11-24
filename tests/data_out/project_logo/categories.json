@@ -5,7 +5,7 @@
             "name": "Basic compact",
             "children": [
                 {
-                    "id": "45ff6d169f53160627568efba40dd0b9f291b1be",
+                    "id": "c68abac5742f5e3f8e19ae8a8c7e37cf9a2f128c",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {

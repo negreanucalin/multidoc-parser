@@ -7,9 +7,12 @@ use MultidocParser\DTO\RouteDto;
 use MultidocParser\Exceptions\CategoriesNotFoundException;
 use MultidocParser\Exceptions\DefinitionFileException;
 use MultidocParser\Exceptions\MultipleProjectsException;
+use MultidocParser\Exceptions\NoCategoryRouteException;
 use MultidocParser\Exceptions\ProjectNotDefinedException;
 use MultidocParser\Exceptions\RoutesNotDefinedException;
 use MultidocParser\Exceptions\UndefinedTemplateException;
+use MultidocParser\Exceptions\UndefinedVariableException;
+use MultidocParser\Exceptions\UnusedVariableException;
 use MultidocParser\Normalizers\CategoryNormalizer;
 use MultidocParser\Normalizers\DataNormalizer;
 use SplFileObject;
@@ -32,13 +35,20 @@ class FileContentParserService
     // Protected because it composes routed in the ui
     public const ENVIRONMENT_KEY = 'environment';
 
+    public const variableStart = "{{";
+    public const variableEnd = "}}";
+
+    public const variableFormat = self::variableStart."%s".self::variableEnd;
+
     private DataNormalizer $dataNormalizer;
     private CategoryNormalizer $categoryNormalizer;
+    private ValidationService $validationParser;
 
-    public function __construct(DataNormalizer $dataNormalizer, CategoryNormalizer $categoryNormalizer)
+    public function __construct(ValidationService $validationParser, DataNormalizer $dataNormalizer, CategoryNormalizer $categoryNormalizer)
     {
         $this->dataNormalizer = $dataNormalizer;
         $this->categoryNormalizer = $categoryNormalizer;
+        $this->validationParser = $validationParser;
     }
 
     /**
@@ -46,16 +56,21 @@ class FileContentParserService
      * @param SplFileObject[] $fileList
      * @return ProjectDto
      * @throws CategoriesNotFoundException
+     * @throws MultipleProjectsException
      * @throws ProjectNotDefinedException
      * @throws RoutesNotDefinedException
      * @throws UndefinedTemplateException
+     * @throws UndefinedVariableException
+     * @throws UnusedVariableException
+     * @throws NoCategoryRouteException
      */
     public function getProjectFromFileList(array $fileList): ProjectDto
     {
         $data = $this->readFiles($fileList);
-        $this->validateParsedData($data);
+        $this->validationParser->validateParsedData($data);
 
         $data[self::ROUTE_PLURAL_KEY] = $this->dataNormalizer->fillInTemplates($data['templates'], $data[self::ROUTE_PLURAL_KEY]);
+        $this->validationParser->validateVariables($data);
         $data[self::ROUTE_PLURAL_KEY] = $this->dataNormalizer->formatTagsAndStatusAndHeaders($data[self::ROUTE_PLURAL_KEY]);
         $data[self::PROJECT_KEY] = $this->dataNormalizer->normalizeProjectData($data[self::PROJECT_KEY]);
         $data[self::CATEGORY_PLURAL_KEY] = $this->dataNormalizer->normalizeCategoryList($data[self::CATEGORY_PLURAL_KEY]);
@@ -89,7 +104,7 @@ class FileContentParserService
             //If the current file contains the project definition
             if (array_key_exists(self::PROJECT_KEY, $definitionArray)) {
                 if ($projectLoaded) {
-                    throw new MultipleProjectsException([$file,$initialProjectFile]);
+                    throw new MultipleProjectsException([$file, $initialProjectFile]);
                 }
                 $initialProjectFile = $file;
                 $definitionArray[self::PROJECT_KEY][self::FILE_PATH_KEY] = $file->getPath();
@@ -111,24 +126,4 @@ class FileContentParserService
 
         return $data;
     }
-
-    /**
-     * @throws ProjectNotDefinedException
-     * @throws RoutesNotDefinedException
-     * @throws CategoriesNotFoundException
-     * @throws DefinitionFileException
-     */
-    private function validateParsedData(array $data)
-    {
-        if (!isset($data[self::CATEGORY_PLURAL_KEY])) {
-            throw new CategoriesNotFoundException();
-        }
-        if (!isset($data[self::PROJECT_KEY])) {
-            throw new ProjectNotDefinedException();
-        }
-        if (!isset($data[self::ROUTE_PLURAL_KEY])) {
-            throw new RoutesNotDefinedException();
-        }
-    }
-
 }

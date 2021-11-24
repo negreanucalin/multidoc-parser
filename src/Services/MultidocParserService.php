@@ -1,4 +1,5 @@
 <?php
+
 namespace MultidocParser\Services;
 
 use MultidocParser\DTO\ProjectDto;
@@ -42,18 +43,18 @@ class MultidocParserService
      * @throws RoutesNotDefinedException
      * @throws UndefinedTemplateException
      */
-    public function generate($inputFolder, $outputFolder, $excludeList=array())
+    public function generate($inputFolder, $outputFolder, $excludeList = array())
     {
         $fileList = $this->fileService->getFileListFromPath($inputFolder, $excludeList);
         $project = $this->parserService->getProjectFromFileList($fileList);
         $this->outputService->prepareOutputFolder($outputFolder);
         $this->outputService->exportProjectEntityToOutputFolder($project);
-        try{
+        try {
             $this->outputService->exportLogo($project, $outputFolder);
-        } catch(IOException $e){
+        } catch (IOException $e) {
             echo "\nLogo file is misspelled or does not exist";
         }
-        try{
+        try {
             $this->outputService->exportExampleFiles($project->categories, $outputFolder);
         } catch (IOException $e) {
             echo "\nFile does not exist";

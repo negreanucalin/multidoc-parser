@@ -11,6 +11,12 @@ project:
     APPLICATION_TOKEN:
       description: Application authorization token
       value: ''
+    OTHER_TOKEN:
+      description: Other token description
+      value: ''
+    EXTRA_TOKEN:
+      description: Other token description
+      value: ''
 templates:
   headers:
     json_with_auth_2:

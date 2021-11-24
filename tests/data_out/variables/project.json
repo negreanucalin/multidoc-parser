@@ -2,7 +2,7 @@
     "name": "My Awesome project with environments",
     "version": "1",
     "description": "My Awesome project description with environments",
-    "buildDate": "1637754300",
+    "buildDate": "1637773161",
     "variables": {
         "environment": {
             "description": "List of environments",
@@ -13,10 +13,6 @@
         },
         "APPLICATION_TOKEN": {
             "description": "Application authorization token",
-            "value": ""
-        },
-        "OTHER_TOKEN": {
-            "description": "Other token description",
             "value": ""
         }
     }

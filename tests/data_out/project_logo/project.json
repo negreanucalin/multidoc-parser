@@ -2,15 +2,6 @@
     "name": "My Awesome project",
     "version": "1",
     "description": "My Awesome project with logo and environments",
-    "buildDate": "1637754300",
-    "variables": {
-        "environment": {
-            "description": "List of environments",
-            "values": {
-                "default": "https:\/\/jsonplaceholder.typicode.com",
-                "dev": "https:\/\/preprod-jsonplaceholder.typicode.com"
-            }
-        }
-    },
+    "buildDate": "1637773161",
     "logo": "demo-1.png"
 }

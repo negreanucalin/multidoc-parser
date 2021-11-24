@@ -9,4 +9,4 @@ templates:
   headers:
     json_with_auth_2:
       - Accept: application/json
-      - Authorization: Bearer APPLICATION_TOKEN
+      - Authorization: Bearer {{APPLICATION_TOKEN}}

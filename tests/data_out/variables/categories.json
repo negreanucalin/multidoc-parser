@@ -5,7 +5,7 @@
             "name": "Default minimum set-up",
             "children": [
                 {
-                    "id": "4276b85a29106b1b2a0a48609ca1ea79a4749d89",
+                    "id": "99757a2f75e159cfb87004e0d606dcce44ab809a",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
@@ -33,7 +33,7 @@
                     }
                 },
                 {
-                    "id": "5972d652a43dc2da03315c307f17802340bce41d",
+                    "id": "5495f2b293e3131514ef73298b454a70346cc195",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -53,7 +53,7 @@
                     }
                 },
                 {
-                    "id": "7492312b3abfd9409d3b5a7698a758458b870386",
+                    "id": "98e04cf7216778bc9451e2f494109b6c9ab02b48",
                     "name": "User partial update",
                     "description": "Within this route users get the user",
                     "request": {
@@ -89,7 +89,7 @@
                     }
                 },
                 {
-                    "id": "90d37fedad780c1f33541212da16aff3e5975daa",
+                    "id": "56b30f0f39fcb1c25488790ebb73ecc05895bb87",
                     "name": "User update",
                     "description": "Within this route users get the user",
                     "request": {
@@ -125,7 +125,7 @@
                     }
                 },
                 {
-                    "id": "ee115e4e4cb32bf2c4c7f1767b0f47040217c54f",
+                    "id": "cb080f7f4496e05dc13ca223dff411bdafe1d83a",
                     "name": "User deletion",
                     "description": "Within this route users get the user",
                     "request": {
@@ -139,7 +139,7 @@
                             },
                             {
                                 "name": "Authorization",
-                                "value": "Bearer APPLICATION_TOKEN"
+                                "value": "Bearer {{APPLICATION_TOKEN}}"
                             }
                         ],
                         "params": [

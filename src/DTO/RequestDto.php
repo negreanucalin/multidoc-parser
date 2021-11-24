@@ -13,7 +13,7 @@ use SparkleDto\DataTransferObject;
  */
 class RequestDto extends DataTransferObject
 {
-    protected $alias = ['secured'=>'isSecured'];
+    protected $alias = ['secured' => 'isSecured'];
 
     protected $casts = [
         'params' => ParameterDto::class,
@@ -24,14 +24,14 @@ class RequestDto extends DataTransferObject
     public function jsonSerialize()
     {
         $data = array(
-            'url'=>$this->url,
-            'method'=>$this->method,
-            'isSecured'=> $this->isSecured
+            'url' => $this->url,
+            'method' => $this->method,
+            'isSecured' => $this->isSecured
         );
-        if($this->headers){
+        if ($this->headers) {
             $data['headers'] = $this->headers;
         }
-        if($this->params){
+        if ($this->params) {
             $data['params'] = $this->params;
         }
         return $data;
