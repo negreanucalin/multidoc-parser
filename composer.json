@@ -29,5 +29,10 @@
     "symfony/config": "5.*",
     "negreanucalin/sparkle-dto": "~0.1",
     "ext-json": "*"
+  },
+  "scripts": {
+    "test": [
+      "phpunit --colors=always"
+    ]
   }
 }

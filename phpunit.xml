@@ -12,7 +12,7 @@
     </coverage>
     <testsuites>
         <testsuite name="feature">
-            <directory prefix="Feature">.</directory>
+            <directory>tests/Feature</directory>
         </testsuite>
     </testsuites>
     <logging/>
