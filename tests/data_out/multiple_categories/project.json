@@ -2,10 +2,10 @@
     "name": "My Awesome project",
     "version": "1",
     "description": "My Awesome project",
-    "buildDate": "1637667937",
+    "buildDate": "1637754300",
     "variables": {
         "environment": {
-            "description": "Test variable",
+            "description": "List of environments",
             "values": {
                 "default": "https:\/\/jsonplaceholder.typicode.com",
                 "dev": "https:\/\/preprod-jsonplaceholder.typicode.com"

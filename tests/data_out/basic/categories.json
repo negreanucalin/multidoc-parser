@@ -5,7 +5,7 @@
             "name": "Basic",
             "children": [
                 {
-                    "id": "6c81c5ba6724032ca3b81d7f7a4ceda2c902c60a",
+                    "id": "4449639758d3595c0c4149207372301142e420d4",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information. Headers will be set AUTOMATICALLY if not defined\n",
                     "request": {
@@ -33,7 +33,7 @@
                     }
                 },
                 {
-                    "id": "a4e04ea9fb41ad879c07d83a35b8e9105c60ff99",
+                    "id": "199c6d61c89eb99de097ab252f2c082b5ff05d98",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -53,7 +53,7 @@
                     }
                 },
                 {
-                    "id": "e9d690651a7b6d239bd750cda285e3c1378e3b4b",
+                    "id": "5cd4ad37aa2a53cca91a8930ff05641ed9cf898f",
                     "name": "User activity",
                     "description": "Get user activity in the last x days",
                     "request": {
@@ -82,7 +82,7 @@
                     }
                 },
                 {
-                    "id": "cf17211389862bcdc372263f0b5275e1db259992",
+                    "id": "0e63a254f860d0b41cf2f483e6e6c3af31fefc98",
                     "name": "User partial update",
                     "description": "Within this route users partial update the user",
                     "request": {
@@ -118,7 +118,7 @@
                     }
                 },
                 {
-                    "id": "4b39547bece48eb26ecf4d8a1c8d455b3d86579f",
+                    "id": "c32cabdf47ea4586879cebc23f58b2b958bff7e7",
                     "name": "User full update",
                     "description": "Within this route users get updated",
                     "request": {
@@ -154,7 +154,7 @@
                     }
                 },
                 {
-                    "id": "ca7f38b2f39c03a2228fadecbd7f9f98d37c472f",
+                    "id": "e995bbce3709e093270970f2834cb06302b63cb2",
                     "name": "User removal",
                     "description": "Within this route users get the user",
                     "request": {

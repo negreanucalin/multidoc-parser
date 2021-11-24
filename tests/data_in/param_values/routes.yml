@@ -16,6 +16,12 @@ route_list:
           data_type: string
           description: The users password
           example: test
+          values: ['admin','user']
+        - name: type
+          type: post
+          description: The users type
+          data_type: string
+          values: ['admin','user']
   - name: User retrieval
     description: Within this route users get the user
     category: standard_1

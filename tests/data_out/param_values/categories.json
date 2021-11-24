@@ -1,11 +1,11 @@
 {
     "children": [
         {
-            "id": "standard_2",
-            "name": "Default minimum with tags",
+            "id": "standard_1",
+            "name": "Default minimum set-up",
             "children": [
                 {
-                    "id": "eb76fc508aa1b824b30d71bf737d2a974af697af",
+                    "id": "49958d19a98c556cf05f76f7386a3fe1afb8d7fb",
                     "name": "User authentication",
                     "description": "Within this route users get the access token in order to call the api and retrieve information",
                     "request": {
@@ -27,17 +27,29 @@
                                 "data_type": "string",
                                 "description": "The users password",
                                 "isOptional": false,
-                                "name": "password"
+                                "name": "password",
+                                "values": [
+                                    "admin",
+                                    "user"
+                                ]
+                            },
+                            {
+                                "type": "post",
+                                "example": null,
+                                "data_type": "string",
+                                "description": "The users type",
+                                "isOptional": false,
+                                "name": "type",
+                                "values": [
+                                    "admin",
+                                    "user"
+                                ]
                             }
                         ]
-                    },
-                    "tags": [
-                        "users",
-                        "create"
-                    ]
+                    }
                 },
                 {
-                    "id": "c0cc04a750125f8c3119c43620cae4a9de816275",
+                    "id": "12181a1ed5973bce0b37d28642d4d1cca28ab21c",
                     "name": "User retrieval",
                     "description": "Within this route users get the user",
                     "request": {
@@ -54,16 +66,12 @@
                                 "name": "userId"
                             }
                         ]
-                    },
-                    "tags": [
-                        "users",
-                        "get"
-                    ]
+                    }
                 },
                 {
-                    "id": "9be1e14042a071f989d0cd944521174752d77606",
+                    "id": "0912bd1cdf7fffdb5ae9c07880adee7ffcda0922",
                     "name": "User partial update",
-                    "description": "Within this route users get updated",
+                    "description": "Within this route users get the user",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "PATCH",
@@ -94,16 +102,12 @@
                                 "name": "age"
                             }
                         ]
-                    },
-                    "tags": [
-                        "users",
-                        "update"
-                    ]
+                    }
                 },
                 {
-                    "id": "37107ffb9596413dccf849f3c1e539b773908401",
-                    "name": "User retrieval",
-                    "description": "Within this route users get created",
+                    "id": "c7ab8637ca931a993971afc4fee082b50e671d86",
+                    "name": "User update",
+                    "description": "Within this route users get the user",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "PUT",
@@ -134,20 +138,26 @@
                                 "name": "age"
                             }
                         ]
-                    },
-                    "tags": [
-                        "users",
-                        "partial update"
-                    ]
+                    }
                 },
                 {
-                    "id": "5cea294a4f2d00c6b00004dd144cfa7ae44406c4",
-                    "name": "User delete",
-                    "description": "Within this route users get deleted",
+                    "id": "71c2a40d03acb82770682c5c3cb7cfa4c8a6fe77",
+                    "name": "User deletion",
+                    "description": "Within this route users get the user",
                     "request": {
                         "url": "{{environment}}[\/:userId]",
                         "method": "DELETE",
                         "isSecured": null,
+                        "headers": [
+                            {
+                                "name": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "name": "Authorization",
+                                "value": "Bearer APPLICATION_TOKEN"
+                            }
+                        ],
                         "params": [
                             {
                                 "type": "uri",
@@ -158,11 +168,7 @@
                                 "name": "userId"
                             }
                         ]
-                    },
-                    "tags": [
-                        "users",
-                        "delete"
-                    ]
+                    }
                 }
             ]
         }
